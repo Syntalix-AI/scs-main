@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Whyus from "@/components/Home/WhyUs";
+import IntroAnimation from "@/components/IntroAnimation";
 // import Client from "@/components/Home/client";
 import Hero from "@/components/Home/Hero";
 // import Experience from "@/components/Home/Experience";
@@ -31,6 +32,7 @@ const About = dynamic(() => import("@/components/Home/About"));
 export default function Home() {
   return (
     <div className="bg-background">
+      <IntroAnimation />
       <PopupForm />
       <Hero />
       <AnimatedLogoCloud />

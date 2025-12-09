@@ -92,7 +92,7 @@ const Chatbot = () => {
       let fallbackResponse =
         "Sorry, I'm having trouble connecting right now. Here are some ways to reach us:\n\n";
       fallbackResponse += "📧 Email: syntalix.ai@gmail.com\n";
-      fallbackResponse += "📱 WhatsApp: +91 9831970136\n";
+      fallbackResponse += "📱 WhatsApp: +91 9259750107\n";
       fallbackResponse += "🌐 Website: syntalix.com\n\n";
 
       if (
@@ -188,7 +188,7 @@ const Chatbot = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-20 right-4 md:bottom-24 md:right-8 w-80 md:w-96 h-[500px] bg-background border border-border rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden"
+            className="fixed bottom-20 right-4 md:bottom-24 md:right-8 w-80 md:w-96 h-[500px] bg-background/80 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-500 p-4 text-white flex justify-between items-center">
@@ -220,21 +220,19 @@ const Chatbot = () => {
                   className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[75%] p-3 rounded-2xl ${
-                      message.sender === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-background border border-border text-foreground"
-                    }`}
+                    className={`max-w-[75%] p-3 rounded-2xl ${message.sender === "user"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-background border border-border text-foreground"
+                      }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">
                       {message.text}
                     </p>
                     <p
-                      className={`text-xs mt-1 opacity-70 ${
-                        message.sender === "user"
-                          ? "text-primary-foreground/70"
-                          : "text-muted-foreground"
-                      }`}
+                      className={`text-xs mt-1 opacity-70 ${message.sender === "user"
+                        ? "text-primary-foreground/70"
+                        : "text-muted-foreground"
+                        }`}
                     >
                       {message.timestamp}
                     </p>
