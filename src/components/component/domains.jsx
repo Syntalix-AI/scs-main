@@ -6,10 +6,10 @@ import {
 
 export function Domains() {
   return (
-    <section className="w-full md:w-[90vw] mx-auto rounded-3xl py-12 md:py-24 lg:py-32 bg-muted/60">
+    <section className="w-full md:w-[90vw] mx-auto rounded-3xl py-12 md:py-24 lg:py-32 bg-transparent">
       <div className="container px-4 md:px-6">
         <div className="space-y-4 text-center">
-          <div className="inline-block shadow rounded-full border cursor-pointer select-none border-primary/50 bg-muted px-4 py-1 text-sm">
+          <div className="inline-block shadow rounded-full border cursor-pointer select-none border-primary/50 bg-muted dark:bg-slate-800 px-4 py-1 text-sm text-muted-foreground dark:text-slate-200">
             Explore Our Expertise ✨
           </div>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
@@ -23,7 +23,7 @@ export function Domains() {
           </p>
         </div>
         <div className="mx-auto max-w-4xl space-y-4">
-          <Collapsible className="rounded-lg border bg-background shadow">
+          <Collapsible className="rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800/40 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300">
             <CollapsibleTrigger className="flex items-center justify-between gap-4 px-6 py-4 text-lg font-medium [&[data-state=open]>svg]:rotate-180">
               <span>AI and ML Solutions</span>
               <ChevronDownIcon className="h-5 w-5 transition-transform" />

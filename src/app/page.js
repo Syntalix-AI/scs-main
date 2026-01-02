@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Whyus from "@/components/Home/WhyUs";
+import IntroAnimation from "@/components/IntroAnimation";
 // import Client from "@/components/Home/client";
 import Hero from "@/components/Home/Hero";
 // import Experience from "@/components/Home/Experience";
@@ -9,6 +10,7 @@ import Counter from "@/components/Home/Counter";
 // import Testimonials from "@/components/Home/Testimonials";
 import Banner from "@/components/Home/Banner";
 import Whatsapp from "@/components/Whatsapp";
+import FadeInSection from "@/components/ui/FadeInSection"; // Import the wrapper
 
 // Dynamically import components that are not immediately visible
 const Experience = dynamic(() => import("@/components/Home/Experience"), {
@@ -31,20 +33,51 @@ const About = dynamic(() => import("@/components/Home/About"));
 export default function Home() {
   return (
     <div className="bg-background">
+      <IntroAnimation />
       <PopupForm />
-      <Hero />
-      <AnimatedLogoCloud />
-      <Whyus />
+      
+      {/* Main Sections Wrapped in FadeInSection */}
+      <FadeInSection>
+        <Hero />
+      </FadeInSection>
+
+      <FadeInSection>
+        <AnimatedLogoCloud />
+      </FadeInSection>
+
+      <FadeInSection>
+        <Whyus />
+      </FadeInSection>
+
       <div id="about">
-        <About />
+        <FadeInSection>
+          <About />
+        </FadeInSection>
       </div>
-      <Counter />
-      <Experience />
+
+      <FadeInSection>
+        <Counter />
+      </FadeInSection>
+
+      <FadeInSection>
+        <Experience />
+      </FadeInSection>
+
       <div id="services">
-        <Domains />
+        <FadeInSection>
+          <Domains />
+        </FadeInSection>
       </div>
-      <Testimonials />
-      <Banner />
+
+      <FadeInSection>
+        <Testimonials />
+      </FadeInSection>
+
+      <FadeInSection>
+        <Banner />
+      </FadeInSection>
+
+      {/* Fixed Widgets (Do not wrap these) */}
       <Whatsapp />
       <Chatbot />
     </div>

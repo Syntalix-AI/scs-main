@@ -1,58 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
-import L1 from "/public/Home/graph.png";
-import L2 from "/public/Home/chart.png";
-import L3 from "/public/Home/user.png";
-import L4 from "/public/Home/video.png";
-import L5 from "/public/Home/rupee.png";
-import L6 from "/public/Home/search.png";
-import WordFadeIn from "../ui/word-fadein";
-import AnimatedGradientText from "../ui/gradienttxt";
-import { ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-import Blobby from "../blobby";
-import { ImCross } from "react-icons/im";
 
-const data = [
-  {
-    title: "85% Bussiness growth",
-    image: L1,
-    class: "ml-32 ",
-  },
-  {
-    title: "4.5% Conversion rate",
-    image: L2,
-    class: "mr-32",
-  },
-  {
-    title: "60% Leads generated",
-    image: L3,
-    class: "",
-  },
-  {
-    title: "55% Increased views",
-    image: L4,
-    class: "",
-  },
-  {
-    title: "50% Increased sales",
-    image: L5,
-    class: "ml-32",
-  },
-  {
-    title: "Top 3 seach rankings",
-    image: L6,
-    class: "mr-32",
-  },
-];
+import { motion } from "framer-motion";
+import { useState } from "react";
+// import ThreeScene from "./ThreeScene"; // Re-enable when stable
 
 const Hero = () => {
-  const [consultingType, setConsultingType] = useState("AI Consulting");
-  const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,253 +12,203 @@ const Hero = () => {
     budget: "",
   });
 
-  useEffect(() => {
-    const consultingTypes = [
-      "AI Consulting",
-      "Web Consulting",
-      "App Consulting",
-    ];
-    const interval = setInterval(() => {
-      setConsultingType((prev) => {
-        const currentIndex = consultingTypes.indexOf(prev);
-        const nextIndex = (currentIndex + 1) % consultingTypes.length;
-        return consultingTypes[nextIndex];
-      });
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleGetStarted = () => {
-    setShowForm(true);
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        alert("Message sent successfully");
-        setFormData({ name: "", email: "", message: "", budget: "" });
-        setShowForm(false);
-      } else {
-        alert("Failed to send message");
-      }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      alert("Failed to send message");
-    }
+    // Handle form submission logic here
+    console.log(formData);
   };
 
   return (
-    <section className="isolate overflow-hidden py-16 md:py-10">
-      <Blobby className="top-40 left-10 h-40 bg-primary/30 z-50" />
-      <Blobby className="bottom-20 right-10 h-40 bg-cyan-300/20 z-50" />
-      <div className="relative mx-auto max-h-full px-6 md:max-w-[90%] md:px-8">
-        <div className="absolute mx-auto flex h-full w-full flex-nowrap items-center justify-center">
-          <div className="maskk h-full w-full opacity-60">
-            <div
-              className="h-full w-full"
-              style={{
-                backgroundImage: "url('/Home/dotted-bg.png')",
-                backgroundSize: "482px",
-                backgroundRepeat: "repeat",
-              }}
-            ></div>
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/60 pointer-events-none"></div>
-        <div className="absolute left-0 mx-auto hidden h-full w-full max-w-full md:block">
-          <div className="flex h-full w-full flex-row flex-wrap items-center justify-between">
-            {data.map((item, i) => (
-              <motion.div
-                key={i}
-                className="w-1/2"
-                initial={{ x: i % 2 === 0 ? -100 : 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-              >
-                <div
-                  className={`flex w-fit items-center gap-3 shadow-sm rounded-full border bg-background px-4 py-1.5 ${
-                    i % 2 !== 0 ? "ml-auto" : ""
-                  } ${item.class}`}
-                >
-                  <Image src={item.image} alt="misx" className="h-6 w-6" />
-                  <p className="text-muted-foreground">{item.title}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="relative isolate z-10 mx-auto my-auto max-w-full py-4 md:max-w-[70%] md:py-20"
-        >
-          <AnimatedGradientText
-            className={
-              "hover:scale-105 active:scale-95 transition-all duration-300 hover:rotate-2 cursor-pointer"
-            }
-          >
-            🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
-            <span className="inline font-semibold animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
-              Reach new heights with Syntalix
-            </span>
-            <ArrowUpRight className="ml-1 size-4 transition-transform duration-300 group-hover:rotate-45 text-primary ease-in-out group-hover:translate-x-0.5" />
-          </AnimatedGradientText>
-          <h1 className="syntalix-heading mt-8 text-center font-semibold text-4xl tracking-tight  md:text-7xl md:leading-[5rem]">
-            Explore Innovation with Expert{" "}
-            <span className="syntalix-gradient-text font-extrabold drop-shadow-sm">
-              {" "}
-              <TypeAnimation
-                sequence={[
-                  "AI Consulting ",
-                  5000,
-                  "Web Consulting",
-                  3000,
-                  "App Consulting",
-                  3000,
-                ]}
-                wrapper="span"
-                speed={40}
-                repeat={Infinity}
-              />
-            </span>
-          </h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.3 }}
-            className="syntalix-body mx-auto mt-6 max-w-2xl text-center text-base text-zinc-800 md:text-lg font-medium"
-          >
-            <WordFadeIn
-              words="Unlock innovation with our AI consulting. We provide tailored
-            solutions to optimize operations and enhance decision-making,
-            helping you stay ahead in the market."
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="mt-10 flex items-center justify-center gap-x-4 md:gap-x-8"
-          >
-            <button
-              onClick={handleGetStarted}
-              className="syntalix-heading max-w-md inline-flex items-center rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-purple-500 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-500 px-4 py-2 text-white md:px-6 shadow-lg hover:shadow-xl md:py-3 md:text-2xl"
-            >
-              Get started
-              <ArrowUpRight />
-            </button>
-          </motion.div>
-        </motion.div>
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20 md:pt-0">
+      {/* Background Gradients */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/20 rounded-full blur-[120px]" />
       </div>
-      {showForm && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-background p-10 w-[90%] rounded-2xl md:w-[400px] shadow-lg z-50 relative">
-            <h2 className="text-xl font-bold mb-4 text-center text-foreground">
-              Get in Touch With Us
-            </h2>
-            <form
-              className="relative w-full md:max-w-[500px] bg-muted shadow-lg rounded-2xl"
-              onSubmit={handleSubmit}
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left Column: Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-left space-y-6"
+        >
+          <motion.div 
+            initial="initial"
+            whileHover="hover"
+            animate="initial"
+            variants={{
+              initial: { scale: 1, rotate: 0 },
+              hover: { 
+                scale: 1.05, 
+                rotate: [0, -2, 2, -2, 2, 0], // Playful Wiggle Keyframes
+                transition: { 
+                  rotate: { duration: 0.5, ease: "easeInOut" },
+                  scale: { duration: 0.2 }
+                } 
+              }
+            }}
+            className="relative overflow-hidden inline-flex items-center px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-300 dark:border-purple-700/50 text-purple-700 dark:text-purple-300 font-medium text-sm mb-2 backdrop-blur-sm cursor-default"
+          >
+            {/* Shimmer Effect Layer */}
+            <motion.div
+              variants={{
+                initial: { x: "-100%", opacity: 0 },
+                hover: { 
+                  x: "200%", 
+                  opacity: 1,
+                  transition: { duration: 1, ease: "easeInOut" } 
+                }
+              }}
+              className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/60 dark:via-white/20 to-transparent skew-x-12 pointer-events-none"
+            />
+
+            {/* Rocket Animation - Continuous Rotation */}
+            <motion.span
+              animate={{ rotate: [0, 15, 0] }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="mr-2 inline-block"
             >
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-foreground"
-                >
-                  Name
-                </label>
+              🚀
+            </motion.span>
+            
+            Elevate Your Digital Presence
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-4xl md:text-6xl font-bold tracking-tight leading-tight"
+          >
+            Building <span className="text-purple-600 dark:text-purple-400">Digital Excellence</span> for Your Business
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-lg md:text-xl text-gray-600 dark:text-muted-foreground max-w-lg"
+          >
+            We craft high-performance websites, robust software, and AI-driven solutions tailored to scale your enterprise.
+          </motion.p>
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <button
+              onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+              className="relative inline-flex h-14 overflow-hidden rounded-full p-[2px] hover:scale-105 transition-transform duration-300 group shadow-lg shadow-purple-500/30"
+            >
+              {/* Spinning Gradient Border Layer */}
+              <span className="absolute inset-[-1200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#F73939_0%,#ffffff_50%,#F73939_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#F73939_0%,#000000_50%,#F73939_100%)]" />
+              
+              {/* Button Content Layer */}
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 px-8 py-4 text-sm font-bold text-white backdrop-blur-3xl transition-all duration-300 group-hover:brightness-110">
+                Get Started
+              </span>
+            </button>
+            <button className="px-8 py-4 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-foreground font-bold hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-600 transition-all duration-300 shadow-sm">
+              View Our Work
+            </button>
+          </div>
+
+          {/* Stats / Trust Indicators */}
+          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100 dark:border-slate-700 mt-8">
+            <div>
+              <h3 className="text-2xl font-bold text-primary">50+</h3>
+              <p className="text-sm text-muted-foreground">Projects Delivered</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-primary">98%</h3>
+              <p className="text-sm text-muted-foreground">Client Satisfaction</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-primary">24/7</h3>
+              <p className="text-sm text-muted-foreground">Support System</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Column: Visual / Form */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="relative flex justify-center lg:justify-end"
+        >
+          {/* Placeholder for 3D or Hero Image */}
+          {/* <div className="w-full h-[400px] md:h-[500px] bg-gray-100 rounded-2xl flex items-center justify-center border border-gray-200 shadow-xl">
+             <ThreeScene /> 
+            <span className="text-muted-foreground">3D Visual / Hero Image</span>
+          </div> */}
+
+          {/* Contact Form Card (Floating) */}
+          <div id="contact-form" className="w-full max-w-md bg-white/80 backdrop-blur-md border border-white/20 shadow-2xl rounded-2xl p-8 dark:bg-gray-900/80 dark:border-gray-800">
+            <h3 className="text-2xl font-bold mb-2 text-foreground">Let&apos;s Talk Business</h3>
+            <p className="text-sm text-muted-foreground mb-6">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:bg-gray-800 dark:border-gray-700"
+                  placeholder="John Doe"
                   required
-                  className="mt-1 p-2 px-3 rounded-xl block w-full border border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="enter your name"
                 />
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-foreground mt-2"
-                >
-                  Email address
-                </label>
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:bg-gray-800 dark:border-gray-700"
+                  placeholder="john@example.com"
                   required
-                  className="mt-1 p-2 px-3 rounded-xl block w-full border border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="you@example.com"
                 />
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground mt-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="mt-1 p-2 px-3 rounded-xl block w-full border border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="Enter a message here"
-                />
-                <label
-                  htmlFor="budget"
-                  className="block text-sm font-medium text-foreground mt-2"
-                >
-                  Budget
-                </label>
-                <input
-                  type="number"
+              </div>
+              <div>
+                <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-1">Budget</label>
+                <select
                   id="budget"
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="mt-1 p-2 block w-full px-3 rounded-xl border border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="enter a number in INR"
-                />
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all dark:bg-gray-800 dark:border-gray-700"
+                  required
+                >
+                  <option value="">Select Range</option>
+                  <option value="<1000">$1,000 - $5,000</option>
+                  <option value="5000-10000">$5,000 - $10,000</option>
+                  <option value="10000+">$10,000+</option>
+                </select>
               </div>
               <button
                 type="submit"
-                className="w-full rounded-3xl bg-indigo-600 text-white py-2 px-4 hover:bg-indigo-700"
+                className="w-full py-3.5 rounded-lg bg-primary text-white font-bold shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40 transition-all duration-300"
               >
-                Get in Touch With Us
+                Send Message
               </button>
             </form>
-            <button
-              className="absolute top-2 right-2 text-xl text-foreground"
-              onClick={() => setShowForm(false)}
-            >
-              <ImCross />
-            </button>
           </div>
-        </div>
-      )}
+        </motion.div>
+      </div>
     </section>
   );
 };

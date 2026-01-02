@@ -17,7 +17,7 @@ const Reach = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.4}}
+        transition={{ duration: 0.4 }}
         className="relative isolate overflow-hidden rounded-2xl bg-custom-gradient shadow-xl shadow-gray-400"
       >
         <Image src={L1} alt="bg" className="absolute top-0" />
@@ -58,16 +58,16 @@ const Reach = () => {
               <MdOutlineMail className="text-yellow-500 w-7 h-7" />
               syntalix.ai@gmail.com
             </Link>
-            <Link href="tel:+919831970136" target="_blank" className="text-white flex gap-2 items-center">
+            <Link href="tel:+919259750107" target="_blank" className="text-white flex gap-2 items-center">
               <MdCall className="text-blue-600 w-7 h-7" />
-              +91 9831970136
+              +91 9259750107
             </Link>
             <Link
-              href="https://wa.me/919831970136"
+              href="https://wa.me/919259750107"
               className="text-white flex gap-2 items-center"
             >
               <MdWhatsapp className="text-green-500 w-7 h-7" />
-              +91 9831970136
+              +91 9259750107
             </Link>
             <Link href="/" className="text-white flex gap-2 items-center">
               <RiGlobalLine className="text-purple-500 w-7 h-7" />

@@ -36,7 +36,7 @@ const PopupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validation
     if (!formData.name.trim()) {
       toast.error('Please enter your name');
@@ -60,7 +60,7 @@ const PopupForm = () => {
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
         toast.success('Message sent successfully!');
         setFormData({ name: "", email: "", message: "", budget: "" });
@@ -82,7 +82,7 @@ const PopupForm = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white p-10 w-[90%] rounded-2xl md:w-[400px] shadow-lg z-50 relative">
-        <h2 className="text-xl font-bold mb-4 text-center">Get in Touch With Us</h2>
+        <h2 className="text-xl font-bold mb-4 text-center text-gray-900">Get in Touch With Us</h2>
         <form className='relative w-full md:max-w-[500px] bg-slate-50 shadow-lg rounded-2xl' onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
