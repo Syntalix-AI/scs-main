@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
+
+
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
   return (
