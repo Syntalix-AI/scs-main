@@ -59,31 +59,24 @@ const Experience = () => {
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             Browse freelancers who’ve got all the generative AI platforms down to get your idea up and running.
           </p>
-    <div className="flex flex-col p-9 space-y-14">
-      <div className="flex flex-col items-center pl-14 w-full max-md:pl-5 max-md:max-w-full mx-auto">
-        <div className=" text-4xl md:text-6xl font-bold text-zinc-700 dark:text-zinc-100 mx-auto">
-          Experts with all the intelligence
         </div>
-        <div className="mt-7 text-lg text-zinc-500 dark:text-zinc-400 max-md:max-w-full mx-auto">
-          Browse freelancers who’ve got all the generative AI platforms down to get your idea up and running
 
-        </div>
-        <div className="self-stretch mt-16 max-md:mt-10 max-md:max-w-full">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col text-center max-md:mt-10">
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="bg-white dark:bg-zinc-800/50 rounded-2xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-blue-200 dark:hover:border-purple-500/30 group"
+            >
+              {/* Icon Container */}
+              <div className="mb-6 inline-block p-4 rounded-full bg-gradient-to-br from-blue-50 to-purple-50 dark:from-zinc-700 dark:to-zinc-800 group-hover:scale-110 transition-transform duration-300">
                 <Image
-                  loading="lazy"
-                  alt=""
-                  src={img1}
-                  className="self-center max-w-full aspect-square w-[100px] dark:invert rounded-xl"
+                  src={service.icon}
+                  alt={service.title}
+                  width={64}
+                  height={64}
+                  className="w-16 h-16 object-contain"
                 />
-                <div className="mt-6 text-lg font-bold tracking-normal leading-6 text-zinc-700 dark:text-zinc-100">
-                  ChatGPT Application Developers
-                </div>
-                <div className="mt-2 text-base tracking-normal leading-6 text-neutral-500 dark:text-neutral-400">
-                  Development of ChatGPT-based apps
-                </div>
               </div>
               {/* Title */}
               <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-100 mb-3">
@@ -94,95 +87,10 @@ const Experience = () => {
                 {service.description}
               </p>
             </div>
-            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col grow items-center text-center max-md:mt-10">
-                <Image
-                  loading="lazy"
-                  alt=""
-                  src={img2}
-                  className="self-center max-w-full aspect-square w-[100px]"
-                />
-                <div className="mt-6 text-lg font-bold tracking-normal leading-6 text-zinc-700">
-                  Stable Diffusion Artists
-                </div>
-                <div className="self-stretch mt-3 text-base tracking-normal leading-6 text-neutral-500 dark:text-neutral-400">
-                  Prompt engineering and editing for photo-realistic visuals
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col items-center text-center max-md:mt-10">
-                <Image
-                  loading="lazy"
-                  alt=""
-                  src={img3}
-                  className="self-center max-w-full aspect-square w-[100px]"
-                />
-                <div className="mt-6 text-lg font-bold tracking-normal leading-6 text-zinc-700">
-                  DALL-E Artists
-                </div>
-                <div className="self-stretch mt-3 text-base tracking-normal leading-6 text-neutral-500 dark:text-neutral-400">
-                  Prompt engineering and editing for detailed visuals
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-      <div className="px-5 mt-14 w-full max-md:mt-10 max-md:max-w-full">
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          <div className="flex flex-col w-[39%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow items-center text-center max-md:mt-10">
-              <Image
-                loading="lazy"
-                alt=""
-                src={img4}
-                className="self-center max-w-full aspect-square w-[100px]"
-              />
-              <div className="mt-6 text-lg font-bold tracking-normal leading-6 text-zinc-700">
-                AI Chatbot Developers
-              </div>
-              <div className="self-stretch mt-2 text-base max-w-72 text-center mx-auto tracking-normal leading-6 text-neutral-500 dark:text-neutral-400">
-                Development of AI-powered chatbots for your website or mobile
-                app
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col ml-5 w-[28%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col items-center text-center max-md:mt-10">
-              <Image
-                loading="lazy"
-                alt=""
-                src={img5}
-                className="self-center max-w-full aspect-square w-[100px]"
-              />
-              <div className="self-stretch mt-6 text-lg font-bold tracking-normal leading-6 text-zinc-700 dark:text-zinc-100">
-                AI Mobile Application Developers
-              </div>
-              <div className="mt-2 text-base tracking-normal leading-6 text-neutral-500">
-                Integration of AI into mobile apps
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col ml-5 w-[34%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col items-center text-center max-md:mt-10">
-              <Image
-                loading="lazy"
-                alt=""
-                src={img6}
-                className="self-center max-w-full aspect-square w-[100px]"
-              />
-              <div className="mt-6 text-lg font-bold tracking-normal leading-6 text-zinc-700 dark:text-zinc-100">
-                Midjourney Artists
-              </div>
-              <div className="self-stretch mt-2 text-base tracking-normal leading-6 text-neutral-500 dark:text-neutral-400">
-                Prompt engineering and editing for artistic visuals
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
