@@ -1,34 +1,24 @@
 'use client'
 
 import React from 'react'
-import { useRouter } from 'next/navigation'
 import { FaWhatsapp } from 'react-icons/fa6'
 
-
 const Whatsapp = () => {
+  const phoneNumber = "919559905049"; // Your WhatsApp number without '+'
 
-  const router = useRouter();
-
-  const handleClick = async () => {
-
-    // Check if WhatApp installed, if yes open whatsapp else open whatsapp web
-
-    // if (navigator.userAgent.includes('WhatsApp')) {
-      // WhatsApp is installed
-      window.open(`whatsapp://send?phone=+919559905049`)
-    // } else {
-    //   // WhatsApp is not installed, open WhatsApp Web
-    //   window.open('https://web.whatsapp.com/send?phone=8879xxxxxx', '_blank');
-    // }
+  const handleClick = () => {
+    // Uses the universal WhatsApp link which works on both Mobile (App) and Desktop (Web)
+    window.open(`https://wa.me/${phoneNumber}`, '_blank');
   }
 
   return (
-    <>
-      <div className='bg-[hsl(var(--primary))] w-min p-2 rounded-full fixed 
-          bottom-10 right-4 cursor-pointer md:right-8' onClick={handleClick}>
-        <FaWhatsapp color='white' className='w-7 h-7 md:w-10 md:h-10' />
-      </div>
-    </>
+    <div 
+      className='bg-[#25D366] w-min p-3 rounded-full fixed bottom-10 right-4 cursor-pointer md:right-8 z-40 shadow-lg hover:scale-110 transition-transform duration-300' 
+      onClick={handleClick}
+      title="Chat on WhatsApp"
+    >
+      <FaWhatsapp color='white' className='w-7 h-7 md:w-9 md:h-9' />
+    </div>
   )
 }
 

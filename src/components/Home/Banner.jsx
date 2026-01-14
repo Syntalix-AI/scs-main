@@ -54,22 +54,30 @@ const Reach = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col md:flex-row w-full gap-y-4 justify-between mt-8 text-lg"
           >
-            <Link href="mailto:syntalix.ai@gmail.com" className="text-white flex gap-2 items-center">
+            {/* Email Link */}
+            <Link href="mailto:syntalix.ai@gmail.com" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
               <MdOutlineMail className="text-yellow-500 w-7 h-7" />
               syntalix.ai@gmail.com
             </Link>
-            <Link href="tel:+919259750107" target="_blank" className="text-white flex gap-2 items-center">
+
+            {/* Phone Link - Updated Number */}
+            <Link href="tel:+919559905049" target="_blank" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
               <MdCall className="text-blue-600 w-7 h-7" />
-              +91 9259750107
+              +91 9559905049
             </Link>
+
+            {/* WhatsApp Link - Updated Number & Functionality */}
             <Link
-              href="https://wa.me/919259750107"
-              className="text-white flex gap-2 items-center"
+              href="https://wa.me/919559905049"
+              target="_blank"
+              className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors"
             >
               <MdWhatsapp className="text-green-500 w-7 h-7" />
-              +91 9259750107
+              +91 9559905049
             </Link>
-            <Link href="/" className="text-white flex gap-2 items-center">
+
+            {/* Website Link */}
+            <Link href="/" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
               <RiGlobalLine className="text-purple-500 w-7 h-7" />
               syntalix.com
             </Link>
