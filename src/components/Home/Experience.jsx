@@ -11,38 +11,38 @@ const services = [
   {
     id: 1,
     icon: img1,
-    title: "ChatGPT Application Developers",
-    description: "Development of ChatGPT-based apps",
+    title: "Custom AI & ML Infrastructures",
+    description: "We craft intelligent, production-ready AI systems tailored exactly to your business needs.",
   },
   {
     id: 2,
     icon: img2,
-    title: "Stable Diffusion Artists",
-    description: "Prompt engineering and editing for photo-realistic visuals",
+    title: "Generative LLM Engineering",
+    description: "Unlock the real power of Large Language Models beyond just chatbots.",
   },
   {
     id: 3,
-    icon: img3,
-    title: "DALL-E Artists",
-    description: "Prompt engineering and editing for detailed visuals",
+    icon: img4,
+    title: "Autonomous Agentic Systems",
+    description: "We build autonomous, goal-driven AI systems that think, plan, and act.",
   },
   {
     id: 4,
-    icon: img4,
-    title: "AI Chatbot Developers",
-    description: "Development of AI-powered chatbots for your website or mobile app",
+    icon: img3,
+    title: "Enterprise Web Architectures",
+    description: "Modern, scalable, and high-performance web solutions—your stack, your rules.",
   },
   {
     id: 5,
     icon: img5,
-    title: "AI Mobile Application Developers",
-    description: "Integration of AI into mobile apps",
+    title: "Native Mobile Ecosystems",
+    description: "Native Android & iOS applications optimized for performance and user experience.",
   },
   {
     id: 6,
     icon: img6,
-    title: "Midjourney Artists",
-    description: "Prompt engineering and editing for artistic visuals",
+    title: "Desktop Software Solutions",
+    description: "Robust Windows-based desktop applications built with rich functionality.",
   },
 ];
 
@@ -57,7 +57,7 @@ const Experience = () => {
             <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-24 h-1.5 bg-purple-600 rounded-full"></span>
           </h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-            Browse freelancers who’ve got all the generative AI platforms down to get your idea up and running.
+            From custom AI architectures to high-performance web & mobile apps, we build systems that scale.
           </p>
         </div>
 

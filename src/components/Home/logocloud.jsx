@@ -41,9 +41,12 @@ const TechCollaborators = () => {
   return (
     <div className="w-full py-16 bg-background">
       <div className="mx-auto w-full px-4 md:px-8">
-        <h2 className="text-center text-3xl font-bold mb-12 text-foreground">
-          Tech Collaborators & Powering Solutions
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
+            Our <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-indigo-500 text-transparent bg-clip-text font-extrabold drop-shadow-sm">Technological</span> Arsenal
+          </h2>
+          
+        </div>
 
         {/* Tech Stack Marquee */}
         <div
@@ -83,3 +86,4 @@ const TechCollaborators = () => {
 };
 
 export default TechCollaborators;
+
