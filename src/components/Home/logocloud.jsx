@@ -43,7 +43,7 @@ const TechCollaborators = () => {
       <div className="mx-auto w-full px-4 md:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
-            Our <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-indigo-500 text-transparent bg-clip-text font-extrabold drop-shadow-sm">Technological</span> Arsenal
+            Our <span className="bg-gradient-to-r from-purple-800 via-purple-600 to-indigo-500 text-transparent bg-clip-text font-extrabold drop-shadow-sm">Tech</span> Stack
           </h2>
           
         </div>

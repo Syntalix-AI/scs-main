@@ -4,7 +4,7 @@ import React from 'react'
 import { FaWhatsapp } from 'react-icons/fa6'
 
 const Whatsapp = () => {
-  const phoneNumber = "919559905049"; // Your WhatsApp number without '+'
+  const phoneNumber = "919259750107"; // Your WhatsApp number without '+'
 
   const handleClick = () => {
     // Uses the universal WhatsApp link which works on both Mobile (App) and Desktop (Web)

@@ -42,9 +42,6 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-left space-y-6"
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary font-medium text-sm mb-2">
-            🚀 Elevate Your Digital Presence
-          </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight">
             Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Digital Excellence</span> for Your Business
           </h1>

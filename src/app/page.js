@@ -23,7 +23,7 @@ const Testimonials = dynamic(() => import("@/components/Home/Testimonials"), {
   loading: () => <div className="min-h-[400px] bg-muted animate-pulse" />,
 });
 const PopupForm = dynamic(() => import("@/components/Home/PopUpForm"));
-const Chatbot = dynamic(() => import("@/components/Chatbot"));
+// const Chatbot = dynamic(() => import("@/components/Chatbot"));
 const AnimatedLogoCloud = dynamic(() => import("@/components/Home/logocloud"));
 const Domains = dynamic(() =>
   import("@/components/component/domains").then((mod) => mod.Domains),
@@ -79,7 +79,7 @@ export default function Home() {
 
       {/* Fixed Widgets (Do not wrap these) */}
       <Whatsapp />
-      <Chatbot />
+      {/* <Chatbot /> */}
     </div>
   );
 }

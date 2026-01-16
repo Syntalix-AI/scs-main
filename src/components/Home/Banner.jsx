@@ -61,19 +61,19 @@ const Reach = () => {
             </Link>
 
             {/* Phone Link - Updated Number */}
-            <Link href="tel:+919559905049" target="_blank" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
+            <Link href="tel:+919259750107" target="_blank" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
               <MdCall className="text-blue-600 w-7 h-7" />
-              +91 9559905049
+              +91 9259750107
             </Link>
 
             {/* WhatsApp Link - Updated Number & Functionality */}
             <Link
-              href="https://wa.me/919559905049"
+              href="https://wa.me/919259750107"
               target="_blank"
               className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors"
             >
               <MdWhatsapp className="text-green-500 w-7 h-7" />
-              +91 9559905049
+              +91 9259750107
             </Link>
 
             {/* Website Link */}
