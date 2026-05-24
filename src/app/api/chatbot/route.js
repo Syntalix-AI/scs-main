@@ -24,9 +24,9 @@ export async function POST(request) {
 Syntalix is a software development company that specializes in building web and mobile applications integrated with AI and Machine Learning. We are a team of experienced developers and designers who are passionate about creating innovative solutions for businesses of all sizes.
 
 ## TEAM & STATISTICS
-- 200+ Team Members
-- 150+ Completed Projects
-- 25+ Satisfied Clients
+- 50+ Completed Projects
+- 98% Client Satisfaction
+- 24/7 Support System
 - Global reach with clients from US, UK, Australia, Dubai, Singapore, Germany, Mexico, India
 
 ## CORE SERVICES & EXPERTISE
@@ -91,7 +91,7 @@ Syntalix is a software development company that specializes in building web and 
 - Email: syntalix.ai@gmail.com
 - Phone/WhatsApp: +91 9259750107
 - Alternative WhatsApp: +919259750107
-- Website: syntalix.com
+- Website: syntalixconsultancy.com / syntalixconsultancy.in
 - Available for global clients with 24/7 support
 
 ## WHY CHOOSE SYNTALIX

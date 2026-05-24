@@ -1,24 +1,26 @@
 import Image from "next/image";
 import React from "react";
 import CounterComp from "./CounterComp";
-import { RiTeamFill } from "react-icons/ri";
-import { GoProjectSymlink } from "react-icons/go"
+import { GoProjectSymlink } from "react-icons/go";
+import { MdSupportAgent } from "react-icons/md";
+import { HiOutlineEmojiHappy } from "react-icons/hi";
 const items = [
   {
-    name: "Team Members",
-    number: 200,
-    icon: <RiTeamFill  />,
-  },
-
-  {
-    name: "Projects",
-    number: 150,
+    name: "Projects Delivered",
+    number: 50,
     icon: <GoProjectSymlink />,
   },
   {
-    name: "Clients",
-    number: 25,
-    icon: "/assets/client.png",
+    name: "Client Satisfaction",
+    number: 98,
+    suffix: "%",
+    icon: <HiOutlineEmojiHappy />,
+  },
+  {
+    name: "Support System",
+    number: 24,
+    suffix: "/7",
+    icon: <MdSupportAgent />,
   },
 ];
 
@@ -40,7 +42,7 @@ const Counter = () => {
               
                 <div className="flex items-center">
                   <CounterComp end={ele.number} />
-                  <span className="ms-2">+</span>
+                  <span className="ms-2">{ele.suffix ?? '+'}</span>
                 </div>
               </div>
               <p className="text-xl  text-white mt-3">{ele.name}</p>

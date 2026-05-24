@@ -34,7 +34,7 @@ const About = () => {
 
           <div className="grid sm:h-[75svh] overflow-hidden gap-4 grid-cols-1 lg:grid-cols-2">
             <Image
-              alt=""
+              alt="Syntalix team collaborating on AI and software development projects"
               width={500}
               height={500}
               src="https://assets.lummi.ai/assets/QmSQaJeNHnUegnWhg1x4mxjZS4PkuPsAnRTEhCDkbvHpBE?auto=format&w=1500"
@@ -42,7 +42,7 @@ const About = () => {
             />
 
             <Image
-              alt=""
+              alt="Modern software development workspace with AI and machine learning tools"
               width={500}
               height={500}
               src="https://assets.lummi.ai/assets/QmbUPm3NJ2B3MfhV2ue6VK6KH1KUkjB24JmEkJAMk3ZrZj?auto=format&w=1500"

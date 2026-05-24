@@ -137,7 +137,7 @@ const Whyus = () => {
               transition={{ duration: 0.4, delay: 0.8 }}
               className="flex items-center justify-center"
             >
-              <Image src={H1} alt="H1" className="w-[22rem]" />
+              <Image src={H1} alt="Why choose Syntalix Consultancy Services for AI and software development" className="w-[22rem]" />
             </motion.div>
             <motion.dl
               initial={{ opacity: 0 }}

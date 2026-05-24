@@ -20,7 +20,7 @@ const Reach = () => {
         transition={{ duration: 0.4 }}
         className="relative isolate overflow-hidden rounded-2xl bg-custom-gradient shadow-xl shadow-gray-400"
       >
-        <Image src={L1} alt="bg" className="absolute top-0" />
+        <Image src={L1} alt="Contact Syntalix Consultancy Services banner background" className="absolute top-0" />
 
         <div className="relative isolate overflow-hidden py-12 px-4 sm:px-24">
           <motion.p
@@ -79,7 +79,7 @@ const Reach = () => {
             {/* Website Link */}
             <Link href="/" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
               <RiGlobalLine className="text-purple-500 w-7 h-7" />
-              syntalix.com
+              syntalixconsultancy.in
             </Link>
           </motion.div>
 
