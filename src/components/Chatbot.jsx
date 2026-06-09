@@ -91,7 +91,7 @@ const Chatbot = () => {
       // Provide helpful fallback responses based on common queries
       let fallbackResponse =
         "Sorry, I'm having trouble connecting right now. Here are some ways to reach us:\n\n";
-      fallbackResponse += "📧 Email: syntalix.ai@gmail.com\n";
+      fallbackResponse += "Email: syntalixconsultancy@gmail.com\n";
       fallbackResponse += "📱 WhatsApp: +91 9259750107\n";
       fallbackResponse += "🌐 Website: syntalixconsultancy.com / syntalixconsultancy.in\n\n";
 
@@ -312,7 +312,7 @@ const Chatbot = () => {
                 </button>
               </div>
               <p className="text-xs text-muted-foreground mt-2 text-center">
-                Powered by AI • Contact: syntalix.ai@gmail.com
+                Powered by AI - Contact: syntalixconsultancy@gmail.com
               </p>
             </div>
           </motion.div>

@@ -9,6 +9,7 @@ import Counter from "@/components/Home/Counter";
 // import Gigs from "@/components/Home/Gigs";
 // import Testimonials from "@/components/Home/Testimonials";
 import Banner from "@/components/Home/Banner";
+import FAQ from "@/components/Home/FAQ";
 import Whatsapp from "@/components/Whatsapp";
 import FadeInSection from "@/components/ui/FadeInSection"; // Import the wrapper
 
@@ -71,6 +72,10 @@ export default function Home() {
 
       <FadeInSection>
         <Testimonials />
+      </FadeInSection>
+
+      <FadeInSection>
+        <FAQ />
       </FadeInSection>
 
       <FadeInSection>

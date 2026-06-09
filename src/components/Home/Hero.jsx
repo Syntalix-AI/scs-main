@@ -37,16 +37,16 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Column: Text Content */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-left space-y-6"
         >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight">
-            Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Digital Excellence</span> for Your Business
+            AI & ML Software Development Company in India
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-            We craft high-performance websites, robust software, and AI-driven solutions tailored to scale your enterprise.
+            We craft high-performance websites, robust software, LLM applications, and AI-driven solutions tailored to scale your enterprise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
@@ -63,15 +63,15 @@ const Hero = () => {
           {/* Stats / Trust Indicators */}
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100 dark:border-slate-700 mt-8">
             <div>
-              <h3 className="text-2xl font-bold text-primary">50+</h3>
+              <p className="text-2xl font-bold text-primary">50+</p>
               <p className="text-sm text-muted-foreground">Projects Delivered</p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-primary">98%</h3>
+              <p className="text-2xl font-bold text-primary">98%</p>
               <p className="text-sm text-muted-foreground">Client Satisfaction</p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-primary">24/7</h3>
+              <p className="text-2xl font-bold text-primary">24/7</p>
               <p className="text-sm text-muted-foreground">Support System</p>
             </div>
           </div>
@@ -79,7 +79,7 @@ const Hero = () => {
 
         {/* Right Column: Visual / Form */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative flex justify-center lg:justify-end"

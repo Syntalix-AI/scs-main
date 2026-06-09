@@ -1,0 +1,19 @@
+# Syntalix Consultancy Services
+> India-based AI/ML and software development consultancy serving India and international clients.
+
+## Services
+- [AI & ML Infrastructure](/services): Custom AI and machine learning systems for business workflows.
+- [LLM Engineering](/services): Large language model integration, fine-tuning, and application development.
+- [Agentic AI Systems](/services): Autonomous agent workflows and AI automation systems.
+- [Web Development](/services): Enterprise websites, web applications, and e-commerce platforms.
+- [Mobile Development](/services): iOS, Android, and cross-platform mobile applications.
+
+## Key Pages
+- [Home](/)
+- [About](/about)
+- [Services](/services)
+- [Contact](/contact)
+
+## Contact
+- Email: syntalixconsultancy@gmail.com
+- Phone: +91 9259750107

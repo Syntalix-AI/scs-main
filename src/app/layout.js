@@ -15,13 +15,13 @@ const inter = DM_Sans({
 export const metadata = {
   metadataBase: new URL('https://www.syntalixconsultancy.in'),
   title: {
-    default: 'Syntalix Consultancy Services | AI, ML & Software Development India',
+    default: 'Syntalix Consultancy | AI & ML Development India',
     template: '%s | Syntalix Consultancy Services'
   },
-  description: 'Syntalix Consultancy Services is an India-based software development company specialising in AI/ML infrastructure, LLM engineering, agentic systems, web and mobile development.',
+  description: 'Syntalix Consultancy Services builds AI/ML infrastructure, LLM engineering, agentic systems, web and mobile apps in India. Get a free consultation today.',
   keywords: [
     'AI development India', 'ML consulting India', 'LLM engineering',
-    'software development Ahmedabad', 'AI chatbot development',
+    'software development India', 'AI chatbot development',
     'custom AI solutions', 'Syntalix Consultancy', 'machine learning company India'
   ],
   authors: [{ name: 'Syntalix Consultancy Services', url: 'https://www.syntalixconsultancy.in' }],
@@ -29,31 +29,24 @@ export const metadata = {
   publisher: 'Syntalix Consultancy Services',
   alternates: {
     canonical: 'https://www.syntalixconsultancy.in',
-    types: {
-      // Both domains serve the same content; .in is canonical
-      'text/html': [
-        { url: 'https://www.syntalixconsultancy.in', hreflang: 'en-IN' },
-        { url: 'https://www.syntalixconsultancy.com', hreflang: 'en' },
-      ],
-    },
   },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: 'https://www.syntalixconsultancy.in',
     siteName: 'Syntalix Consultancy Services',
-    title: 'Syntalix Consultancy Services | AI, ML & Software Development India',
+    title: 'Syntalix Consultancy | AI & ML Development India',
     description: 'India-based AI/ML and software development company. Custom AI systems, LLM engineering, agentic AI, web and mobile apps.',
     images: [{
       url: '/og-image.png',
       width: 1200,
       height: 630,
-      alt: 'Syntalix Consultancy Services — AI, ML & Software Development'
+      alt: 'Syntalix Consultancy Services - AI, ML & Software Development'
     }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syntalix Consultancy Services | AI, ML & Software Development India',
+    title: 'Syntalix Consultancy | AI & ML Development India',
     description: 'India-based AI/ML and software development company.',
     images: ['/og-image.png'],
   },
@@ -81,7 +74,6 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
   themeColor: "#4F46E5",
 };
 
@@ -89,7 +81,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "LocalBusiness"],
       "@id": "https://www.syntalixconsultancy.in/#organization",
       "name": "Syntalix Consultancy Services",
       "alternateName": "Syntalix",
@@ -104,9 +96,7 @@ const jsonLd = {
       "foundingDate": "2023",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "IN",
-        "addressRegion": "Gujarat",
-        "addressLocality": "Ahmedabad"
+        "addressCountry": "IN"
       },
       "contactPoint": [
         {
@@ -117,7 +107,10 @@ const jsonLd = {
           "contactOption": "TollFree"
         }
       ],
-      "email": "syntalix.ai@gmail.com",
+      "email": "syntalixconsultancy@gmail.com",
+      "telephone": "+91-9259750107",
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00",
       "sameAs": [
         "https://www.syntalixconsultancy.com",
         "https://www.syntalixconsultancy.in",
@@ -150,44 +143,7 @@ const jsonLd = {
       "url": "https://www.syntalixconsultancy.in",
       "name": "Syntalix Consultancy Services",
       "description": "AI, ML, and software development consultancy based in India",
-      "publisher": { "@id": "https://www.syntalixconsultancy.in/#organization" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://www.syntalixconsultancy.in/?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What services does Syntalix Consultancy offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Syntalix Consultancy Services offers custom AI and ML infrastructure, generative LLM engineering, autonomous agentic AI systems, enterprise web development, native Android and iOS mobile apps, and desktop software solutions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where is Syntalix Consultancy Services based?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Syntalix Consultancy Services is based in India and serves clients globally including the US, Australia, UAE, and UK."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I contact Syntalix for a project?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can reach Syntalix Consultancy Services by email at syntalix.ai@gmail.com, by phone at +91 9259750107, or via the contact form on the website."
-          }
-        }
-      ]
+      "publisher": { "@id": "https://www.syntalixconsultancy.in/#organization" }
     }
   ]
 };

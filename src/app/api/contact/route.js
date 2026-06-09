@@ -9,7 +9,7 @@ export async function POST(request) {
 
     const data = await resend.emails.send({
       from: 'Syntalix <onboarding@resend.dev>',
-      to: ['syntalix.ai@gmail.com'],
+      to: ['syntalixconsultancy@gmail.com'],
       reply_to: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `

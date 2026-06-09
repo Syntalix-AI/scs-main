@@ -72,3 +72,6 @@ bun-debug.log*
 *.tmp
 *.bak
 .tmp/
+
+# Tools
+Agentic-SEO-Skill/

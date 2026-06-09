@@ -57,7 +57,7 @@ export function Foot() {
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary"></span>
-                syntalix.ai@gmail.com
+                syntalixconsultancy@gmail.com
               </li>
               <li className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-secondary"></span>
