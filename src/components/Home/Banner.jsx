@@ -55,9 +55,9 @@ const Reach = () => {
             className="flex flex-col md:flex-row w-full gap-y-4 justify-between mt-8 text-lg"
           >
             {/* Email Link */}
-            <Link href="mailto:syntalixconsultancy@gmail.com" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
+            <Link href="mailto:syntalix.consultancy@gmail.com" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
               <MdOutlineMail className="text-yellow-500 w-7 h-7" />
-              syntalixconsultancy@gmail.com
+              syntalix.consultancy@gmail.com
             </Link>
 
             {/* Phone Link - Updated Number */}

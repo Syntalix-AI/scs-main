@@ -88,7 +88,7 @@ Syntalix is a software development company that specializes in building web and 
 - Post-launch support and maintenance included
 
 ## CONTACT INFORMATION
-- Email: syntalixconsultancy@gmail.com
+- Email: syntalix.consultancy@gmail.com
 - Phone/WhatsApp: +91 9259750107
 - Alternative WhatsApp: +919259750107
 - Website: syntalixconsultancy.com / syntalixconsultancy.in

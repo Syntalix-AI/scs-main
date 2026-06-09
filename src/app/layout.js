@@ -96,6 +96,10 @@ const jsonLd = {
       "foundingDate": "2023",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "H NO 494 RANVEER NAGAR, NEAR ITI CHAURAHA ETAWAH, I. T. I. Etawah, CIVIL LINE",
+        "addressLocality": "Etawah",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "206002",
         "addressCountry": "IN"
       },
       "contactPoint": [
@@ -107,7 +111,7 @@ const jsonLd = {
           "contactOption": "TollFree"
         }
       ],
-      "email": "syntalixconsultancy@gmail.com",
+      "email": "syntalix.consultancy@gmail.com",
       "telephone": "+91-9259750107",
       "priceRange": "$$",
       "openingHours": "Mo-Fr 09:00-18:00",

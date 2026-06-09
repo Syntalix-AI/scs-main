@@ -57,11 +57,22 @@ export function Foot() {
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary"></span>
-                syntalixconsultancy@gmail.com
+                syntalix.consultancy@gmail.com
               </li>
               <li className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-secondary"></span>
                 +91 9259750107
+              </li>
+              <li className="flex items-start gap-2 pt-2 border-t border-gray-800">
+                <span className="w-2 h-2 rounded-full bg-purple-500 mt-1.5 shrink-0"></span>
+                <span className="leading-relaxed text-xs">
+                  <strong>Registered Office:</strong><br />
+                  H NO 494 RANVEER NAGAR,<br />
+                  NEAR ITI CHAURAHA ETAWAH,<br />
+                  I. T. I. Etawah, CIVIL LINE,<br />
+                  Etawah, Etawah - 206002,<br />
+                  Uttar Pradesh, India
+                </span>
               </li>
             </ul>
           </div>
