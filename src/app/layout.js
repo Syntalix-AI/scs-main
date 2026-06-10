@@ -96,10 +96,6 @@ const jsonLd = {
       "foundingDate": "2023",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "H NO 494 RANVEER NAGAR, NEAR ITI CHAURAHA ETAWAH, I. T. I. Etawah, CIVIL LINE",
-        "addressLocality": "Etawah",
-        "addressRegion": "Uttar Pradesh",
-        "postalCode": "206002",
         "addressCountry": "IN"
       },
       "contactPoint": [

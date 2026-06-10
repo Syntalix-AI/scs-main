@@ -66,12 +66,10 @@ export function Foot() {
               <li className="flex items-start gap-2 pt-2 border-t border-gray-800">
                 <span className="w-2 h-2 rounded-full bg-purple-500 mt-1.5 shrink-0"></span>
                 <span className="leading-relaxed text-xs">
-                  <strong>Registered Office:</strong><br />
-                  H NO 494 RANVEER NAGAR,<br />
-                  NEAR ITI CHAURAHA ETAWAH,<br />
-                  I. T. I. Etawah, CIVIL LINE,<br />
-                  Etawah, Etawah - 206002,<br />
-                  Uttar Pradesh, India
+                  <strong>Syntalix Consultancy</strong><br />
+                  A Registered LLP in India<br />
+                  LLPIN: ACR-6280<br />
+                  Serving Clients Globally
                 </span>
               </li>
             </ul>
