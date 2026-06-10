@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Bot, Network, Workflow, Cpu, Zap, Shield, ArrowRight, CheckCircle2,
   ChevronDown, Brain, MessageSquareCode, Globe, Settings, Target, RefreshCw,
@@ -87,28 +88,42 @@ export default function AgenticSystemsPage() {
           <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-pink-600/15 rounded-full blur-[120px]" />
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-300 dark:border-purple-700/50 text-purple-700 dark:text-purple-300 font-medium text-sm mb-6">
-              <Bot className="w-4 h-4 mr-2" />
-              Agentic AI Systems
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 max-w-4xl">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-300 dark:border-purple-700/50 text-purple-700 dark:text-purple-300 font-medium text-sm mb-6">
+                <Bot className="w-4 h-4 mr-2" />
+                Agentic AI Systems
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 syntalix-heading">
+                Autonomous{" "}
+                <span className="syntalix-gradient-text">Agentic AI Systems</span>{" "}
+                That Work for You
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-8 syntalix-body">
+                Move beyond chatbots. We build agentic AI systems that plan, reason, use
+                tools, and execute multi-step workflows autonomously — transforming complex,
+                judgment-intensive processes into reliable automated operations that run 24/7.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300">
+                  Discuss Your Agent Project <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+                <a href="#features" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-foreground font-bold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm">
+                  Explore Capabilities <ChevronDown className="ml-2 h-5 w-5" />
+                </a>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 syntalix-heading">
-              Autonomous{" "}
-              <span className="syntalix-gradient-text">Agentic AI Systems</span>{" "}
-              That Work for You
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-8 syntalix-body">
-              Move beyond chatbots. We build agentic AI systems that plan, reason, use
-              tools, and execute multi-step workflows autonomously — transforming complex,
-              judgment-intensive processes into reliable automated operations that run 24/7.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300">
-                Discuss Your Agent Project <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <a href="#features" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-foreground font-bold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm">
-                Explore Capabilities <ChevronDown className="ml-2 h-5 w-5" />
-              </a>
+            <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px] transition-transform duration-500 hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-pink-500/10 rounded-3xl blur-2xl" />
+                <Image
+                  src="/services/agentic-systems.png"
+                  alt="Agentic AI Systems Glassmorphic Figure"
+                  fill
+                  className="object-contain drop-shadow-[0_20px_50px_rgba(168,85,247,0.25)] dark:drop-shadow-[0_20px_50px_rgba(236,72,153,0.15)]"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>

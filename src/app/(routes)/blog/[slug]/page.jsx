@@ -351,7 +351,7 @@ export default function BlogPostPage({ params }) {
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Blog
           </Link>
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-5">
               <span className={`text-xs font-semibold px-3 py-1 rounded-full ${categoryColors[post.category] || "bg-gray-100 text-gray-700"}`}>
                 {post.category}
@@ -378,7 +378,7 @@ export default function BlogPostPage({ params }) {
       {/* Article */}
       <section className="pb-16 md:pb-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto">
             {ArticleContent && <ArticleContent />}
 
             {/* Tags */}

@@ -35,8 +35,8 @@ const ThemeToggle = () => {
 
 const menuItems = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about", homeSectionId: "about" },
-  { name: "Services", href: "/services", homeSectionId: "services" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
   { name: "Blog", href: "/blog" },
   { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },

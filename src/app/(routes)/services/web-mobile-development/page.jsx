@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Globe, Layers, Smartphone, Cloud, Code2, Zap, ArrowRight, CheckCircle2,
   ChevronDown, Brain, MessageSquareCode, Bot, Gauge, Users, Lock,
@@ -87,29 +88,43 @@ export default function WebMobileDevelopmentPage() {
           <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-rose-500/10 rounded-full blur-[120px]" />
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-pink-100 dark:bg-pink-900/30 border border-pink-300 dark:border-pink-700/50 text-pink-700 dark:text-pink-300 font-medium text-sm mb-6">
-              <Globe className="w-4 h-4 mr-2" />
-              Web & Mobile Development
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 max-w-4xl">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-pink-100 dark:bg-pink-900/30 border border-pink-300 dark:border-pink-700/50 text-pink-700 dark:text-pink-300 font-medium text-sm mb-6">
+                <Globe className="w-4 h-4 mr-2" />
+                Web & Mobile Development
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 syntalix-heading">
+                Enterprise{" "}
+                <span className="syntalix-gradient-text">Web & Mobile Apps</span>{" "}
+                Built to Scale
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-8 syntalix-body">
+                We engineer full-stack web and mobile applications that combine
+                beautiful design with production-grade reliability. From SaaS platforms
+                and enterprise portals to AI-integrated mobile apps — we deliver software
+                that users love and businesses grow on.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 text-white font-bold shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-105 transition-all duration-300">
+                  Discuss Your Project <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+                <a href="#features" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-foreground font-bold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm">
+                  Explore Capabilities <ChevronDown className="ml-2 h-5 w-5" />
+                </a>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 syntalix-heading">
-              Enterprise{" "}
-              <span className="syntalix-gradient-text">Web & Mobile Apps</span>{" "}
-              Built to Scale
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-8 syntalix-body">
-              We engineer full-stack web and mobile applications that combine
-              beautiful design with production-grade reliability. From SaaS platforms
-              and enterprise portals to AI-integrated mobile apps — we deliver software
-              that users love and businesses grow on.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 text-white font-bold shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-105 transition-all duration-300">
-                Discuss Your Project <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <a href="#features" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-foreground font-bold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm">
-                Explore Capabilities <ChevronDown className="ml-2 h-5 w-5" />
-              </a>
+            <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px] transition-transform duration-500 hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/10 to-rose-500/10 rounded-3xl blur-2xl" />
+                <Image
+                  src="/services/web-mobile-development.png"
+                  alt="Web & Mobile Development Glassmorphic Figure"
+                  fill
+                  className="object-contain drop-shadow-[0_20px_50px_rgba(236,72,153,0.25)] dark:drop-shadow-[0_20px_50px_rgba(244,63,94,0.15)]"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
