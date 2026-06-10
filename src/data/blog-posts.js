@@ -1,0 +1,32 @@
+export const blogPosts = [
+  {
+    slug: 'what-is-llm-engineering',
+    title: 'What is LLM Engineering and Why Your Business Needs It',
+    description: 'LLM engineering transforms business operations through custom language models, fine-tuning, and RAG systems. Learn what it takes to build production-grade LLM applications.',
+    date: '2026-06-08',
+    author: 'Syntalix Team',
+    readTime: '8 min read',
+    category: 'AI & ML',
+    tags: ['LLM', 'AI Engineering', 'Business AI', 'Generative AI'],
+  },
+  {
+    slug: 'rise-of-agentic-ai',
+    title: 'The Rise of Agentic AI: How Autonomous Systems Are Changing Business',
+    description: 'Agentic AI systems with autonomous decision-making capabilities are revolutionizing enterprise workflows. Learn how agents differ from chatbots and what they mean for your business.',
+    date: '2026-06-05',
+    author: 'Syntalix Team',
+    readTime: '10 min read',
+    category: 'Agentic AI',
+    tags: ['Agentic AI', 'Automation', 'Enterprise', 'Multi-agent Systems'],
+  },
+  {
+    slug: 'ai-development-cost-india-2026',
+    title: 'AI Development Cost in India 2026: A Comprehensive Guide',
+    description: 'A detailed breakdown of AI and ML development costs in India for 2026, covering project types, team structures, technology choices, and how to budget effectively.',
+    date: '2026-06-01',
+    author: 'Syntalix Team',
+    readTime: '12 min read',
+    category: 'Industry Insights',
+    tags: ['AI Cost', 'India', 'Development Budget', 'Outsourcing'],
+  },
+];

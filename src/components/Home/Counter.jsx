@@ -27,8 +27,8 @@ const items = [
 const Counter = () => {
   return (
     <section className="py-16 flex justify-center items-center flex-col">
-      <h2 className='text-2xl xs:text-3xl tracking-wider font-semibold text-black text-center  relative after:contents-[""] after:absolute after:-bottom-2 xs:after:-bottom-3 after:left-[42%] xs:after:left-[45%] lg:after:left-[48%] after:w-[15%] xs:after:w-[10%] lg:after:w-[5%]  after:h-[3px] xs:after:h-1 after:bg-black mb-12'>
-        ACCOMPLISHMENT
+      <h2 className='text-2xl xs:text-3xl tracking-wider font-semibold text-foreground text-center relative after:contents-[""] after:absolute after:-bottom-2 xs:after:-bottom-3 after:left-[42%] xs:after:left-[45%] lg:after:left-[48%] after:w-[15%] xs:after:w-[10%] lg:after:w-[5%] after:h-[3px] xs:after:h-1 after:bg-primary mb-12 syntalix-heading'>
+        Our Track Record
       </h2>
       <div className="w-[80%] h-auto rounded-2xl lg:h-60 bg-custom-gradient relative">
        

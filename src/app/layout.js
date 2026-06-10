@@ -1,15 +1,22 @@
-import { DM_Sans } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { Nav } from "../components/Navbar";
 import { Foot } from "../components/Footer";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "../components/ThemeProvider";
 
-
-const inter = DM_Sans({
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  variable: "--font-outfit",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-inter",
 });
 
 export const metadata = {
@@ -22,7 +29,8 @@ export const metadata = {
   keywords: [
     'AI development India', 'ML consulting India', 'LLM engineering',
     'software development India', 'AI chatbot development',
-    'custom AI solutions', 'Syntalix Consultancy', 'machine learning company India'
+    'custom AI solutions', 'Syntalix Consultancy', 'machine learning company India',
+    'agentic AI systems', 'web development India', 'mobile app development India'
   ],
   authors: [{ name: 'Syntalix Consultancy Services', url: 'https://www.syntalixconsultancy.in' }],
   creator: 'Syntalix Consultancy Services',
@@ -67,7 +75,6 @@ export const metadata = {
   verification: {
     // Fill in the actual values from Google Search Console
     google: '',
-    // yandex: '',
   }
 };
 
@@ -81,7 +88,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["Organization", "LocalBusiness"],
+      "@type": "Organization",
       "@id": "https://www.syntalixconsultancy.in/#organization",
       "name": "Syntalix Consultancy Services",
       "alternateName": "Syntalix",
@@ -94,6 +101,7 @@ const jsonLd = {
       },
       "description": "Syntalix Consultancy Services is an India-based software development company specialising in AI/ML infrastructure, LLM engineering, autonomous agentic systems, enterprise web architecture, and mobile development.",
       "foundingDate": "2023",
+      "legalName": "Syntalix Consultancy Services LLP",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "IN"
@@ -109,11 +117,8 @@ const jsonLd = {
       ],
       "email": "syntalix.consultancy@gmail.com",
       "telephone": "+91-9259750107",
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 09:00-18:00",
       "sameAs": [
         "https://www.syntalixconsultancy.com",
-        "https://www.syntalixconsultancy.in",
         "https://www.linkedin.com/company/syntalix/",
         "https://www.facebook.com/syntalix/",
         "https://github.com/Syntalix-AI"
@@ -128,14 +133,27 @@ const jsonLd = {
         "@type": "OfferCatalog",
         "name": "IT and AI Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI & ML Infrastructure" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative LLM Engineering" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Autonomous Agentic Systems" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Web Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Native Mobile App Development" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desktop Software Solutions" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI & ML Infrastructure", "url": "https://www.syntalixconsultancy.in/services/ai-ml-infrastructure" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative LLM Engineering", "url": "https://www.syntalixconsultancy.in/services/llm-engineering" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Autonomous Agentic Systems", "url": "https://www.syntalixconsultancy.in/services/agentic-systems" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web & Mobile App Development", "url": "https://www.syntalixconsultancy.in/services/web-mobile-development" } }
         ]
       }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.syntalixconsultancy.in/#local-business",
+      "name": "Syntalix Consultancy Services",
+      "url": "https://www.syntalixconsultancy.in",
+      "parentOrganization": { "@id": "https://www.syntalixconsultancy.in/#organization" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9259750107",
+      "email": "syntalix.consultancy@gmail.com",
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00"
     },
     {
       "@type": "WebSite",
@@ -150,7 +168,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-IN">
+    <html lang="en-IN" className={`${outfit.variable} ${inter.variable}`}>
       <head>
         <meta name="format-detection" content="telephone=no" />
         <script

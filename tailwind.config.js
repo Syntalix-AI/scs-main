@@ -21,41 +21,16 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        syntalix: [
-          '"Space Grotesk"',
-          '"Inter"',
-          "system-ui",
-          "-apple-system",
-          "sans-serif",
-        ],
-        "syntalix-heading": [
-          '"Space Grotesk"',
-          '"Inter"',
-          "system-ui",
-          "-apple-system",
-          "sans-serif",
-        ],
-        "syntalix-body": [
-          '"Inter"',
-          "system-ui",
-          "-apple-system",
-          "sans-serif",
-        ],
-        "syntalix-mono": [
-          '"SF Mono"',
-          '"Monaco"',
-          '"Inconsolata"',
-          '"Roboto Mono"',
-          '"Source Code Pro"',
-          "monospace",
-        ],
+        sans: ['"Inter"', "system-ui", "-apple-system", "sans-serif"],
+        heading: ['"Outfit"', '"Inter"', "system-ui", "-apple-system", "sans-serif"],
+        syntalix: ['"Outfit"', '"Inter"', "system-ui", "-apple-system", "sans-serif"],
+        "syntalix-heading": ['"Outfit"', '"Inter"', "system-ui", "-apple-system", "sans-serif"],
+        "syntalix-body": ['"Inter"', "system-ui", "-apple-system", "sans-serif"],
+        "syntalix-mono": ['"SF Mono"', '"Monaco"', '"Inconsolata"', '"Roboto Mono"', '"Source Code Pro"', "monospace"],
       },
       backgroundImage: {
-        "custom-gradient":
-          "linear-gradient(100.5deg, rgba(57, 18, 241, 0.4) 29.55%, rgba(164, 129, 255, 0.4) 93.8%), radial-gradient(38.35% 93.72% at 18.31% 6.28%, rgba(170, 135, 252, 0.8) 0%, rgba(61, 27, 205, 0.8) 100%)",
+        "custom-gradient": "linear-gradient(135deg, hsl(239 84% 67%), hsl(263 70% 50%))",
         btn: "linear-gradient(100.09deg, #000000 20.61%, #3C3A41 52.31%)",
-        "txt-bg":
-          "linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(270deg, rgba(182, 53, 227, 0.4) 0.5%, #4812E4 100%)",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -64,24 +39,24 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#4812E4", // Syntalix Deep Purple
-          foreground: "#FFFFFF",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#A481FF", // Lavender Mist
-          foreground: "#FFFFFF",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "#F1F5F9", // Slate-100
-          foreground: "#64748B", // Slate-500
-        },
-        accent: {
-          DEFAULT: "#F8F9FA", // Pale Silver
-          foreground: "#1E293B", // Dark Slate
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -114,6 +89,9 @@ module.exports = {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        shimmer: {
+          "100%": { transform: "translateX(100%)" },
         },
       },
       animation: {

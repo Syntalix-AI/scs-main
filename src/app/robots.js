@@ -11,6 +11,10 @@ export default function robots() {
         allow: '/',
       },
       {
+        userAgent: 'ChatGPT-User',
+        allow: '/',
+      },
+      {
         userAgent: 'ClaudeBot',
         allow: '/',
       },
@@ -27,8 +31,20 @@ export default function robots() {
         allow: '/',
       },
       {
+        userAgent: 'Amazonbot',
+        allow: '/',
+      },
+      {
         userAgent: 'CCBot',
         disallow: '/',
+      },
+      {
+        userAgent: 'Bytespider',
+        disallow: '/',
+      },
+      {
+        userAgent: 'anthropic-ai',
+        allow: '/',
       },
     ],
     sitemap: 'https://www.syntalixconsultancy.in/sitemap.xml',

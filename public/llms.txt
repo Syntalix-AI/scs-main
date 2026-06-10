@@ -2,17 +2,23 @@
 > India-based AI/ML and software development consultancy serving India and international clients.
 
 ## Services
-- [AI & ML Infrastructure](/services): Custom AI and machine learning systems for business workflows.
-- [LLM Engineering](/services): Large language model integration, fine-tuning, and application development.
-- [Agentic AI Systems](/services): Autonomous agent workflows and AI automation systems.
-- [Web Development](/services): Enterprise websites, web applications, and e-commerce platforms.
-- [Mobile Development](/services): iOS, Android, and cross-platform mobile applications.
+- [AI & ML Infrastructure](/services/ai-ml-infrastructure): Custom AI and machine learning systems, MLOps, model training and deployment.
+- [LLM Engineering](/services/llm-engineering): Large language model integration, fine-tuning, RAG systems, and prompt engineering.
+- [Agentic AI Systems](/services/agentic-systems): Autonomous agent workflows, multi-agent orchestration, and AI automation.
+- [Web & Mobile Development](/services/web-mobile-development): Enterprise websites, web applications, SaaS platforms, and mobile apps.
 
 ## Key Pages
 - [Home](/)
 - [About](/about)
 - [Services](/services)
+- [Blog](/blog)
 - [Contact](/contact)
+- [Careers](/careers)
+
+## Blog
+- [What is LLM Engineering](/blog/what-is-llm-engineering)
+- [Rise of Agentic AI](/blog/rise-of-agentic-ai)
+- [AI Development Cost India 2026](/blog/ai-development-cost-india-2026)
 
 ## Contact
 - Email: syntalix.consultancy@gmail.com

@@ -2,50 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Modern Design System ─────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
 @layer base {
     :root {
         --background: 0 0% 100%;
-        --foreground: 224 71.4% 4.1%;
+        --foreground: 222 47% 11%;
         --card: 0 0% 100%;
-        --card-foreground: 224 71.4% 4.1%;
+        --card-foreground: 222 47% 11%;
         --popover: 0 0% 100%;
-        --popover-foreground: 224 71.4% 4.1%;
-        --primary: 262.1 83.3% 57.8%;
-        --primary-foreground: 210 20% 98%;
-        --secondary: 220 14.3% 95.9%;
-        --secondary-foreground: 220.9 39.3% 11%;
-        --muted: 220 14.3% 95.9%;
-        --muted-foreground: 220 8.9% 46.1%;
-        --accent: 220 14.3% 95.9%;
-        --accent-foreground: 220.9 39.3% 11%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 20% 98%;
+        --popover-foreground: 222 47% 11%;
+        --primary: 239 84% 67%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 263 70% 50%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 220 14% 96%;
+        --muted-foreground: 220 9% 46%;
+        --accent: 187 92% 69%;
+        --accent-foreground: 222 47% 11%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
         --border: 220 13% 91%;
         --input: 220 13% 91%;
-        --ring: 262.1 83.3% 57.8%;
-        --radius: 0.3rem;
+        --ring: 239 84% 67%;
+        --radius: 0.75rem;
     }
 
     .dark {
-        --background: 224 71.4% 4.1%;
-        --foreground: 210 20% 98%;
-        --card: 224 71.4% 4.1%;
-        --card-foreground: 210 20% 98%;
-        --popover: 224 71.4% 4.1%;
-        --popover-foreground: 210 20% 98%;
-        --primary: 263.4 70% 50.4%;
-        --primary-foreground: 210 20% 98%;
-        --secondary: 215 27.9% 16.9%;
-        --secondary-foreground: 210 20% 98%;
-        --muted: 215 27.9% 16.9%;
-        --muted-foreground: 217.9 10.6% 64.9%;
-        --accent: 215 27.9% 16.9%;
-        --accent-foreground: 210 20% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 20% 98%;
-        --border: 215 27.9% 16.9%;
-        --input: 215 27.9% 16.9%;
-        --ring: 263.4 70% 50.4%;
+        --background: 222 47% 6%;
+        --foreground: 210 20% 96%;
+        --card: 222 47% 8%;
+        --card-foreground: 210 20% 96%;
+        --popover: 222 47% 8%;
+        --popover-foreground: 210 20% 96%;
+        --primary: 239 84% 67%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 263 70% 50%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 217 33% 14%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 187 92% 69%;
+        --accent-foreground: 222 47% 6%;
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 217 33% 17%;
+        --input: 217 33% 17%;
+        --ring: 239 84% 67%;
     }
 }
 
@@ -53,57 +56,126 @@
     * {
         @apply border-border;
     }
+    html {
+        scroll-behavior: smooth;
+    }
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground antialiased;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
     }
 }
 
+/* ─── Scrollbar ────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--primary));
-    border-radius: 9px;
+    background: hsl(var(--primary) / 0.4);
+    border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
 }
 
 ::selection {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
+    background-color: hsl(var(--primary) / 0.2);
+    color: hsl(var(--foreground));
 }
 
-/* Syntalix Custom Font Styles */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+/* ─── Glassmorphism Utilities ──────────────────────────────────── */
+@layer components {
+    .glass {
+        @apply backdrop-blur-xl bg-white/70 border border-white/20 shadow-lg;
+    }
+    .dark .glass {
+        @apply bg-slate-900/60 border-slate-700/30;
+    }
+    .glass-card {
+        @apply backdrop-blur-xl bg-white/80 border border-gray-200/50 shadow-xl rounded-2xl;
+    }
+    .dark .glass-card {
+        @apply bg-slate-900/50 border-slate-700/40;
+    }
+    .glass-subtle {
+        @apply backdrop-blur-md bg-white/40 border border-white/10;
+    }
+    .dark .glass-subtle {
+        @apply bg-slate-900/30 border-slate-800/30;
+    }
+}
 
+/* ─── Gradient Utilities ───────────────────────────────────────── */
+@layer components {
+    .gradient-text {
+        @apply text-transparent bg-clip-text;
+        background-image: linear-gradient(135deg, hsl(239 84% 67%), hsl(263 70% 50%), hsl(187 92% 69%));
+        background-size: 200% 200%;
+        animation: gradient-shift 4s ease infinite;
+    }
+    .gradient-primary {
+        background: linear-gradient(135deg, hsl(239 84% 67%), hsl(263 70% 50%));
+    }
+    .gradient-accent {
+        background: linear-gradient(135deg, hsl(263 70% 50%), hsl(187 92% 69%));
+    }
+    .gradient-glow {
+        background: radial-gradient(ellipse at center, hsl(239 84% 67% / 0.15), transparent 70%);
+    }
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ─── Section Glow Backgrounds ─────────────────────────────────── */
+@layer components {
+    .section-glow {
+        position: relative;
+        overflow: hidden;
+    }
+    .section-glow::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -20%;
+        width: 60%;
+        height: 60%;
+        background: radial-gradient(circle, hsl(239 84% 67% / 0.08), transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .section-glow::after {
+        content: "";
+        position: absolute;
+        bottom: -40%;
+        right: -20%;
+        width: 60%;
+        height: 60%;
+        background: radial-gradient(circle, hsl(263 70% 50% / 0.06), transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+}
+
+/* ─── Text Styles ──────────────────────────────────────────────── */
 .syntalix-font {
-    font-family:
-        "Space Grotesk",
-        "Inter",
-        system-ui,
-        -apple-system,
-        sans-serif;
-    font-feature-settings:
-        "ss01" on,
-        "ss02" on,
-        "cv01" on,
-        "cv02" on;
+    font-family: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
+    font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on;
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.025em;
 }
 
 .syntalix-heading {
-    font-family:
-        "Space Grotesk",
-        "Inter",
-        system-ui,
-        -apple-system,
-        sans-serif;
+    font-family: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
     font-weight: 700;
-    font-feature-settings:
-        "ss01" on,
-        "ss02" on,
-        "cv01" on,
-        "cv02" on;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
     line-height: 1.1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -111,101 +183,69 @@
 }
 
 .syntalix-brand {
-    font-family:
-        "Space Grotesk",
-        "Inter",
-        system-ui,
-        -apple-system,
-        sans-serif;
+    font-family: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
     font-weight: 800;
-    font-feature-settings:
-        "ss01" on,
-        "ss02" on,
-        "cv01" on,
-        "cv02" on;
-    letter-spacing: -0.08em;
-    line-height: 0.9;
-    text-transform: uppercase;
+    letter-spacing: -0.06em;
+    line-height: 0.95;
     text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 .syntalix-body {
-    font-family:
-        "Inter",
-        system-ui,
-        -apple-system,
-        sans-serif;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
     font-weight: 400;
-    font-feature-settings:
-        "kern" on,
-        "liga" on,
-        "ss01" on;
+    font-feature-settings: "kern" on, "liga" on;
     letter-spacing: -0.01em;
-    line-height: 1.6;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.7;
 }
 
 .syntalix-mono {
-    font-family:
-        "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro",
-        monospace;
-    font-feature-settings:
-        "zero" on,
-        "ss01" on;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", monospace;
     letter-spacing: -0.02em;
     line-height: 1.5;
 }
 
-/* Syntalix Custom Text Effects */
+/* ─── Glow Effects ─────────────────────────────────────────────── */
 .syntalix-glow {
     text-shadow:
-        0 0 10px rgba(139, 92, 246, 0.3),
-        0 0 20px rgba(139, 92, 246, 0.2),
-        0 0 30px rgba(139, 92, 246, 0.1);
+        0 0 12px hsl(239 84% 67% / 0.3),
+        0 0 24px hsl(239 84% 67% / 0.15),
+        0 0 40px hsl(239 84% 67% / 0.08);
 }
 
 .syntalix-gradient-text {
-    background: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4);
+    background: linear-gradient(135deg, hsl(239 84% 67%), hsl(263 70% 50%), hsl(187 92% 69%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
+    animation: gradient-shift 4s ease infinite;
 }
 
-@keyframes gradient-shift {
-    0%,
-    100% {
-        background-position: 0% 50%;
+/* ─── Card Hover Lift ──────────────────────────────────────────── */
+@layer components {
+    .card-hover {
+        @apply transition-all duration-300 ease-out;
     }
-    50% {
-        background-position: 100% 50%;
+    .card-hover:hover {
+        @apply -translate-y-1 shadow-2xl;
+        box-shadow: 0 20px 60px -15px hsl(239 84% 67% / 0.15);
     }
 }
 
-.syntalix-outline {
-    -webkit-text-stroke: 2px rgba(139, 92, 246, 0.5);
-    text-stroke: 2px rgba(139, 92, 246, 0.5);
-    color: transparent;
+/* ─── Dot Grid Pattern ─────────────────────────────────────────── */
+.dot-pattern {
+    background-image: radial-gradient(circle, hsl(var(--muted-foreground) / 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
 }
 
-.syntalix-3d {
-    text-shadow:
-        1px 1px 0 rgba(139, 92, 246, 0.8),
-        2px 2px 0 rgba(139, 92, 246, 0.7),
-        3px 3px 0 rgba(139, 92, 246, 0.6),
-        4px 4px 0 rgba(139, 92, 246, 0.5),
-        5px 5px 0 rgba(139, 92, 246, 0.4),
-        6px 6px 10px rgba(0, 0, 0, 0.3);
+/* ─── Legacy compat (used by existing components like Counter) ── */
+.bg-custom-gradient {
+    background: linear-gradient(135deg, hsl(239 84% 67%), hsl(263 70% 50%));
 }
 
 .maskk {
     mask: radial-gradient(
-        46% 46% at 50% 47.199999999999996%,
+        46% 46% at 50% 47.2%,
         rgba(0, 0, 0, 0.35) 0%,
         rgba(0, 0, 0, 0.03) 100%
     );
