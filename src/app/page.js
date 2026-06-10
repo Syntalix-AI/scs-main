@@ -34,13 +34,11 @@ const About = dynamic(() => import("@/components/Home/About"));
 export default function Home() {
   return (
     <div className="bg-background">
-      <IntroAnimation />
+      {/* IntroAnimation Temporarily Disabled for Performance */}
       <PopupForm />
       
-      {/* Main Sections Wrapped in FadeInSection */}
-      <FadeInSection>
-        <Hero />
-      </FadeInSection>
+      {/* Main Sections */}
+      <Hero />
 
       <FadeInSection>
         <AnimatedLogoCloud />
