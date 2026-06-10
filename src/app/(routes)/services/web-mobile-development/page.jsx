@@ -121,6 +121,8 @@ export default function WebMobileDevelopmentPage() {
                   src="/services/web-mobile-development.png"
                   alt="Web & Mobile Development Glassmorphic Figure"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={75}
                   className="object-contain drop-shadow-[0_20px_50px_rgba(236,72,153,0.25)] dark:drop-shadow-[0_20px_50px_rgba(244,63,94,0.15)]"
                   priority
                 />

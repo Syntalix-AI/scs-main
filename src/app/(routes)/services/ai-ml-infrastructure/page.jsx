@@ -214,6 +214,8 @@ export default function AIMLInfrastructurePage() {
                   src="/services/ai-ml-infra.png"
                   alt="AI & ML Infrastructure Glassmorphic Figure"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={75}
                   className="object-contain drop-shadow-[0_20px_50px_rgba(59,130,246,0.25)] dark:drop-shadow-[0_20px_50px_rgba(139,92,246,0.15)]"
                   priority
                 />

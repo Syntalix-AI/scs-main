@@ -57,7 +57,7 @@ const IntroAnimation = ({ onComplete }) => {
                         style={{ willChange: "transform, opacity" }}
                     >
                         <Image
-                            src="/syntalix_logo.svg"
+                            src="/syntalix_logo.webp"
                             alt="Syntalix Logo"
                             fill
                             className="object-contain"

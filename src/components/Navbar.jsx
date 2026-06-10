@@ -72,7 +72,7 @@ export function Nav() {
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-9 h-9 sm:w-10 sm:h-10">
                 <Image
-                  src="/syntalix_logo.svg"
+                  src="/syntalix_logo.webp"
                   alt="Syntalix Logo"
                   fill
                   className="object-contain"
@@ -153,7 +153,7 @@ export function Nav() {
               <div className="flex justify-between items-center mb-8">
                 <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
                   <div className="relative w-8 h-8">
-                    <Image src="/syntalix_logo.svg" alt="Syntalix" fill className="object-contain" />
+                    <Image src="/syntalix_logo.webp" alt="Syntalix" fill className="object-contain" />
                   </div>
                   <span className="text-lg font-bold text-foreground">Syntalix</span>
                 </Link>

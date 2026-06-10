@@ -213,6 +213,8 @@ export default function LLMEngineeringPage() {
                   src="/services/llm-engineering.png"
                   alt="LLM Engineering Glassmorphic Figure"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={75}
                   className="object-contain drop-shadow-[0_20px_50px_rgba(139,92,246,0.25)] dark:drop-shadow-[0_20px_50px_rgba(168,85,247,0.15)]"
                   priority
                 />

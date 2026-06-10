@@ -92,7 +92,7 @@ const jsonLd = {
       "url": "https://www.syntalixconsultancy.in",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.syntalixconsultancy.in/syntalix_logo.svg",
+        "url": "https://www.syntalixconsultancy.in/syntalix_logo.webp",
         "width": 200,
         "height": 60
       },
