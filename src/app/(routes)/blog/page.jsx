@@ -58,7 +58,7 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero */}
-      <section className="relative w-full pt-16 pb-16 md:pt-24 md:pb-20 overflow-hidden">
+      <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[60%] bg-primary/8 rounded-full blur-[120px]" />
           <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[50%] bg-secondary/8 rounded-full blur-[120px]" />

@@ -33,7 +33,7 @@ const social = [
 
 const Hero = () => {
     return (
-        <section className="relative py-20 overflow-hidden">
+        <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-purple-50 to-white"></div>
             <div className="container mx-auto px-4 relative">
                 <motion.div

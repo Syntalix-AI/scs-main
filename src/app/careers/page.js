@@ -7,7 +7,7 @@ export const metadata = {
 
 const Careers = () => {
     return (
-        <main className="min-h-[70vh] flex items-center justify-center section-glow">
+        <main className="min-h-[75vh] pt-28 pb-16 flex flex-col items-center justify-center section-glow">
             <div className="text-center space-y-6 px-4 max-w-xl">
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                     Careers at Syntalix

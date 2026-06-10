@@ -117,7 +117,7 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <section className="relative w-full pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
           <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[120px]" />
@@ -163,9 +163,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section id="services-grid" className="py-20 md:py-28">
+      <section id="services-grid" className="pt-4 pb-20 md:pt-6 md:pb-28">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 syntalix-heading">
               What We Build
             </h2>

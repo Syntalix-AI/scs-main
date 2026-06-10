@@ -342,7 +342,7 @@ export default function BlogPostPage({ params }) {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero */}
-      <section className="relative pt-12 pb-12 md:pt-20 md:pb-16 overflow-hidden">
+      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]" />
         </div>

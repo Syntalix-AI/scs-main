@@ -117,7 +117,7 @@ export function Foot() {
               <li className="flex items-start gap-3 pt-3 border-t border-gray-800">
                 <span className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0" />
                 <span className="leading-relaxed text-xs text-gray-500">
-                  <strong className="text-gray-300">Syntalix Consultancy Services LLP</strong><br />
+                  <strong className="text-gray-300">Syntalix LLP</strong><br />
                   A Registered LLP in India<br />
                   LLPIN: ACR-6280<br />
                   Serving Clients Globally
@@ -130,7 +130,7 @@ export function Foot() {
         {/* Copyright */}
         <div className="border-t border-gray-800 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Syntalix Consultancy Services LLP. All rights reserved.
+            &copy; {new Date().getFullYear()} Syntalix LLP. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
             <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>

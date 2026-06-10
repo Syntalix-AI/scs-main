@@ -8,7 +8,7 @@ export const metadata = {
 
 const AboutPage = () => {
   return (
-    <main>
+    <main className="pt-20 md:pt-28">
       <About />
       {/* Additional About Content */}
       <section className="py-16 md:py-24 bg-background section-glow">

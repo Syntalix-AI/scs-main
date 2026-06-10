@@ -98,7 +98,7 @@ const jsonLd = {
       },
       "description": "Syntalix Consultancy Services is an India-based software development company specialising in AI/ML infrastructure, LLM engineering, autonomous agentic systems, enterprise web architecture, and mobile development.",
       "foundingDate": "2023",
-      "legalName": "Syntalix Consultancy Services LLP",
+      "legalName": "Syntalix LLP",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "IN"
