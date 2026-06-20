@@ -22,19 +22,20 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://www.syntalixconsultancy.com'),
   title: {
-    default: 'Syntalix Consultancy | AI & ML Development India',
-    template: '%s | Syntalix Consultancy Services'
+    default: 'Syntalix Consultancy | Software, AI & ML Development Company India',
+    template: '%s | Syntalix Consultancy'
   },
-  description: 'Syntalix Consultancy Services builds AI/ML infrastructure, LLM engineering, agentic systems, web and mobile apps in India. Get a free consultation today.',
+  description: 'Syntalix Consultancy (Syntalix LLP) is a software and AI/ML development company based in India. We build enterprise software, web & mobile apps, LLM engineering, agentic AI systems, and ML infrastructure for global clients.',
   keywords: [
-    'AI development India', 'ML consulting India', 'LLM engineering',
-    'software development India', 'AI chatbot development',
-    'custom AI solutions', 'Syntalix Consultancy', 'machine learning company India',
-    'agentic AI systems', 'web development India', 'mobile app development India'
+    'software development company India', 'AI ML development India', 'Syntalix LLP',
+    'Syntalix Consultancy', 'LLM engineering India', 'agentic AI systems',
+    'enterprise software development', 'web development India', 'mobile app development India',
+    'machine learning company India', 'AI consulting firm India', 'custom software India',
+    'React Next.js development India', 'AI chatbot development', 'RAG systems India'
   ],
-  authors: [{ name: 'Syntalix Consultancy Services', url: 'https://www.syntalixconsultancy.com' }],
-  creator: 'Syntalix Consultancy Services',
-  publisher: 'Syntalix Consultancy Services',
+  authors: [{ name: 'Syntalix LLP', url: 'https://www.syntalixconsultancy.com' }],
+  creator: 'Syntalix LLP',
+  publisher: 'Syntalix LLP',
   alternates: {
     canonical: 'https://www.syntalixconsultancy.com',
   },
@@ -42,20 +43,20 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://www.syntalixconsultancy.com',
-    siteName: 'Syntalix Consultancy Services',
-    title: 'Syntalix Consultancy | AI & ML Development India',
-    description: 'India-based AI/ML and software development company. Custom AI systems, LLM engineering, agentic AI, web and mobile apps.',
+    siteName: 'Syntalix Consultancy',
+    title: 'Syntalix Consultancy | Software, AI & ML Development Company India',
+    description: 'India-based software and AI/ML development company. Enterprise apps, LLM engineering, agentic AI, web & mobile development for global businesses.',
     images: [{
       url: '/og-image.png',
       width: 1200,
       height: 630,
-      alt: 'Syntalix Consultancy Services - AI, ML & Software Development'
+      alt: 'Syntalix Consultancy - Software, AI & ML Development Company India'
     }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syntalix Consultancy | AI & ML Development India',
-    description: 'India-based AI/ML and software development company.',
+    title: 'Syntalix Consultancy | Software, AI & ML Development India',
+    description: 'India-based software and AI/ML development company. Enterprise apps, LLM engineering, agentic AI, web & mobile development.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -87,8 +88,8 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": "https://www.syntalixconsultancy.com/#organization",
-      "name": "Syntalix Consultancy Services",
-      "alternateName": "Syntalix",
+      "name": "Syntalix Consultancy",
+      "alternateName": ["Syntalix LLP", "Syntalix Consultancy Services"],
       "url": "https://www.syntalixconsultancy.com",
       "logo": {
         "@type": "ImageObject",
@@ -96,7 +97,7 @@ const jsonLd = {
         "width": 200,
         "height": 60
       },
-      "description": "Syntalix Consultancy Services is an India-based software development company specialising in AI/ML infrastructure, LLM engineering, autonomous agentic systems, enterprise web architecture, and mobile development.",
+      "description": "Syntalix Consultancy (Syntalix LLP) is an India-based software and AI/ML development company specialising in enterprise software, web & mobile apps, LLM engineering, autonomous agentic systems, and ML infrastructure for global clients.",
       "foundingDate": "2023",
       "legalName": "Syntalix LLP",
       "address": {
@@ -108,14 +109,14 @@ const jsonLd = {
           "@type": "ContactPoint",
           "telephone": "+91-9259750107",
           "contactType": "customer service",
-          "availableLanguage": ["English", "Hindi"],
-          "contactOption": "TollFree"
+          "availableLanguage": ["English", "Hindi"]
         }
       ],
       "email": "syntalix.consultancy@gmail.com",
       "telephone": "+91-9259750107",
       "sameAs": [
         "https://www.syntalixconsultancy.com",
+        "https://www.syntalixconsultancy.in",
         "https://www.linkedin.com/company/syntalix/",
         "https://www.facebook.com/syntalix/",
         "https://github.com/Syntalix-AI"
@@ -123,12 +124,13 @@ const jsonLd = {
       "areaServed": ["IN", "US", "AU", "AE", "GB"],
       "knowsAbout": [
         "Artificial Intelligence", "Machine Learning", "Large Language Models",
-        "Software Development", "Web Development", "Mobile App Development",
-        "AI Consulting", "LLM Fine-tuning", "Agentic AI Systems"
+        "Software Development", "Enterprise Software", "Web Development",
+        "Mobile App Development", "AI Consulting", "LLM Fine-tuning",
+        "Agentic AI Systems", "RAG Systems", "MLOps"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "IT and AI Services",
+        "name": "Software & AI Development Services",
         "itemListElement": [
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI & ML Infrastructure", "url": "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative LLM Engineering", "url": "https://www.syntalixconsultancy.com/services/llm-engineering" } },
@@ -138,9 +140,26 @@ const jsonLd = {
       }
     },
     {
-      "@type": "LocalBusiness",
-      "@id": "https://www.syntalixconsultancy.com/#local-business",
-      "name": "Syntalix Consultancy Services",
+      "@type": "WebSite",
+      "@id": "https://www.syntalixconsultancy.com/#website",
+      "url": "https://www.syntalixconsultancy.com",
+      "name": "Syntalix Consultancy",
+      "description": "Software, AI & ML development consultancy based in India — Syntalix LLP",
+      "publisher": { "@id": "https://www.syntalixconsultancy.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.syntalixconsultancy.com/blog?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.syntalixconsultancy.com/#service",
+      "name": "Syntalix Consultancy",
+      "legalName": "Syntalix LLP",
       "url": "https://www.syntalixconsultancy.com",
       "parentOrganization": { "@id": "https://www.syntalixconsultancy.com/#organization" },
       "address": {
@@ -150,15 +169,8 @@ const jsonLd = {
       "telephone": "+91-9259750107",
       "email": "syntalix.consultancy@gmail.com",
       "priceRange": "$$",
-      "openingHours": "Mo-Fr 09:00-18:00"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.syntalixconsultancy.com/#website",
-      "url": "https://www.syntalixconsultancy.com",
-      "name": "Syntalix Consultancy Services",
-      "description": "AI, ML, and software development consultancy based in India",
-      "publisher": { "@id": "https://www.syntalixconsultancy.com/#organization" }
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "serviceType": ["Software Development", "AI Development", "ML Consulting", "Web Development", "Mobile App Development"]
     }
   ]
 };
