@@ -27,7 +27,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background pt-24 lg:pt-32 pb-16">
+    <section className="relative w-full overflow-hidden bg-background pt-28 pb-16 lg:pt-36 lg:pb-24">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[120px]" />
@@ -85,7 +85,7 @@ const Hero = () => {
           initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="relative flex justify-center lg:justify-end"
+          className="relative flex justify-center lg:justify-end lg:mt-0 mt-12"
         >
           {/* Placeholder for 3D or Hero Image */}
           {/* <div className="w-full h-[400px] md:h-[500px] bg-gray-100 rounded-2xl flex items-center justify-center border border-gray-200 shadow-xl">
