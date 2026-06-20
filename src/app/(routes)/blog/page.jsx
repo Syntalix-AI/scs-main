@@ -5,11 +5,11 @@ import { Calendar, Clock, ArrowRight, BookOpen } from "lucide-react";
 export const metadata = {
   title: "Blog | Syntalix Consultancy Services",
   description: "Insights, guides, and industry analysis on AI/ML development, LLM engineering, agentic systems, and software development from the Syntalix team.",
-  alternates: { canonical: "https://www.syntalixconsultancy.in/blog" },
+  alternates: { canonical: "https://www.syntalixconsultancy.com/blog" },
   openGraph: {
     title: "Blog | Syntalix Consultancy Services",
     description: "Expert insights on AI, ML, LLM engineering, agentic systems, and software development from Syntalix Consultancy.",
-    url: "https://www.syntalixconsultancy.in/blog",
+    url: "https://www.syntalixconsultancy.com/blog",
   },
 };
 

@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const primaryDomain = 'https://www.syntalixconsultancy.in'
+  const primaryDomain = 'https://www.syntalixconsultancy.com'
   const lastModified = new Date()
 
   return [

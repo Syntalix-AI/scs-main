@@ -14,11 +14,11 @@ export async function generateMetadata({ params }) {
     title: post.title,
     description: post.description,
     keywords: post.tags,
-    alternates: { canonical: `https://www.syntalixconsultancy.in/blog/${post.slug}` },
+    alternates: { canonical: `https://www.syntalixconsultancy.com/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://www.syntalixconsultancy.in/blog/${post.slug}`,
+      url: `https://www.syntalixconsultancy.com/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
       authors: ["Syntalix Consultancy Services"],

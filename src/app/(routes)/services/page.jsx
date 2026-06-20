@@ -20,10 +20,10 @@ export const metadata = {
     title: "Our Services | Syntalix Consultancy Services",
     description:
       "From AI/ML infrastructure to full-stack web and mobile development — discover how Syntalix Consultancy can transform your business with cutting-edge technology solutions.",
-    url: "https://www.syntalixconsultancy.in/services",
+    url: "https://www.syntalixconsultancy.com/services",
   },
   alternates: {
-    canonical: "https://www.syntalixconsultancy.in/services",
+    canonical: "https://www.syntalixconsultancy.com/services",
   },
 };
 

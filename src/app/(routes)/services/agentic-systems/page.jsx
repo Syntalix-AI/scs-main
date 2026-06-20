@@ -11,9 +11,9 @@ export const metadata = {
   openGraph: {
     title: "Agentic AI Systems | Syntalix Consultancy",
     description: "Multi-agent orchestration, autonomous decision engines, and tool-use AI systems. Syntalix builds agentic AI that works independently to drive business outcomes.",
-    url: "https://www.syntalixconsultancy.in/services/agentic-systems",
+    url: "https://www.syntalixconsultancy.com/services/agentic-systems",
   },
-  alternates: { canonical: "https://www.syntalixconsultancy.in/services/agentic-systems" },
+  alternates: { canonical: "https://www.syntalixconsultancy.com/services/agentic-systems" },
 };
 
 const features = [

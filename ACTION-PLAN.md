@@ -1,6 +1,6 @@
 # Action Plan
 
-- URL: `https://www.syntalixconsultancy.in/`
+- URL: `https://www.syntalixconsultancy.com/`
 - Overall score: `80/100`
 
 ## Priority Fixes

@@ -20,7 +20,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://www.syntalixconsultancy.in'),
+  metadataBase: new URL('https://www.syntalixconsultancy.com'),
   title: {
     default: 'Syntalix Consultancy | AI & ML Development India',
     template: '%s | Syntalix Consultancy Services'
@@ -32,16 +32,16 @@ export const metadata = {
     'custom AI solutions', 'Syntalix Consultancy', 'machine learning company India',
     'agentic AI systems', 'web development India', 'mobile app development India'
   ],
-  authors: [{ name: 'Syntalix Consultancy Services', url: 'https://www.syntalixconsultancy.in' }],
+  authors: [{ name: 'Syntalix Consultancy Services', url: 'https://www.syntalixconsultancy.com' }],
   creator: 'Syntalix Consultancy Services',
   publisher: 'Syntalix Consultancy Services',
   alternates: {
-    canonical: 'https://www.syntalixconsultancy.in',
+    canonical: 'https://www.syntalixconsultancy.com',
   },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://www.syntalixconsultancy.in',
+    url: 'https://www.syntalixconsultancy.com',
     siteName: 'Syntalix Consultancy Services',
     title: 'Syntalix Consultancy | AI & ML Development India',
     description: 'India-based AI/ML and software development company. Custom AI systems, LLM engineering, agentic AI, web and mobile apps.',
@@ -86,13 +86,13 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://www.syntalixconsultancy.in/#organization",
+      "@id": "https://www.syntalixconsultancy.com/#organization",
       "name": "Syntalix Consultancy Services",
       "alternateName": "Syntalix",
-      "url": "https://www.syntalixconsultancy.in",
+      "url": "https://www.syntalixconsultancy.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.syntalixconsultancy.in/syntalix_logo.webp",
+        "url": "https://www.syntalixconsultancy.com/syntalix_logo.webp",
         "width": 200,
         "height": 60
       },
@@ -130,19 +130,19 @@ const jsonLd = {
         "@type": "OfferCatalog",
         "name": "IT and AI Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI & ML Infrastructure", "url": "https://www.syntalixconsultancy.in/services/ai-ml-infrastructure" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative LLM Engineering", "url": "https://www.syntalixconsultancy.in/services/llm-engineering" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Autonomous Agentic Systems", "url": "https://www.syntalixconsultancy.in/services/agentic-systems" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web & Mobile App Development", "url": "https://www.syntalixconsultancy.in/services/web-mobile-development" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI & ML Infrastructure", "url": "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Generative LLM Engineering", "url": "https://www.syntalixconsultancy.com/services/llm-engineering" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Autonomous Agentic Systems", "url": "https://www.syntalixconsultancy.com/services/agentic-systems" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web & Mobile App Development", "url": "https://www.syntalixconsultancy.com/services/web-mobile-development" } }
         ]
       }
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.syntalixconsultancy.in/#local-business",
+      "@id": "https://www.syntalixconsultancy.com/#local-business",
       "name": "Syntalix Consultancy Services",
-      "url": "https://www.syntalixconsultancy.in",
-      "parentOrganization": { "@id": "https://www.syntalixconsultancy.in/#organization" },
+      "url": "https://www.syntalixconsultancy.com",
+      "parentOrganization": { "@id": "https://www.syntalixconsultancy.com/#organization" },
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "IN"
@@ -154,11 +154,11 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.syntalixconsultancy.in/#website",
-      "url": "https://www.syntalixconsultancy.in",
+      "@id": "https://www.syntalixconsultancy.com/#website",
+      "url": "https://www.syntalixconsultancy.com",
       "name": "Syntalix Consultancy Services",
       "description": "AI, ML, and software development consultancy based in India",
-      "publisher": { "@id": "https://www.syntalixconsultancy.in/#organization" }
+      "publisher": { "@id": "https://www.syntalixconsultancy.com/#organization" }
     }
   ]
 };

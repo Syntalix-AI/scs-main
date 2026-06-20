@@ -11,9 +11,9 @@ export const metadata = {
   openGraph: {
     title: "Web & Mobile App Development | Syntalix Consultancy",
     description: "Full-stack web and mobile development: enterprise apps, SaaS platforms, React, Next.js, React Native, iOS, Android, and cloud-native architecture.",
-    url: "https://www.syntalixconsultancy.in/services/web-mobile-development",
+    url: "https://www.syntalixconsultancy.com/services/web-mobile-development",
   },
-  alternates: { canonical: "https://www.syntalixconsultancy.in/services/web-mobile-development" },
+  alternates: { canonical: "https://www.syntalixconsultancy.com/services/web-mobile-development" },
 };
 
 const features = [

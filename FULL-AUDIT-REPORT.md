@@ -1,6 +1,6 @@
 # Full Audit Report
 
-- URL: `https://www.syntalixconsultancy.in/`
+- URL: `https://www.syntalixconsultancy.com/`
 - Generated: `2026-06-10T18:52:38.356917`
 - Overall score: `80/100`
 - Score confidence: `Medium`

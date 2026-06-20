@@ -93,7 +93,7 @@ const Chatbot = () => {
         "Sorry, I'm having trouble connecting right now. Here are some ways to reach us:\n\n";
       fallbackResponse += "Email: syntalix.consultancy@gmail.com\n";
       fallbackResponse += "📱 WhatsApp: +91 9259750107\n";
-      fallbackResponse += "🌐 Website: syntalixconsultancy.com / syntalixconsultancy.in\n\n";
+      fallbackResponse += "🌐 Website: syntalixconsultancy.com / syntalixconsultancy.com\n\n";
 
       if (
         inputMessage.toLowerCase().includes("service") ||

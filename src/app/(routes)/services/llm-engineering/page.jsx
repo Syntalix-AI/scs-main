@@ -26,10 +26,10 @@ export const metadata = {
     title: "LLM Engineering Services | Syntalix Consultancy",
     description:
       "End-to-end LLM engineering: fine-tuning, RAG pipelines, prompt engineering, and API development. Build production-grade generative AI applications with Syntalix.",
-    url: "https://www.syntalixconsultancy.in/services/llm-engineering",
+    url: "https://www.syntalixconsultancy.com/services/llm-engineering",
   },
   alternates: {
-    canonical: "https://www.syntalixconsultancy.in/services/llm-engineering",
+    canonical: "https://www.syntalixconsultancy.com/services/llm-engineering",
   },
 };
 

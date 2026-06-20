@@ -27,10 +27,10 @@ export const metadata = {
     title: "AI & ML Infrastructure Solutions | Syntalix Consultancy",
     description:
       "End-to-end AI/ML infrastructure: custom models, training pipelines, MLOps, and deployment. Enterprise-grade machine learning systems built for production.",
-    url: "https://www.syntalixconsultancy.in/services/ai-ml-infrastructure",
+    url: "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure",
   },
   alternates: {
-    canonical: "https://www.syntalixconsultancy.in/services/ai-ml-infrastructure",
+    canonical: "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure",
   },
 };
 

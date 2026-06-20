@@ -47,6 +47,6 @@ export default function robots() {
         allow: '/',
       },
     ],
-    sitemap: 'https://www.syntalixconsultancy.in/sitemap.xml',
+    sitemap: 'https://www.syntalixconsultancy.com/sitemap.xml',
   }
 }

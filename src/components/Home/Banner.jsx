@@ -79,7 +79,7 @@ const Reach = () => {
             {/* Website Link */}
             <Link href="/" className="text-white flex gap-2 items-center hover:text-gray-200 transition-colors">
               <RiGlobalLine className="text-purple-500 w-7 h-7" />
-              syntalixconsultancy.in
+              syntalixconsultancy.com
             </Link>
           </motion.div>
 
