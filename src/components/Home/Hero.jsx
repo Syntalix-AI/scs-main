@@ -27,7 +27,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-background pt-28 pb-16 lg:pt-36 lg:pb-24">
+    <section className="relative w-full overflow-hidden bg-background pt-10 pb-16 lg:pt-16 lg:pb-24">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[120px]" />
