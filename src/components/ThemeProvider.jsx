@@ -20,8 +20,8 @@ export function ThemeProvider({ children, ...props }) {
   return (
     <NextThemesProvider
       attribute="class" // Uses class-based theme switching (adds 'dark' class to html element)
-      defaultTheme="light" // Defaults to light theme
-      enableSystem={false} // Disable system theme detection
+      defaultTheme="system" // Defaults to system preference (respects user's OS/browser setting)
+      enableSystem={true} // Enables system theme detection
       storageKey="scs-theme" // localStorage key for theme persistence
       disableTransitionOnChange // Prevents flash during theme changes
       {...props}
