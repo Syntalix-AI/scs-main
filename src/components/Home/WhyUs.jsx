@@ -4,12 +4,12 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import H1 from "/assets/WhyChooseUs/whyChooseUs.png";
-import S1 from "/assets/WhyChooseUs/Approach.svg";
-import S2 from "/assets/WhyChooseUs/Delivery.svg";
-import S3 from "/assets/WhyChooseUs/Experience.svg";
+import S1 from "/assets/WhyChooseUs/Experience.svg";
+import S2 from "/assets/WhyChooseUs/Products.svg";
+import S3 from "/assets/WhyChooseUs/Approach.svg";
 import S4 from "/assets/WhyChooseUs/Pricing.svg";
-import S5 from "/assets/WhyChooseUs/Support.svg";
-import S6 from "/assets/WhyChooseUs/Products.svg";
+import S5 from "/assets/WhyChooseUs/Delivery.svg";
+import S6 from "/assets/WhyChooseUs/Support.svg";
 
 const features = [
   {

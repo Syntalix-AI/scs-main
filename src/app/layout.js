@@ -22,7 +22,7 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://www.syntalixconsultancy.com'),
   title: {
-    default: 'Syntalix Consultancy | Software, AI & ML Development Company India',
+    default: 'Syntalix Consultancy | Software & AI/ML Company India',
     template: '%s | Syntalix Consultancy'
   },
   description: 'Syntalix Consultancy (Syntalix LLP) is a software and AI/ML development company based in India. We build enterprise software, web & mobile apps, LLM engineering, agentic AI systems, and ML infrastructure for global clients.',
@@ -44,7 +44,7 @@ export const metadata = {
     locale: 'en_IN',
     url: 'https://www.syntalixconsultancy.com',
     siteName: 'Syntalix Consultancy',
-    title: 'Syntalix Consultancy | Software, AI & ML Development Company India',
+    title: 'Syntalix Consultancy | Software & AI/ML Company India',
     description: 'India-based software and AI/ML development company. Enterprise apps, LLM engineering, agentic AI, web & mobile development for global businesses.',
     images: [{
       url: '/og-image.png',

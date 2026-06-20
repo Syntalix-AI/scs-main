@@ -43,10 +43,13 @@ const Hero = () => {
           className="text-left space-y-6"
         >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight">
-            AI & ML Software Development Company in India
+            Software, AI &amp; ML Development Company in India
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-            We craft high-performance websites, robust software, LLM applications, and AI-driven solutions tailored to scale your enterprise.
+            We craft high-performance websites, robust software, LLM applications, and AI-driven solutions tailored to scale your enterprise. From idea to deployment, Syntalix LLP is your end-to-end technology partner.
+          </p>
+          <p className="text-base text-muted-foreground max-w-lg mt-2">
+            As a registered Indian LLP, we serve clients across India, the US, UAE, Australia, and the UK — delivering enterprise-grade AI infrastructure, agentic systems, and web and mobile applications on time and within budget.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
@@ -64,15 +67,15 @@ const Hero = () => {
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100 dark:border-slate-700 mt-8">
             <div>
               <p className="text-2xl font-bold text-primary">50+</p>
-              <p className="text-sm text-muted-foreground">Projects Delivered</p>
+              <p className="text-sm text-muted-foreground">Projects delivered across fintech, healthcare &amp; e-commerce</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-primary">98%</p>
-              <p className="text-sm text-muted-foreground">Client Satisfaction</p>
+              <p className="text-sm text-muted-foreground">Client satisfaction rate across all engagements</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-primary">24/7</p>
-              <p className="text-sm text-muted-foreground">Support System</p>
+              <p className="text-sm text-muted-foreground">Dedicated support and SLA-backed delivery</p>
             </div>
           </div>
         </motion.div>

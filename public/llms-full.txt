@@ -1,0 +1,75 @@
+# Syntalix Consultancy — Full Company and Services Description
+
+> Syntalix Consultancy (legally registered as Syntalix LLP) is an India-based software and AI/ML development company serving businesses across India, the United States, UAE, Australia, and the United Kingdom.
+
+## Company Overview
+
+Syntalix Consultancy is a technology firm founded in 2023, specialising in enterprise software development, artificial intelligence, machine learning, and large language model engineering. The company operates as Syntalix LLP, a registered Limited Liability Partnership in India.
+
+Contact: syntalix.consultancy@gmail.com | +91-9259750107
+Website: https://www.syntalixconsultancy.com
+
+## Services
+
+### AI & ML Infrastructure
+Syntalix builds custom AI and ML infrastructure for enterprises. Services include: custom ML model development and training, MLOps pipeline setup and automation, model deployment and monitoring, data pipeline engineering, feature store design, and cloud-based AI infrastructure on AWS, GCP, and Azure.
+
+Use cases: demand forecasting, fraud detection, recommendation engines, anomaly detection, NLP pipelines, computer vision systems.
+
+URL: https://www.syntalixconsultancy.com/services/ai-ml-infrastructure
+
+### LLM Engineering
+Syntalix provides end-to-end LLM engineering services including: LLM integration via OpenAI, Anthropic, Google Gemini and open-source models, fine-tuning of domain-specific language models, RAG (Retrieval Augmented Generation) system design and implementation, prompt engineering, LLM API development, and LLM evaluation frameworks.
+
+Use cases: enterprise knowledge bases, AI-powered customer support, document intelligence, legal and compliance automation, HR automation.
+
+URL: https://www.syntalixconsultancy.com/services/llm-engineering
+
+### Agentic AI Systems
+Syntalix designs and builds autonomous agentic AI systems including: multi-agent orchestration using frameworks like LangGraph and AutoGen, tool-use agents with API and database integration, autonomous workflow automation, decision engines, and AI agents for research, data extraction, and business process automation.
+
+Use cases: automated research agents, business process automation, AI-powered sales assistants, autonomous monitoring and alerting systems.
+
+URL: https://www.syntalixconsultancy.com/services/agentic-systems
+
+### Web & Mobile App Development
+Syntalix delivers full-stack enterprise web and mobile applications including: Next.js and React web applications, React Native cross-platform mobile apps, iOS and Android native apps, SaaS platform development, REST and GraphQL API development, e-commerce platforms, and enterprise dashboards.
+
+Use cases: SaaS products, enterprise internal tools, client portals, e-commerce platforms, AI-powered web apps.
+
+URL: https://www.syntalixconsultancy.com/services/web-mobile-development
+
+## Blog Articles
+
+### What is LLM Engineering and Why Your Business Needs It
+An introduction to LLM engineering covering custom language models, fine-tuning strategies, and RAG systems for enterprise use.
+URL: https://www.syntalixconsultancy.com/blog/what-is-llm-engineering
+
+### The Rise of Agentic AI: How Autonomous Systems Are Changing Business
+An overview of agentic AI systems, multi-agent orchestration, and how autonomous AI is transforming enterprise workflows.
+URL: https://www.syntalixconsultancy.com/blog/rise-of-agentic-ai
+
+### AI Development Cost in India 2026: A Comprehensive Guide
+A detailed breakdown of AI and ML development costs in India including project types, team structures, and ROI considerations.
+URL: https://www.syntalixconsultancy.com/blog/ai-development-cost-india-2026
+
+## Key Pages
+
+- Homepage: https://www.syntalixconsultancy.com
+- About: https://www.syntalixconsultancy.com/about
+- Services: https://www.syntalixconsultancy.com/services
+- Blog: https://www.syntalixconsultancy.com/blog
+- Contact: https://www.syntalixconsultancy.com/contact
+- Careers: https://www.syntalixconsultancy.com/careers
+
+## Technology Stack
+
+Languages: Python, JavaScript, TypeScript, Java
+Frameworks: Next.js, React, React Native, Django, FastAPI, Flask
+AI/ML: PyTorch, TensorFlow, scikit-learn, LangChain, LangGraph, AutoGen, Hugging Face
+Cloud: AWS, Google Cloud Platform, Microsoft Azure
+Databases: PostgreSQL, MongoDB, Redis, Pinecone, Weaviate
+
+## Pricing
+
+Project-based pricing starting from $1,000 USD. Retainer and dedicated team models available. Free initial consultation offered at: https://www.syntalixconsultancy.com/contact
