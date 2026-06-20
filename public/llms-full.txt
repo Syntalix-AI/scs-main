@@ -53,11 +53,30 @@ URL: https://www.syntalixconsultancy.com/blog/rise-of-agentic-ai
 A detailed breakdown of AI and ML development costs in India including project types, team structures, and ROI considerations.
 URL: https://www.syntalixconsultancy.com/blog/ai-development-cost-india-2026
 
+## Case Studies
+
+### Automated Document Processing with LLMs
+Industry: Finance/Legal. Syntalix built an LLM-powered document processing pipeline utilizing RAG and custom fine-tuned models to extract structured data from unstructured legal and financial documents.
+Outcome: 80% reduction in manual processing time and significant cost savings.
+URL: https://www.syntalixconsultancy.com/case-studies/automated-document-processing-llm
+
+### Predictive Maintenance AI Infrastructure
+Industry: Manufacturing. Syntalix developed an end-to-end AI infrastructure integrating IoT sensor data with custom ML models to predict equipment failures before they occur.
+Outcome: 35% reduction in unplanned downtime and optimized maintenance scheduling.
+URL: https://www.syntalixconsultancy.com/case-studies/predictive-maintenance-ai-infrastructure
+
+### Enterprise E-Commerce Modernization
+Industry: Retail. Syntalix modernized a legacy e-commerce platform using Next.js and a headless architecture, integrating AI-driven product recommendations.
+Outcome: 50% faster page load times and a 20% bump in conversion rates.
+URL: https://www.syntalixconsultancy.com/case-studies/enterprise-ecommerce-modernization
+
 ## Key Pages
 
 - Homepage: https://www.syntalixconsultancy.com
 - About: https://www.syntalixconsultancy.com/about
 - Services: https://www.syntalixconsultancy.com/services
+- Case Studies: https://www.syntalixconsultancy.com/case-studies
+- Team: https://www.syntalixconsultancy.com/team
 - Blog: https://www.syntalixconsultancy.com/blog
 - Contact: https://www.syntalixconsultancy.com/contact
 - Careers: https://www.syntalixconsultancy.com/careers
