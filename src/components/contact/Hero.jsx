@@ -33,19 +33,19 @@ const social = [
 
 const Hero = () => {
     return (
-        <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-50 to-white"></div>
-            <div className="container mx-auto px-4 relative">
+        <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden bg-background">
+            <div className="absolute inset-0 bg-gradient-to-b from-purple-50 to-white dark:from-slate-900 dark:to-background"></div>
+            <div className="container mx-auto px-4 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className="text-center max-w-3xl mx-auto"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                         Get in Touch
                     </h1>
-                    <p className="text-lg text-gray-600 mb-8">
+                    <p className="text-lg text-muted-foreground mb-8">
                         Have a question or want to discuss your project? We&apos;re here to help. 
                         Fill out the form below and we&apos;ll get back to you as soon as possible.
                     </p>
