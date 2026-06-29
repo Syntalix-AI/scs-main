@@ -1,19 +1,20 @@
 import About from '@/components/Home/About'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'About Us',
-  description: 'Syntalix LLP (LLPIN: ACR-6280) is a registered AI/ML consultancy in India, founded to build production-grade LLM applications, agentic systems, and enterprise software for global clients.',
+  description: 'Syntalix LLP (LLPIN: ACR-6280) is a registered AI/ML consultancy in India, certified by the prestigious Wadhwani NEN Foundation, building production-grade LLM applications.',
   alternates: { canonical: '/about' },
   twitter: {
     card: 'summary_large_image',
     title: 'About Us | Syntalix Consultancy',
-    description: 'Syntalix LLP (LLPIN: ACR-6280) — registered AI/ML consultancy in India building LLM applications, agentic systems, and enterprise software for global clients.',
+    description: 'Syntalix LLP (LLPIN: ACR-6280) — registered AI/ML consultancy in India certified by Wadhwani NEN, building LLM applications, agentic systems, and enterprise software.',
     images: ['/og-image.png'],
   },
   openGraph: {
     title: 'About Us | Syntalix Consultancy',
-    description: 'Syntalix LLP (LLPIN: ACR-6280) is a registered AI/ML consultancy in India, founded to build production-grade LLM applications, agentic systems, and enterprise software for global clients.',
+    description: 'Syntalix LLP (LLPIN: ACR-6280) is a registered AI/ML consultancy in India, certified by the prestigious Wadhwani NEN Foundation, building production-grade LLM applications.',
     url: 'https://www.syntalixconsultancy.com/about',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
@@ -31,7 +32,8 @@ const aboutBreadcrumbSchema = {
 const AboutPage = () => {
   return (
     <main className="pt-24 md:pt-32 pb-16">
-      <script
+      <Script
+        id="about-breadcrumb-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutBreadcrumbSchema) }}
       />
@@ -45,32 +47,33 @@ const AboutPage = () => {
             {/* Why Choose Syntalix */}
             <div className="text-center space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold syntalix-heading text-foreground">
-                Why Choose Syntalix?
+                Our Story & Mission
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                We are <strong>Syntalix LLP</strong> (LLPIN: ACR-6280), a registered AI/ML consultancy in India
-                with deep expertise in large language models, agentic AI systems, and enterprise software development.
-                Our team builds practical, scalable solutions that drive measurable business outcomes — from LLM
-                fine-tuning and RAG pipelines to full-stack enterprise applications.
+              <p className="text-muted-foreground text-lg leading-relaxed text-left md:text-center">
+                We are <strong>Syntalix LLP</strong> (LLPIN: ACR-6280), an AI/ML engineering consultancy based in Uttar Pradesh, India. 
+                We are proud to be <strong>certified by the prestigious Wadhwani NEN Foundation</strong> and are globally recognized as a trailblazing technology company shaping the future of enterprise automation.
               </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Founded in 2025, Syntalix was created to solve a specific problem: the gap between AI research
-                and production-ready AI. Most LLM projects fail in production — not because the models are bad,
-                but because the engineering surrounding them is underpowered. We specialise in the hard parts:
-                evaluation, reliability, cost optimisation, safety, and MLOps.
+              <p className="text-muted-foreground text-lg leading-relaxed text-left md:text-center">
+                Syntalix was founded to solve a critical industry problem: the gap between AI research and production-grade engineering. 
+                Most LLM projects fail in production—not because the models are weak, but because the engineering surrounding them is underpowered. 
+                We specialise in the hard parts: rigorous evaluation, hallucination mitigation, cost optimisation, safety guardrails, and MLOps.
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed text-left md:text-center">
+                Today, we operate as a trusted partner to businesses across India (Gujarat, Delhi NCR, Bengaluru, Kolkata, UP) and globally (US, UK, UAE, Australia). 
+                We also maintain an active, highly-rated agency presence on platforms like Fiverr, allowing us to seamlessly serve international clients with verified quality.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
                 <div className="glass-card p-6 rounded-2xl card-hover">
-                  <p className="text-3xl font-bold text-primary mb-2">50+</p>
-                  <p className="text-sm text-muted-foreground">Projects delivered across AI, ML, web, and mobile</p>
+                  <p className="text-3xl font-bold text-primary mb-2">Certified</p>
+                  <p className="text-sm text-muted-foreground">Backed by the prestigious Wadhwani NEN Foundation</p>
                 </div>
                 <div className="glass-card p-6 rounded-2xl card-hover">
-                  <p className="text-3xl font-bold text-primary mb-2">5+</p>
-                  <p className="text-sm text-muted-foreground">Countries served including US, UK, UAE, and Australia</p>
+                  <p className="text-3xl font-bold text-primary mb-2">Global</p>
+                  <p className="text-sm text-muted-foreground">Serving India, US, UK, UAE, and Australia</p>
                 </div>
                 <div className="glass-card p-6 rounded-2xl card-hover">
-                  <p className="text-3xl font-bold text-primary mb-2">24/7</p>
-                  <p className="text-sm text-muted-foreground">Support and communication across time zones</p>
+                  <p className="text-3xl font-bold text-primary mb-2">Verified</p>
+                  <p className="text-sm text-muted-foreground">Top-rated agency profiles on leading B2B platforms</p>
                 </div>
               </div>
             </div>
@@ -87,7 +90,7 @@ const AboutPage = () => {
                 {[
                   {
                     category: "LLM & AI",
-                    items: ["LangChain", "LangGraph", "Azure OpenAI", "Ollama", "RAG Systems", "Vector Embeddings", "LLM Fine-Tuning (LoRA, QLoRA)", "Prompt Engineering"]
+                    items: ["LangChain", "LangGraph", "Azure OpenAI", "Ollama", "RAG Systems", "Vector Embeddings", "LLM Fine-Tuning", "Prompt Engineering"]
                   },
                   {
                     category: "Infrastructure & MLOps",
@@ -99,7 +102,7 @@ const AboutPage = () => {
                   },
                   {
                     category: "Cloud & Data",
-                    items: ["AWS", "Azure", "GCP", "PostgreSQL", "MongoDB", "Redis", "Snowflake", "Pinecone / Weaviate"]
+                    items: ["AWS", "Azure", "GCP", "PostgreSQL", "MongoDB", "Redis", "Snowflake", "Pinecone"]
                   }
                 ].map((stack) => (
                   <div key={stack.category} className="glass-card p-6 rounded-2xl card-hover">
@@ -146,44 +149,10 @@ const AboutPage = () => {
               </div>
             </div>
 
-            {/* Notable Projects */}
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold syntalix-heading text-foreground text-center">
-                Notable Work
-              </h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "Automated Document Processing with LLMs",
-                    outcome: "80% reduction in processing time",
-                    href: "/case-studies/automated-document-processing-llm"
-                  },
-                  {
-                    title: "Predictive Maintenance AI Infrastructure",
-                    outcome: "35% reduction in manufacturing downtime",
-                    href: "/case-studies/predictive-maintenance-ai-infrastructure"
-                  },
-                  {
-                    title: "Enterprise E-Commerce Modernization",
-                    outcome: "50% faster load times, 20% conversion increase",
-                    href: "/case-studies/enterprise-ecommerce-modernization"
-                  }
-                ].map((project) => (
-                  <Link key={project.href} href={project.href} className="group flex items-center justify-between glass-card p-5 rounded-xl card-hover">
-                    <div>
-                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground mt-1">{project.outcome}</p>
-                    </div>
-                    <span className="text-primary group-hover:translate-x-1 transition-transform text-lg">→</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             {/* Legal & Registration */}
             <div className="glass-card p-8 rounded-2xl border border-primary/20 space-y-4">
               <h2 className="text-2xl font-bold syntalix-heading text-foreground">
-                Legal & Registration
+                Company Details
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                 <div>
@@ -195,8 +164,8 @@ const AboutPage = () => {
                   <p className="text-foreground font-semibold">ACR-6280</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground font-medium">Registered In</p>
-                  <p className="text-foreground font-semibold">India (Uttar Pradesh)</p>
+                  <p className="text-muted-foreground font-medium">Certification</p>
+                  <p className="text-foreground font-semibold text-primary">Wadhwani NEN Foundation</p>
                 </div>
                 <div>
                   <p className="text-muted-foreground font-medium">Founded</p>

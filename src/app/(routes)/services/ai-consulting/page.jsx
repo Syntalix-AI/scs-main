@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 import {
   Brain, Target, BarChart3, Users, CheckCircle2, ArrowRight,
   Lightbulb, Workflow, Shield, TrendingUp, Globe, Zap, ChevronDown
@@ -144,8 +145,8 @@ const engagementModels = [
 export default function AIConsultingPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(consultingFaqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <Script id="consulting-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(consultingFaqSchema) }} />
+      <Script id="consulting-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">

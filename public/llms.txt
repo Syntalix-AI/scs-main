@@ -7,6 +7,17 @@ Syntalix Consultancy is the brand name of Syntalix LLP (LLPIN: ACR-6280), an Ind
 
 We are one of the leading AI consulting companies serving Gujarat (Ahmedabad, Surat, Vadodara, Rajkot), Delhi NCR (New Delhi, Gurugram, Noida), Bengaluru, Kolkata, and Uttar Pradesh (Lucknow, Kanpur) — as well as international clients in the United States, United Kingdom, UAE, and Australia.
 
+## External Profiles
+- Clutch: https://clutch.co/profile/syntalix-consultancy
+- Fiverr Agency: https://www.fiverr.com/agencies/syntalixai
+- GitHub: https://github.com/Syntalix-AI
+- LinkedIn: https://www.linkedin.com/company/syntalix-consultancy
+
+## Verified Credentials
+- Registered LLP in India: LLPIN ACR-6280
+- Certified by Wadhwani NEN Foundation
+- Active since: 2025
+
 ## Services
 
 - [AI & ML Infrastructure](/services/ai-ml-infrastructure): Custom AI and machine learning systems, MLOps, model training and deployment.

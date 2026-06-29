@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import Image from "next/image";
 import {
   MessageSquareCode,
@@ -230,8 +231,8 @@ const llmBreadcrumbSchema = {
 export default function LLMEngineeringPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(llmFaqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(llmBreadcrumbSchema) }} />
+      <Script id="llm-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(llmFaqSchema) }} />
+      <Script id="llm-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(llmBreadcrumbSchema) }} />
       {/* Hero Section */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">

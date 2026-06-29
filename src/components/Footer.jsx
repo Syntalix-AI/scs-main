@@ -16,11 +16,13 @@ const serviceLinks = [
   { name: "AI & ML Infrastructure", href: "/services/ai-ml-infrastructure" },
   { name: "LLM Engineering", href: "/services/llm-engineering" },
   { name: "Agentic AI Systems", href: "/services/agentic-systems" },
+  { name: "AI Consulting", href: "/services/ai-consulting" },
+  { name: "Answer Engine Optimization", href: "/services/aeo-optimization" },
   { name: "Web & Mobile Apps", href: "/services/web-mobile-development" },
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", href: "https://www.linkedin.com/company/syntalix/", icon: FaLinkedin },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/syntalix-consultancy", icon: FaLinkedin },
   { name: "Facebook", href: "https://www.facebook.com/syntalix/", icon: FaFacebook },
   { name: "GitHub", href: "https://github.com/Syntalix-AI", icon: FaGithub },
   { name: "WhatsApp", href: "https://wa.me/919259750107", icon: FaWhatsapp },

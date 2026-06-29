@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import {
   Bot, Network, Workflow, Cpu, Zap, Shield, ArrowRight, CheckCircle2,
   ChevronDown, Brain, MessageSquareCode, Globe, Settings, Target, RefreshCw,
@@ -149,8 +150,8 @@ const agenticBreadcrumbSchema = {
 export default function AgenticSystemsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(agenticFaqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(agenticBreadcrumbSchema) }} />
+      <Script id="agentic-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(agenticFaqSchema) }} />
+      <Script id="agentic-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(agenticBreadcrumbSchema) }} />
       {/* Hero */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">

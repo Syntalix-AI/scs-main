@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 import {
   Bot, Search, FileText, BarChart3, Globe, ArrowRight, CheckCircle2,
   Brain, Zap, Shield, ChevronDown, TrendingUp, MessageSquareCode
@@ -129,8 +130,8 @@ const engines = [
 export default function AEOOptimizationPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoFaqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <Script id="aeo-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoFaqSchema) }} />
+      <Script id="aeo-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
