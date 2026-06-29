@@ -1,10 +1,10 @@
 # Syntalix Consultancy — Full Company and Services Description
 
-> Syntalix Consultancy (legally registered as Syntalix LLP) is an India-based software and AI/ML development company serving businesses across India, the United States, UAE, Australia, and the United Kingdom.
+> Syntalix Consultancy (legally registered as Syntalix LLP, LLPIN: ACR-6280) is an India-based software and AI/ML development company serving businesses across Gujarat, Delhi NCR, Bengaluru, Kolkata, Uttar Pradesh, and internationally in the United States, UAE, Australia, and the United Kingdom.
 
 ## Company Overview
 
-Syntalix Consultancy is a technology firm founded in 2023, specialising in enterprise software development, artificial intelligence, machine learning, and large language model engineering. The company operates as Syntalix LLP, a registered Limited Liability Partnership in India.
+Syntalix Consultancy is a technology firm founded in 2025, specialising in enterprise software development, artificial intelligence, machine learning, and large language model engineering. The company operates as Syntalix LLP, a registered Limited Liability Partnership in Uttar Pradesh, India.
 
 Contact: syntalix.consultancy@gmail.com | +91-9259750107
 Website: https://www.syntalixconsultancy.com
@@ -38,6 +38,20 @@ Syntalix delivers full-stack enterprise web and mobile applications including: N
 Use cases: SaaS products, enterprise internal tools, client portals, e-commerce platforms, AI-powered web apps.
 
 URL: https://www.syntalixconsultancy.com/services/web-mobile-development
+
+### AI Consulting
+Syntalix provides strategic AI consulting services, helping enterprises identify high-ROI AI opportunities, build implementation roadmaps, and deliver production-grade AI systems. Engagements range from Strategy Sprints to Proof of Concepts and full Production Implementations.
+
+Use cases: AI opportunity mapping, ROI modelling, vendor analysis, AI roadmaps, PoC development.
+
+URL: https://www.syntalixconsultancy.com/services/ai-consulting
+
+### Answer Engine Optimization (AEO)
+Syntalix implements technical AEO to ensure your brand is cited by AI engines like ChatGPT, Perplexity, Google AI Overviews, and Claude. Services include structured data (JSON-LD schema) implementation, entity disambiguation, AI-crawlable content architecture (llms.txt), and authority citation building.
+
+Use cases: Getting cited by ChatGPT, Perplexity optimization, AI search optimization, entity building.
+
+URL: https://www.syntalixconsultancy.com/services/aeo-optimization
 
 ## Blog Articles
 

@@ -28,8 +28,8 @@ const Hero = () => {
             We craft high-performance websites, robust software, LLM applications, and AI-driven solutions tailored to scale your enterprise. From idea to deployment, Syntalix LLP is your end-to-end technology partner.
           </p>
           <p className="text-base text-muted-foreground max-w-lg mt-2">
-            As a registered Indian LLP, we serve clients across India, the US, UAE, Australia, and the UK — delivering enterprise-grade AI infrastructure, agentic systems, and web and mobile applications on time and within budget.
-          </p>
+              Serving enterprises in Gujarat (Ahmedabad, Surat, Vadodara), Delhi NCR, Bengaluru, Kolkata, and Uttar Pradesh — and clients globally across the US, UK, UAE, and Australia. From AI consulting and AEO strategy to production deployment, we deliver on time and within budget.
+            </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
@@ -42,7 +42,6 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Stats / Trust Indicators */}
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100 dark:border-slate-700 mt-8">
             <div>
               <p className="text-2xl font-bold text-primary">50+</p>
@@ -57,6 +56,13 @@ const Hero = () => {
               <p className="text-sm text-muted-foreground">Dedicated support and SLA-backed delivery</p>
             </div>
           </div>
+
+          {/* Brand Clarity — helps Google entity disambiguation */}
+          <p className="text-xs text-muted-foreground/70 mt-4">
+            Syntalix Consultancy is the official brand of{' '}
+            <strong className="font-semibold text-muted-foreground">Syntalix LLP</strong>
+            {' '}(LLPIN: ACR-6280), a registered AI/ML consultancy in India.
+          </p>
         </motion.div>
 
         {/* Right Column: Visual / Form */}

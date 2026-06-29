@@ -118,9 +118,10 @@ export function Foot() {
                 <span className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0" />
                 <span className="leading-relaxed text-xs text-gray-500">
                   <strong className="text-gray-300">Syntalix LLP</strong><br />
-                  A Registered LLP in India<br />
+                  Registered in Uttar Pradesh, India<br />
                   LLPIN: ACR-6280<br />
-                  Serving Clients Globally
+                  <span className="text-gray-600">Serving Gujarat · Delhi · Bengaluru<br />
+                  Kolkata · UP · Mumbai &amp; Globally</span>
                 </span>
               </li>
             </ul>

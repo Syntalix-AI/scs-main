@@ -2,8 +2,21 @@ import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi";
 
 export const metadata = {
-  title: "Case Studies | Syntalix",
-  description: "Explore our successful AI, ML, and Software Development case studies.",
+  title: "Case Studies",
+  description: "Real AI and software outcomes from Syntalix: 80% faster document processing, 35% less manufacturing downtime, 50% faster e-commerce load times. Explore our client case studies.",
+  alternates: { canonical: '/case-studies' },
+  openGraph: {
+    title: 'Case Studies | Syntalix Consultancy',
+    description: 'Real AI and software outcomes from Syntalix: 80% faster document processing, 35% less manufacturing downtime, 50% faster e-commerce load times.',
+    url: 'https://www.syntalixconsultancy.com/case-studies',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Case Studies | Syntalix Consultancy',
+    description: 'Real AI outcomes: 80% faster document processing, 35% less downtime, 50% faster e-commerce. Explore Syntalix client case studies.',
+    images: ['/og-image.png'],
+  },
 };
 
 const caseStudies = [
@@ -30,9 +43,19 @@ const caseStudies = [
   }
 ];
 
+const caseStudiesBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.syntalixconsultancy.com" },
+    { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://www.syntalixconsultancy.com/case-studies" }
+  ]
+};
+
 export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen pt-32 pb-24 bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudiesBreadcrumbSchema) }} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Client Case Studies</h1>

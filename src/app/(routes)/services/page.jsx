@@ -10,20 +10,29 @@ import {
   Users,
   Clock,
   ChevronRight,
+  Target,
+  Search
 } from "lucide-react";
 
 export const metadata = {
-  title: "Our Services | Syntalix Consultancy Services",
+  title: "Our Services",
   description:
-    "Explore Syntalix Consultancy's full range of services including AI & ML infrastructure, LLM engineering, agentic AI systems, and web & mobile app development. Enterprise-grade solutions tailored for your business.",
+    "AI & ML services from Syntalix Consultancy: LLM engineering, agentic AI systems, RAG architecture, MLOps infrastructure, and full-stack web & mobile development — built for enterprise production.",
   openGraph: {
-    title: "Our Services | Syntalix Consultancy Services",
+    title: "Our Services | Syntalix Consultancy",
     description:
       "From AI/ML infrastructure to full-stack web and mobile development — discover how Syntalix Consultancy can transform your business with cutting-edge technology solutions.",
     url: "https://www.syntalixconsultancy.com/services",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Services | Syntalix Consultancy",
+    description: "AI & ML services: LLM engineering, agentic AI, RAG architecture, MLOps, web & mobile development. Built for enterprise production in India.",
+    images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "https://www.syntalixconsultancy.com/services",
+    canonical: "/services",
   },
 };
 
@@ -82,6 +91,34 @@ const services = [
       "SaaS Platforms",
       "Mobile Development",
       "Cloud Architecture",
+    ],
+  },
+  {
+    title: "AI Consulting",
+    slug: "ai-consulting",
+    description:
+      "Strategic AI consulting — helping enterprises identify AI opportunities, build implementation roadmaps, and deliver production-grade AI systems.",
+    icon: Target,
+    gradient: "from-blue-500 to-cyan-500",
+    features: [
+      "Use-Case Discovery",
+      "ROI Modelling",
+      "AI Roadmaps",
+      "Proof of Concept",
+    ],
+  },
+  {
+    title: "Answer Engine Optimization",
+    slug: "aeo-optimization",
+    description:
+      "AEO services to get your brand cited by ChatGPT, Perplexity, Google AI Overviews, and Claude. We implement technical AEO so AI engines recommend your business.",
+    icon: Search,
+    gradient: "from-violet-500 to-cyan-500",
+    features: [
+      "Schema Implementation",
+      "Entity Clarity",
+      "AI-Crawlable Content",
+      "Citation Building",
     ],
   },
 ];

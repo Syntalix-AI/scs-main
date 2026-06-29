@@ -6,14 +6,21 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Web & Mobile App Development | Syntalix Consultancy",
-  description: "Enterprise web applications, SaaS platforms, React/Next.js frontends, React Native, iOS and Android development. Syntalix delivers full-stack solutions with modern cloud architecture.",
+  title: "Web & Mobile App Development",
+  description: "Enterprise web and mobile development from Syntalix Consultancy: Next.js, React, FastAPI, iOS, Android, and SaaS platforms built to production standards in India.",
   openGraph: {
     title: "Web & Mobile App Development | Syntalix Consultancy",
     description: "Full-stack web and mobile development: enterprise apps, SaaS platforms, React, Next.js, React Native, iOS, Android, and cloud-native architecture.",
     url: "https://www.syntalixconsultancy.com/services/web-mobile-development",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://www.syntalixconsultancy.com/services/web-mobile-development" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web & Mobile App Development | Syntalix Consultancy",
+    description: "Enterprise web and mobile development: Next.js, React, iOS, Android, and SaaS platforms built to production standards in India.",
+    images: ["/og-image.png"],
+  },
+  alternates: { canonical: "/services/web-mobile-development" },
 };
 
 const features = [
@@ -78,9 +85,20 @@ const faqs = [
   { question: "Do you provide ongoing maintenance and feature development after launch?", answer: "Absolutely. We offer flexible post-launch support arrangements ranging from a dedicated retainer for ongoing feature development to a maintenance contract covering monitoring, security updates, and bug fixes. Many of our clients continue working with us for years after initial launch, with our team becoming an embedded extension of their engineering function." },
 ];
 
+const webMobileBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.syntalixconsultancy.com" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.syntalixconsultancy.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Web & Mobile Development", "item": "https://www.syntalixconsultancy.com/services/web-mobile-development" }
+  ]
+};
+
 export default function WebMobileDevelopmentPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webMobileBreadcrumbSchema) }} />
       {/* Hero */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">

@@ -3,6 +3,42 @@
 import { motion } from "framer-motion";
 import { HiOutlineUserGroup, HiOutlineLightBulb, HiOutlineGlobeAlt, HiOutlineSparkles } from "react-icons/hi";
 
+const teamBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.syntalixconsultancy.com" },
+    { "@type": "ListItem", "position": 2, "name": "Team", "item": "https://www.syntalixconsultancy.com/team" }
+  ]
+};
+
+const expertiseAreas = [
+  {
+    id: "llm",
+    title: "LLM Engineering",
+    description: "Our LLM engineers have shipped production RAG pipelines, fine-tuned domain-specific models using LoRA and QLoRA, and built hallucination-mitigation layers used by clients in finance, legal, and healthcare.",
+    tags: ["LangChain", "LangGraph", "RAG", "Fine-Tuning", "Prompt Engineering", "Azure OpenAI", "Ollama"]
+  },
+  {
+    id: "agentic",
+    title: "Agentic & Multi-Agent Systems",
+    description: "Specialists in building autonomous AI systems that plan, reason, and act across multi-step workflows. Our agent engineers have deployed systems that handle document processing, research automation, and business process orchestration.",
+    tags: ["LangGraph", "AutoGen", "Multi-Agent", "Tool Use", "Human-in-the-Loop", "Evaluation"]
+  },
+  {
+    id: "mlops",
+    title: "AI/ML Infrastructure & MLOps",
+    description: "End-to-end ML lifecycle engineering: from custom model architecture and training pipelines to production monitoring, drift detection, and cost optimisation. Our infrastructure team has designed systems processing millions of inference requests monthly.",
+    tags: ["MLflow", "DVC", "OpenTelemetry", "Docker", "Kubernetes", "GPU Infrastructure", "FastAPI"]
+  },
+  {
+    id: "engineering",
+    title: "Full-Stack Engineering",
+    description: "Senior engineers with deep expertise in modern full-stack development. We build performant Next.js frontends, FastAPI backends, and cross-platform mobile apps that are production-tested at enterprise scale.",
+    tags: ["Next.js", "React", "FastAPI", "React Native", "iOS", "Android", "TypeScript", "PostgreSQL"]
+  }
+];
+
 const culturePillars = [
   {
     id: "innovation",
@@ -53,10 +89,11 @@ export default function TeamPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Syntalix",
+    "name": "Syntalix Consultancy",
+    "legalName": "Syntalix LLP",
     "url": "https://www.syntalixconsultancy.com",
     "logo": "https://www.syntalixconsultancy.com/syntalix_logo.webp",
-    "description": "The Syntalix team is a collective of elite software engineers and AI specialists driven by innovation, collaboration, and a commitment to excellence."
+    "description": "The Syntalix team is a collective of elite AI engineers, LLM specialists, and full-stack developers building production-grade AI and software systems for global enterprise clients."
   };
 
   return (
@@ -64,6 +101,10 @@ export default function TeamPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamBreadcrumbSchema) }}
       />
       <div className="min-h-screen pt-32 pb-24 bg-background overflow-hidden relative">
         {/* Background Gradients */}
@@ -77,11 +118,34 @@ export default function TeamPage() {
             className="text-center mb-20"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">Culture &amp; Team</span>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">Team & Expertise</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We are a collective of elite engineers, visionary architects, and creative problem-solvers. While our expertise spans diverse technologies, our unified mission is to build robust, intelligent systems that drive enterprise success.
+              We are a collective of elite AI engineers, LLM specialists, and full-stack developers. Our unified mission: build robust, intelligent systems that drive enterprise success.
             </p>
+          </motion.div>
+
+          {/* Expertise Areas */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-24"
+          >
+            {expertiseAreas.map((area) => (
+              <div
+                key={area.id}
+                className="bg-card/50 backdrop-blur-xl border border-white/10 dark:border-slate-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all duration-300"
+              >
+                <h2 className="text-2xl font-bold text-foreground mb-4">{area.title}</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">{area.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {area.tags.map((tag) => (
+                    <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </motion.div>
 
           <motion.div 

@@ -69,11 +69,18 @@ export function Domains() {
                 </div>
                 <div className="border-2 border-dashed p-4 pb-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-md shadow hover:border-primary/40 rounded-lg">
                   <h3 className="text-lg pb-2 font-semibold">
-                    Machine Learning Models
+                    AI Consulting
                   </h3>
                   <p className="text-muted-foreground">
-                    Develop custom ML models for specific business needs,
-                    from recommendation systems to anomaly detection.
+                    Strategic AI consulting to help identify high-ROI opportunities and build implementation roadmaps.
+                  </p>
+                </div>
+                <div className="border-2 border-dashed p-4 pb-8 hover:-translate-y-2 transition-all duration-300 hover:shadow-md shadow hover:border-primary/40 rounded-lg">
+                  <h3 className="text-lg pb-2 font-semibold">
+                    Answer Engine Optimization (AEO)
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Get your brand cited by AI engines like ChatGPT and Perplexity through technical AEO and entity optimization.
                   </p>
                 </div>
               </div>
