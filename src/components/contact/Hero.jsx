@@ -21,7 +21,7 @@ const social = [
     },
     {
         title: "Linkeden",
-        href: "https://www.linkedin.com/company/syntalix-consultancy",
+        href: "https://www.linkedin.com/company/syntalix",
         svg: <FaLinkedin className='w-6 h-6' />
     },
     {
