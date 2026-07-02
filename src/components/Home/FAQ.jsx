@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "How can I start a project with Syntalix Consultancy?",
     answer:
-      "You can contact Syntalix by phone at +91 9259750107, email syntalix.consultancy@gmail.com, or use the website contact form to request a free consultation for your project. We serve clients remotely across India and globally.",
+      "You can contact Syntalix by phone at +91 9259750107, email syntalixllp@gmail.com, or use the website contact form to request a free consultation for your project. We serve clients remotely across India and globally.",
   },
 ];
 
