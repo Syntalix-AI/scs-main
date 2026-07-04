@@ -4,6 +4,7 @@ import { Nav } from "../components/Navbar";
 import { Foot } from "../components/Footer";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "../components/ThemeProvider";
+import Script from "next/script";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -209,6 +210,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-IN" className={`${outfit.variable} ${inter.variable}`}>
       <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-P819Y0LVBH"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P819Y0LVBH');
+          `}
+        </Script>
         <meta name="format-detection" content="telephone=no" />
         <script
           type="application/ld+json"
