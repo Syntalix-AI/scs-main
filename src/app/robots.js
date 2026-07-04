@@ -46,6 +46,10 @@ export default function robots() {
         userAgent: 'anthropic-ai',
         allow: '/',
       },
+      {
+        userAgent: 'FacebookBot',
+        allow: '/',
+      },
     ],
     sitemap: 'https://www.syntalixconsultancy.com/sitemap.xml',
   }
