@@ -123,7 +123,7 @@ const jsonLd = {
           "availableLanguage": ["English", "Hindi"]
         }
       ],
-      "email": "syntalixllp@gmail.com",
+      "email": "syntalix.consultancy@gmail.com",
       "telephone": "+91-9259750107",
       "priceRange": "$$",
       "openingHours": "Mo-Fr 09:00-18:00",

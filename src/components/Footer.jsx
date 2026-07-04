@@ -106,8 +106,8 @@ export function Foot() {
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-start gap-3">
                 <span className="w-2 h-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                <a href="mailto:syntalixllp@gmail.com" className="hover:text-primary transition-colors">
-                  syntalixllp@gmail.com
+                <a href="mailto:syntalix.consultancy@gmail.com" className="hover:text-primary transition-colors">
+                  syntalix.consultancy@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">

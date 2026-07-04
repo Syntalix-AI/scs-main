@@ -177,7 +177,7 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <p className="text-muted-foreground font-medium">Contact</p>
-                  <p className="text-foreground font-semibold">syntalixllp@gmail.com</p>
+                  <p className="text-foreground font-semibold">syntalix.consultancy@gmail.com</p>
                 </div>
               </div>
             </div>
