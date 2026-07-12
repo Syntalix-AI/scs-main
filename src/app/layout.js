@@ -177,7 +177,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-IN" className={`${outfit.variable} ${inter.variable}`}>
+    <html lang="en-IN" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <meta name="format-detection" content="telephone=no" />
         <script

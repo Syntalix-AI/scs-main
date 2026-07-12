@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -10,6 +10,23 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Render a neutral placeholder until mounted to avoid SSR/CSR hydration mismatch
+  if (!mounted) {
+    return (
+      <button
+        className="p-2 rounded-xl bg-gray-100/80 dark:bg-slate-800/80 text-gray-500 dark:text-gray-400 focus:outline-none transition-all backdrop-blur-sm w-9 h-9"
+        aria-label="Toggle theme"
+        disabled
+      />
+    );
+  }
+
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -37,6 +54,7 @@ const menuItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Team", href: "/team" },
   { name: "Blog", href: "/blog" },
@@ -93,11 +111,10 @@ export function Nav() {
                   key={item.name}
                   href={isHomePage && item.homeSectionId ? `/#${item.homeSectionId}` : item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    pathname === item.href
-                      ? "text-primary bg-primary/5"
-                      : "text-muted-foreground hover:text-foreground hover:bg-gray-100/50 dark:hover:bg-slate-800/50"
-                  }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${pathname === item.href
+                    ? "text-primary bg-primary/5"
+                    : "text-muted-foreground hover:text-foreground hover:bg-gray-100/50 dark:hover:bg-slate-800/50"
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -174,11 +191,10 @@ export function Nav() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
-                      pathname === item.href
-                        ? "text-primary bg-primary/5"
-                        : "text-foreground/80 hover:text-primary hover:bg-gray-50 dark:hover:bg-slate-800"
-                    }`}
+                    className={`px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${pathname === item.href
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground/80 hover:text-primary hover:bg-gray-50 dark:hover:bg-slate-800"
+                      }`}
                   >
                     {item.name}
                   </Link>
