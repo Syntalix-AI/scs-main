@@ -1,19 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import {
   Bot, Network, Workflow, Cpu, Zap, Shield, ArrowRight, CheckCircle2,
   ChevronDown, Brain, MessageSquareCode, Globe, Settings, Target, RefreshCw,
 } from "lucide-react";
 
 export const metadata = {
-  title: "Agentic AI Systems | Syntalix Consultancy",
-  description: "Build autonomous AI agents and multi-agent systems that plan, reason, and act. Syntalix designs and deploys production-grade agentic AI systems for enterprise workflow automation.",
+  title: "Agentic AI Systems",
+  description: "Build autonomous multi-agent AI systems with Syntalix. We design and deploy LangGraph-based agentic workflows, goal-driven automation, and tool-use agents for Indian and global enterprises.",
+  keywords: [
+    "agentic AI India", "multi-agent systems India", "LangGraph development",
+    "autonomous AI workflows", "AI agent development India"
+  ],
   openGraph: {
     title: "Agentic AI Systems | Syntalix Consultancy",
     description: "Multi-agent orchestration, autonomous decision engines, and tool-use AI systems. Syntalix builds agentic AI that works independently to drive business outcomes.",
     url: "https://www.syntalixconsultancy.com/services/agentic-systems",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
-  alternates: { canonical: "https://www.syntalixconsultancy.com/services/agentic-systems" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agentic AI Systems | Syntalix Consultancy",
+    description: "Autonomous multi-agent AI systems: LangGraph workflows, goal-driven automation, and tool-use agents. Built for enterprise scale in India.",
+    images: ["/og-image.png"],
+  },
+  alternates: { canonical: "/services/agentic-systems" },
 };
 
 const features = [
@@ -78,9 +90,68 @@ const faqs = [
   { question: "How long does it take to deploy an agentic system?", answer: "A focused single-agent system for a well-defined use case typically takes 6–10 weeks from kickoff to production. More complex multi-agent systems with extensive tool integrations and custom safety requirements may take 3–6 months. We always recommend starting with a focused pilot to validate the approach before expanding to more complex scenarios." },
 ];
 
+const agenticFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an agentic AI system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An agentic AI system is an AI application that can autonomously plan multi-step actions, use tools, make decisions, and adapt to changing information to achieve a goal — without requiring constant human instruction. Unlike simple LLM chatbots that only respond to prompts, agents proactively take actions, call APIs, browse the web, write code, and interact with external systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is agentic AI different from traditional automation (RPA)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditional RPA follows rigid, pre-programmed rules and breaks when encountering unexpected inputs or process variations. Agentic AI systems can reason about novel situations, understand natural language instructions, handle ambiguity, recover from errors dynamically, and adapt their approach based on outcomes. They automate judgment-intensive work, not just repetitive rule-based tasks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you ensure agents don't make costly mistakes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We implement layered safety controls: scope constraints limit what actions agents can take; approval workflows require human sign-off for high-stakes operations; cost limits prevent runaway API usage; comprehensive logging enables full auditability; and automated testing validates behavior across thousands of scenarios. We also implement gradual rollouts — starting with human-in-the-loop modes before progressively increasing autonomy as confidence grows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kinds of tasks are well-suited for agentic AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agentic AI excels at tasks that are repetitive but require some judgment, involve multiple steps across different systems, need to aggregate and synthesize information from various sources, follow structured processes with clear success criteria, and are currently performed manually by skilled professionals. Research, data analysis, document processing, code generation, and customer communication are common high-value use cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to deploy an agentic system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A focused single-agent system for a well-defined use case typically takes 6–10 weeks from kickoff to production. More complex multi-agent systems with extensive tool integrations and custom safety requirements may take 3–6 months. We always recommend starting with a focused pilot to validate the approach before expanding to more complex scenarios."
+      }
+    }
+  ]
+};
+
+const agenticBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.syntalixconsultancy.com" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.syntalixconsultancy.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "Agentic AI Systems", "item": "https://www.syntalixconsultancy.com/services/agentic-systems" }
+  ]
+};
+
 export default function AgenticSystemsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <Script id="agentic-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(agenticFaqSchema) }} />
+      <Script id="agentic-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(agenticBreadcrumbSchema) }} />
       {/* Hero */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">

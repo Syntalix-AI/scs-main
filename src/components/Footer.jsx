@@ -16,11 +16,13 @@ const serviceLinks = [
   { name: "AI & ML Infrastructure", href: "/services/ai-ml-infrastructure" },
   { name: "LLM Engineering", href: "/services/llm-engineering" },
   { name: "Agentic AI Systems", href: "/services/agentic-systems" },
+  { name: "AI Consulting", href: "/services/ai-consulting" },
+  { name: "Answer Engine Optimization", href: "/services/aeo-optimization" },
   { name: "Web & Mobile Apps", href: "/services/web-mobile-development" },
 ];
 
 const socialLinks = [
-  { name: "LinkedIn", href: "https://www.linkedin.com/company/syntalix/", icon: FaLinkedin },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/syntalix", icon: FaLinkedin },
   { name: "Facebook", href: "https://www.facebook.com/syntalix/", icon: FaFacebook },
   { name: "GitHub", href: "https://github.com/Syntalix-AI", icon: FaGithub },
   { name: "WhatsApp", href: "https://wa.me/919259750107", icon: FaWhatsapp },
@@ -118,9 +120,10 @@ export function Foot() {
                 <span className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0" />
                 <span className="leading-relaxed text-xs text-gray-500">
                   <strong className="text-gray-300">Syntalix LLP</strong><br />
-                  A Registered LLP in India<br />
+                  Registered in Uttar Pradesh, India<br />
                   LLPIN: ACR-6280<br />
-                  Serving Clients Globally
+                  <span className="text-gray-600">Serving Gujarat · Delhi · Bengaluru<br />
+                  Kolkata · UP · Mumbai &amp; Globally</span>
                 </span>
               </li>
             </ul>

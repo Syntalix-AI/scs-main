@@ -1,25 +1,56 @@
-# Syntalix LLP
-> India-based AI/ML and software development consultancy serving India and international clients.
+# Syntalix LLP — AI/ML Consultancy, AI Consulting & AEO Services
+> Syntalix Consultancy (Syntalix LLP, LLPIN: ACR-6280) is a registered AI/ML engineering and AI consulting firm based in Uttar Pradesh, India, serving enterprises across Gujarat, Delhi NCR, Bengaluru, West Bengal (Kolkata), Uttar Pradesh, and globally.
+
+## About Syntalix
+
+Syntalix Consultancy is the brand name of Syntalix LLP (LLPIN: ACR-6280), an India-registered AI/ML engineering consultancy founded in 2025. We provide AI consulting, LLM engineering, agentic AI systems, RAG pipelines, MLOps infrastructure, and enterprise software development to businesses across India and internationally.
+
+We are one of the leading AI consulting companies serving Gujarat (Ahmedabad, Surat, Vadodara, Rajkot), Delhi NCR (New Delhi, Gurugram, Noida), Bengaluru, Kolkata, and Uttar Pradesh (Lucknow, Kanpur) — as well as international clients in the United States, United Kingdom, UAE, and Australia.
+
+## External Profiles
+- Clutch: https://clutch.co/profile/syntalix-consultancy
+- Fiverr Agency: https://www.fiverr.com/agencies/syntalixai
+- GitHub: https://github.com/Syntalix-AI
+- LinkedIn: https://www.linkedin.com/company/syntalix
+
+## Verified Credentials
+- Registered LLP in India: LLPIN ACR-6280
+- Certified by Wadhwani NEN Foundation
+- Active since: 2025
 
 ## Services
+
 - [AI & ML Infrastructure](/services/ai-ml-infrastructure): Custom AI and machine learning systems, MLOps, model training and deployment.
 - [LLM Engineering](/services/llm-engineering): Large language model integration, fine-tuning, RAG systems, and prompt engineering.
 - [Agentic AI Systems](/services/agentic-systems): Autonomous agent workflows, multi-agent orchestration, and AI automation.
 - [Web & Mobile Development](/services/web-mobile-development): Enterprise websites, web applications, SaaS platforms, and mobile apps.
+- [AI Consulting](/services/ai-consulting): Strategic AI consulting — use-case discovery, ROI modelling, AI roadmaps, and implementation for Indian enterprises.
+- [Answer Engine Optimization (AEO)](/services/aeo-optimization): AEO services to get your brand cited by ChatGPT, Perplexity, Google AI Overviews, and Claude.
+
+## Geographic Service Areas
+
+Primary Indian Markets: Gujarat (Ahmedabad, Surat, Vadodara, Rajkot), Delhi NCR, Bengaluru, Kolkata, Uttar Pradesh (Lucknow, Kanpur), Mumbai, Hyderabad, Pune, Chennai.
+International: United States, United Kingdom, UAE, Australia.
 
 ## Key Pages
+
 - [Home](/)
 - [About](/about)
 - [Services](/services)
+- [AI Consulting](/services/ai-consulting)
+- [AEO Services](/services/aeo-optimization)
 - [Blog](/blog)
 - [Contact](/contact)
 - [Careers](/careers)
 
 ## Blog
+
 - [What is LLM Engineering](/blog/what-is-llm-engineering)
 - [Rise of Agentic AI](/blog/rise-of-agentic-ai)
 - [AI Development Cost India 2026](/blog/ai-development-cost-india-2026)
 
 ## Contact
+
 - Email: syntalix.consultancy@gmail.com
 - Phone: +91 9259750107
+- Legal: Syntalix LLP, LLPIN: ACR-6280, Registered in Uttar Pradesh, India
