@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import Image from "next/image";
 import {
   MessageSquareCode,
@@ -19,17 +20,29 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "LLM Engineering Services | Syntalix Consultancy",
+  title: "LLM Engineering Services",
   description:
-    "Expert LLM integration, fine-tuning, RAG system architecture, prompt engineering, and API development. Syntalix helps you harness the full power of large language models for production applications.",
+    "Expert LLM engineering in India: fine-tuning, RAG system architecture, prompt engineering, safety guardrails, and production API development. Syntalix LLP builds LLM systems that scale.",
+  keywords: [
+    "LLM engineering India", "LLM fine-tuning India", "RAG system development",
+    "LangChain development India", "production LLM applications", "LLM API development"
+  ],
   openGraph: {
     title: "LLM Engineering Services | Syntalix Consultancy",
     description:
       "End-to-end LLM engineering: fine-tuning, RAG pipelines, prompt engineering, and API development. Build production-grade generative AI applications with Syntalix.",
     url: "https://www.syntalixconsultancy.com/services/llm-engineering",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LLM Engineering Services | Syntalix Consultancy",
+    description:
+      "Production-grade LLM engineering: fine-tuning, RAG pipelines, prompt engineering and API development. Built for enterprise scale in India.",
+    images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "https://www.syntalixconsultancy.com/services/llm-engineering",
+    canonical: "/services/llm-engineering",
   },
 };
 
@@ -158,9 +171,68 @@ const faqs = [
   },
 ];
 
+const llmFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should we fine-tune a model or use RAG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your use case. RAG is ideal when you need the LLM to access and reference specific, frequently updated information — like company documents, product catalogs, or knowledge bases. Fine-tuning is better when you need the model to adopt a specific style, follow complex domain-specific reasoning patterns, or handle structured output formats consistently. In many cases, a hybrid approach combining both delivers the best results. We help you make this decision based on your data, quality requirements, and budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle hallucinations in LLM outputs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We implement multiple layers of hallucination mitigation: RAG with citation tracking grounds responses in source documents; output validation checks factual claims against trusted data; confidence scoring flags uncertain responses for human review; and structured output schemas constrain the model to produce only valid, verifiable information. We also build feedback loops that help the system learn from flagged errors over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about data privacy when using LLMs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data privacy is a core concern in our architecture. We can deploy solutions using private LLM endpoints that don't send data to third-party providers, self-hosted open-source models running entirely within your infrastructure, or enterprise API tiers with data processing agreements. For sensitive domains like healthcare and finance, we implement additional encryption, access controls, and audit logging to meet regulatory requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you manage LLM costs in production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We implement comprehensive cost optimization strategies including intelligent caching of common queries, semantic deduplication, prompt optimization to reduce token usage, model routing that directs simpler queries to smaller/cheaper models, and batch processing where latency allows. These techniques typically reduce LLM API costs by 40–70% compared to naive implementations while maintaining output quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you integrate LLMs with our existing software systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We build robust integration layers that connect LLM capabilities with your existing applications, databases, CRMs, ERPs, and workflows. Our API-first approach means the LLM system can be accessed from any platform, and we implement proper error handling, fallback strategies, and monitoring to ensure reliability in production environments."
+      }
+    }
+  ]
+};
+
+const llmBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.syntalixconsultancy.com" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.syntalixconsultancy.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "LLM Engineering", "item": "https://www.syntalixconsultancy.com/services/llm-engineering" }
+  ]
+};
+
 export default function LLMEngineeringPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <Script id="llm-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(llmFaqSchema) }} />
+      <Script id="llm-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(llmBreadcrumbSchema) }} />
       {/* Hero Section */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">

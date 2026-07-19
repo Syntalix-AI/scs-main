@@ -4,7 +4,7 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/_next/'],
       },
       {
         userAgent: 'GPTBot',
@@ -44,6 +44,10 @@ export default function robots() {
       },
       {
         userAgent: 'anthropic-ai',
+        allow: '/',
+      },
+      {
+        userAgent: 'FacebookBot',
         allow: '/',
       },
     ],

@@ -3,13 +3,23 @@ import { blogPosts } from "@/data/blog-posts";
 import { Calendar, Clock, ArrowRight, BookOpen } from "lucide-react";
 
 export const metadata = {
-  title: "Blog | Syntalix Consultancy Services",
-  description: "Insights, guides, and industry analysis on AI/ML development, LLM engineering, agentic systems, and software development from the Syntalix team.",
-  alternates: { canonical: "https://www.syntalixconsultancy.com/blog" },
+  title: "Blog",
+  description: "Technical articles on LLM engineering, agentic AI, RAG systems, and enterprise software from the Syntalix team — India's AI/ML consultancy.",
+  keywords: [
+    "LLM engineering blog India", "agentic AI articles", "RAG system guide", "AI ML consultancy insights India"
+  ],
+  alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog | Syntalix Consultancy Services",
+    title: "Blog | Syntalix Consultancy",
     description: "Expert insights on AI, ML, LLM engineering, agentic systems, and software development from Syntalix Consultancy.",
     url: "https://www.syntalixconsultancy.com/blog",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Syntalix Consultancy",
+    description: "Technical articles on LLM engineering, agentic AI, RAG systems, and enterprise software from the Syntalix team.",
+    images: ["/og-image.png"],
   },
 };
 

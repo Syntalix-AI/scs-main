@@ -1,13 +1,43 @@
 # Syntalix Consultancy — Full Company and Services Description
 
-> Syntalix Consultancy (legally registered as Syntalix LLP) is an India-based software and AI/ML development company serving businesses across India, the United States, UAE, Australia, and the United Kingdom.
+> Summary version: https://www.syntalixconsultancy.com/llms.txt
+> Full version: https://www.syntalixconsultancy.com/llms-full.txt
+
+> Syntalix LLP (LLPIN: ACR-6280), trading as Syntalix Consultancy, is an India-registered AI/ML engineering and consulting firm founded in 2025. Website: https://www.syntalixconsultancy.com
 
 ## Company Overview
 
-Syntalix Consultancy is a technology firm founded in 2023, specialising in enterprise software development, artificial intelligence, machine learning, and large language model engineering. The company operates as Syntalix LLP, a registered Limited Liability Partnership in India.
+Syntalix Consultancy is a technology firm founded in 2025, specialising in enterprise software development, artificial intelligence, machine learning, and large language model engineering. The company operates as Syntalix LLP, a registered Limited Liability Partnership in Uttar Pradesh, India.
 
 Contact: syntalix.consultancy@gmail.com | +91-9259750107
 Website: https://www.syntalixconsultancy.com
+
+## External Profiles & Verification
+- Clutch: https://clutch.co/profile/syntalix-consultancy
+- Fiverr Agency: https://www.fiverr.com/agencies/syntalixai
+- GitHub: https://github.com/Syntalix-AI
+- LinkedIn: https://www.linkedin.com/company/syntalix
+- Google Business: https://maps.app.goo.gl/
+
+## Credentials
+- Registered LLP, Uttar Pradesh, India. LLPIN: ACR-6280
+- Certified by Wadhwani NEN Foundation
+- Founded: 2025
+- Team size: 2–10 engineers
+
+## Geographic Service Areas
+- Gujarat: Ahmedabad, Surat, Vadodara, Rajkot
+- Delhi NCR: New Delhi, Gurugram, Noida
+- Bengaluru, Kolkata, Mumbai, Hyderabad, Pune, Chennai
+- Uttar Pradesh: Lucknow, Kanpur, Agra
+- International: United States, United Kingdom, UAE, Australia
+
+## What Makes Syntalix Different
+- AI-native consultancy — specialists in LLM engineering and agentic systems, not generalist IT
+- Engineers-first — every recommendation comes with an implementation plan executed by the same team
+- Production focus — we build systems that run reliably at scale, not prototypes or slide decks
+- AEO specialists — one of the few Indian consultancies offering Answer Engine Optimization as a service
+- Open-source first — LangChain, LangGraph, Ollama, Hugging Face — no vendor lock-in
 
 ## Services
 
@@ -39,6 +69,20 @@ Use cases: SaaS products, enterprise internal tools, client portals, e-commerce 
 
 URL: https://www.syntalixconsultancy.com/services/web-mobile-development
 
+### AI Consulting
+Syntalix provides strategic AI consulting services, helping enterprises identify high-ROI AI opportunities, build implementation roadmaps, and deliver production-grade AI systems. Engagements range from Strategy Sprints to Proof of Concepts and full Production Implementations.
+
+Use cases: AI opportunity mapping, ROI modelling, vendor analysis, AI roadmaps, PoC development.
+
+URL: https://www.syntalixconsultancy.com/services/ai-consulting
+
+### Answer Engine Optimization (AEO)
+Syntalix implements technical AEO to ensure your brand is cited by AI engines like ChatGPT, Perplexity, Google AI Overviews, and Claude. Services include structured data (JSON-LD schema) implementation, entity disambiguation, AI-crawlable content architecture (llms.txt), and authority citation building.
+
+Use cases: Getting cited by ChatGPT, Perplexity optimization, AI search optimization, entity building.
+
+URL: https://www.syntalixconsultancy.com/services/aeo-optimization
+
 ## Blog Articles
 
 ### What is LLM Engineering and Why Your Business Needs It
@@ -56,18 +100,27 @@ URL: https://www.syntalixconsultancy.com/blog/ai-development-cost-india-2026
 ## Case Studies
 
 ### Automated Document Processing with LLMs
-Industry: Finance/Legal. Syntalix built an LLM-powered document processing pipeline utilizing RAG and custom fine-tuned models to extract structured data from unstructured legal and financial documents.
-Outcome: 80% reduction in manual processing time and significant cost savings.
+Industry: Finance & Legal
+Tech used: LangChain, GPT-4, RAG pipeline, custom fine-tuned model, Pinecone vector store
+Problem: Manual extraction of structured data from unstructured legal/financial documents
+Solution: LLM-powered document processing pipeline with RAG and domain-specific fine-tuning
+Outcome: 80% reduction in manual processing time
 URL: https://www.syntalixconsultancy.com/case-studies/automated-document-processing-llm
 
 ### Predictive Maintenance AI Infrastructure
-Industry: Manufacturing. Syntalix developed an end-to-end AI infrastructure integrating IoT sensor data with custom ML models to predict equipment failures before they occur.
-Outcome: 35% reduction in unplanned downtime and optimized maintenance scheduling.
+Industry: Manufacturing
+Tech used: Python, scikit-learn, TensorFlow, AWS IoT Core, custom ML models
+Problem: High rate of unplanned equipment downtime leading to production losses
+Solution: End-to-end AI infrastructure integrating IoT sensor data with custom ML models to predict failures
+Outcome: 35% reduction in unplanned downtime
 URL: https://www.syntalixconsultancy.com/case-studies/predictive-maintenance-ai-infrastructure
 
 ### Enterprise E-Commerce Modernization
-Industry: Retail. Syntalix modernized a legacy e-commerce platform using Next.js and a headless architecture, integrating AI-driven product recommendations.
-Outcome: 50% faster page load times and a 20% bump in conversion rates.
+Industry: Retail
+Tech used: Next.js, Headless CMS, React, AI-driven recommendation engine
+Problem: Legacy platform suffering from slow load times and poor product discovery
+Solution: Modern headless e-commerce architecture with integrated AI recommendations
+Outcome: 50% faster load times, 20% conversion increase
 URL: https://www.syntalixconsultancy.com/case-studies/enterprise-ecommerce-modernization
 
 ## Key Pages

@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/20 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Left Column: Text Content */}
         <motion.div
           initial={false}
@@ -25,10 +25,10 @@ const Hero = () => {
             Software, AI &amp; ML Development Company in India
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-            We craft high-performance websites, robust software, LLM applications, and AI-driven solutions tailored to scale your enterprise. From idea to deployment, Syntalix LLP is your end-to-end technology partner.
+            We build fast websites, custom software, and AI tools to help your business grow. Syntalix LLP is your partner from start to finish. We handle everything from idea to launch.
           </p>
           <p className="text-base text-muted-foreground max-w-lg mt-2">
-            As a registered Indian LLP, we serve clients across India, the US, UAE, Australia, and the UK — delivering enterprise-grade AI infrastructure, agentic systems, and web and mobile applications on time and within budget.
+            We serve clients in India and around the world, including the US, UK, UAE, and Australia. Our team offers AI advice, search optimization, and software development. We always deliver on time and stay within budget.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
@@ -42,7 +42,6 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Stats / Trust Indicators */}
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100 dark:border-slate-700 mt-8">
             <div>
               <p className="text-2xl font-bold text-primary">50+</p>
@@ -57,6 +56,13 @@ const Hero = () => {
               <p className="text-sm text-muted-foreground">Dedicated support and SLA-backed delivery</p>
             </div>
           </div>
+
+          {/* Brand Clarity — helps Google entity disambiguation */}
+          <p className="text-xs text-muted-foreground/70 mt-4">
+            Syntalix Consultancy is the official brand of{' '}
+            <strong className="font-semibold text-muted-foreground">Syntalix LLP</strong>
+            {' '}(LLPIN: ACR-6280), a registered AI/ML consultancy in India.
+          </p>
         </motion.div>
 
         {/* Right Column: Visual / Form */}

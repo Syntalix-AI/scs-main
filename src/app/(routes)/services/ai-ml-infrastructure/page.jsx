@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import Image from "next/image";
 import {
   Brain,
@@ -20,17 +21,28 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "AI & ML Infrastructure Solutions | Syntalix Consultancy",
+  title: "AI & ML Infrastructure Solutions",
   description:
-    "Custom ML model development, training pipeline setup, MLOps automation, and production-grade model deployment. Syntalix builds enterprise AI infrastructure that scales with your business.",
+    "Production AI/ML infrastructure from Syntalix: custom model training, MLOps pipelines, GPU infrastructure, model monitoring with OpenTelemetry, and scalable deployment architectures.",
+  keywords: [
+    "MLOps India", "AI infrastructure India", "model training India",
+    "ML pipeline development", "AI monitoring OpenTelemetry", "machine learning company India"
+  ],
   openGraph: {
     title: "AI & ML Infrastructure Solutions | Syntalix Consultancy",
     description:
       "End-to-end AI/ML infrastructure: custom models, training pipelines, MLOps, and deployment. Enterprise-grade machine learning systems built for production.",
     url: "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI & ML Infrastructure Solutions | Syntalix Consultancy",
+    description: "Production ML infrastructure: custom model training, MLOps pipelines, GPU infrastructure, and scalable deployment. Built for enterprise scale in India.",
+    images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure",
+    canonical: "/services/ai-ml-infrastructure",
   },
 };
 
@@ -159,9 +171,68 @@ const faqs = [
   },
 ];
 
+const aimlFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a custom ML model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The timeline varies based on complexity and data readiness. A straightforward classification or regression model can be developed in 4–6 weeks, while complex deep learning systems with custom architectures may take 3–6 months. We always start with a rapid proof-of-concept to validate feasibility before committing to full-scale development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with our existing data infrastructure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We integrate with your existing data warehouses, lakes, and pipelines. Whether you use Snowflake, BigQuery, Redshift, or custom data systems, we design our ML infrastructure to work seamlessly within your current architecture while recommending improvements where needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the model is deployed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deployment is just the beginning. We set up comprehensive monitoring for model performance, data drift, and system health. We can provide ongoing maintenance and optimization through our support plans, or train your team to manage the system independently with full documentation and knowledge transfer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help us with GPU infrastructure and cost optimization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We design GPU infrastructure strategies that balance performance with cost efficiency — including spot instance strategies, multi-GPU training optimization, model quantization, and inference optimization techniques that can reduce compute costs by 50–80% without sacrificing model quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle data privacy and regulatory compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data privacy and compliance are integral to our process. We implement privacy-preserving techniques like differential privacy, federated learning, and data anonymization where required. Our infrastructure designs are aligned with GDPR, HIPAA, SOC 2, and other relevant regulatory frameworks."
+      }
+    }
+  ]
+};
+
+const aimlBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.syntalixconsultancy.com" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.syntalixconsultancy.com/services" },
+    { "@type": "ListItem", "position": 3, "name": "AI & ML Infrastructure", "item": "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure" }
+  ]
+};
+
 export default function AIMLInfrastructurePage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <Script id="aiml-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aimlFaqSchema) }} />
+      <Script id="aiml-breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aimlBreadcrumbSchema) }} />
       {/* Hero Section */}
       <section className="relative w-full pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
