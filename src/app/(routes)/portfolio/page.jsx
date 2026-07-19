@@ -10,25 +10,35 @@ import {
     ExternalLink,
     LayoutGrid,
     Filter,
-    // project-specific
-    Scissors,           // JT Makeovers
-    FlaskConical,       // RAYS & RZILSS – pharma/lab
-    BrainCircuit,       // GPT Fine-Tuning
-    FileCode2,          // Multi-Format Data Conversion
-    Lightbulb,          // AI Advisory
-    ScanSearch,         // Web Scraping / GIS
-    GraduationCap,      // AI Educational Platform
-    LayoutDashboard,    // Scalable Web & App Platform
-    Scale,              // Legal Discovery
-    TrendingUp,
     CheckCircle2,
     Zap,
 } from "lucide-react";
 
 // ─── Portfolio Data ────────────────────────────────────────────────
-const categories = ["All", "LLM Engineering", "AI / ML", "Web & Mobile"];
+const categories = ["All", "LLM Engineering", "AI / ML", "Web & Mobile", "Legal Tech"];
 
 const projects = [
+    {
+        id: 10,
+        title: "Legal India",
+        subtitle: "Legal & Regulatory Platform",
+        category: "Web & Mobile",
+        tags: ["Web Design", "Legal Tech", "Compliance", "Responsive UI", "SEO"],
+        description:
+            "Designed and developed a professional platform offering expert regulatory solutions across India. Provides comprehensive legal services, tax advisory, and business compliance support tailored to clients across all jurisdictions in India.",
+        outcome: "Live platform trusted by 10,000+ clients across India",
+        industry: "Legal Tech",
+        gradient: "from-slate-600 to-indigo-700",
+        glowColor: "rgba(79,70,229,0.35)",
+        borderGradient: "from-slate-400 via-indigo-400 to-violet-400",
+        featured: true,
+        liveUrl: "https://legalindia.vercel.app/",
+        metrics: [
+            { label: "Happy Clients", value: "960+" },
+            { label: "Clients Served", value: "1,000+" },
+            { label: "Success Rate", value: "97%" },
+        ],
+    },
     {
         id: 8,
         title: "JT Makeovers",
@@ -36,10 +46,9 @@ const projects = [
         category: "Web & Mobile",
         tags: ["Web Design", "Beauty & Wellness", "SEO", "Responsive UI"],
         description:
-            "Designed and developed a stunning, fully responsive website for Jyoti Tomar Makeover — a professional bridal and event makeup artist based in Delhi NCR. Showcases services, portfolio, and seamless booking.",
-        outcome: "Live website driving bookings & enquiries",
+            "Designed and developed a stunning, fully responsive website for Jyoti Tomar Makeover — a professional bridal and event makeup artist based in Delhi NCR. The site showcases services, portfolio galleries, and a seamless booking experience.",
+        outcome: "Live website driving bookings and inquiries",
         industry: "Beauty & Wellness",
-        Icon: Scissors,
         gradient: "from-rose-500 to-pink-500",
         glowColor: "rgba(244,63,94,0.35)",
         borderGradient: "from-rose-400 via-pink-400 to-fuchsia-400",
@@ -50,7 +59,6 @@ const projects = [
             { label: "Pages", value: "8+" },
             { label: "Load Speed", value: "<2s" },
         ],
-        emoji: "💄",
     },
     {
         id: 9,
@@ -59,10 +67,9 @@ const projects = [
         category: "Web & Mobile",
         tags: ["Web Design", "EdTech", "SEO", "Job Placement", "Responsive UI"],
         description:
-            "High-converting website for Eastern India's only pharma training institute with a written 100% job placement guarantee. 15+ years of expertise, 5,000+ careers built.",
-        outcome: "Live platform driving pharma enrolments",
+            "A high-converting website for Eastern India's only pharma training institute, backed by a written 100% job placement guarantee. Over 15 years of expertise and 5,000+ careers built across the pharmaceutical sector.",
+        outcome: "Live platform driving pharma enrollments",
         industry: "EdTech / Pharma",
-        Icon: FlaskConical,
         gradient: "from-blue-600 to-indigo-600",
         glowColor: "rgba(37,99,235,0.35)",
         borderGradient: "from-blue-400 via-indigo-400 to-violet-400",
@@ -73,7 +80,6 @@ const projects = [
             { label: "Careers Built", value: "5,000+" },
             { label: "Years Active", value: "15+" },
         ],
-        emoji: "🧪",
     },
     {
         id: 1,
@@ -82,10 +88,9 @@ const projects = [
         category: "LLM Engineering",
         tags: ["GPT Fine-Tuning", "Python", "LangChain", "NLP"],
         description:
-            "Fine-tuned a GPT model tailored to a specific custom dataset for client Charles. Delivered a robust, production-ready solution optimized for domain-specific use cases with high accuracy.",
-        outcome: "Production-ready custom GPT model",
+            "Fine-tuned a GPT model on a custom domain-specific dataset, delivering a robust, production-ready solution optimized for specialized use cases with consistently high accuracy.",
+        outcome: "Production-ready custom GPT model delivered",
         industry: "AI / LLM",
-        Icon: BrainCircuit,
         gradient: "from-violet-600 to-purple-600",
         glowColor: "rgba(124,58,237,0.35)",
         borderGradient: "from-violet-400 via-purple-400 to-fuchsia-400",
@@ -95,29 +100,27 @@ const projects = [
             { label: "Training Epochs", value: "50+" },
             { label: "Dataset Size", value: "Custom" },
         ],
-        emoji: "🧠",
+
     },
     {
         id: 2,
         title: "Multi-Format Converter",
-        subtitle: "Data Conversion App",
+        subtitle: "Data Conversion Application",
         category: "Web & Mobile",
         tags: ["Python", "LangChain", "React", "Django"],
         description:
-            "Application for client Muad that accepts data in PDF, JSON, and GeoJSON and automatically generates conversion code. Handles diverse data formats with AI-powered code generation.",
-        outcome: "Fully automated multi-format conversions",
+            "A versatile application that accepts data in PDF, JSON, and GeoJSON formats and automatically generates the required conversion code. Handles diverse data formats with AI-powered code generation at its core.",
+        outcome: "Fully automated multi-format data conversion",
         industry: "SaaS / Data",
-        Icon: FileCode2,
         gradient: "from-blue-600 to-cyan-500",
         glowColor: "rgba(6,182,212,0.35)",
         borderGradient: "from-blue-400 via-cyan-400 to-teal-400",
         featured: true,
         metrics: [
             { label: "Formats Supported", value: "10+" },
-            { label: "Auto-generated code", value: "Yes" },
+            { label: "Auto-Generated Code", value: "Yes" },
             { label: "Avg. Conversion", value: "<1s" },
         ],
-        emoji: "📄",
     },
     {
         id: 3,
@@ -126,10 +129,9 @@ const projects = [
         category: "AI / ML",
         tags: ["Fine-Tuning", "RAG", "AI Strategy", "LLM"],
         description:
-            "Comprehensive AI strategies, tools, and methodologies for startup client EvulKing. Delivered in-depth documentation on Fine-Tuning, RAG, and tools like JsonLink with detailed use cases.",
-        outcome: "Actionable AI roadmap delivered",
+            "Delivered comprehensive AI strategies, tools, and methodologies for an early-stage startup. Produced in-depth documentation covering Fine-Tuning, Retrieval-Augmented Generation (RAG), and tools like JsonLink with detailed use cases.",
+        outcome: "Actionable AI roadmap successfully delivered",
         industry: "Startup / Consulting",
-        Icon: Lightbulb,
         gradient: "from-amber-500 to-yellow-400",
         glowColor: "rgba(245,158,11,0.35)",
         borderGradient: "from-amber-400 via-yellow-400 to-orange-400",
@@ -139,19 +141,17 @@ const projects = [
             { label: "Docs Delivered", value: "15+" },
             { label: "ROI Impact", value: "High" },
         ],
-        emoji: "💡",
     },
     {
         id: 4,
         title: "Geodata Scraper",
         subtitle: "Web Scraping System",
         category: "Web & Mobile",
-        tags: ["Selenium", "Shell Programming", "Sentinel Hub", "Google Cloud"],
+        tags: ["Selenium", "Shell Scripting", "Sentinel Hub", "Google Cloud"],
         description:
-            "Built a web scraping system for client AutoCad to extract coordinates, locations, and map data. A powerful automated tool that collects, processes, and stores location-based data efficiently.",
-        outcome: "Fully automated geodata pipeline",
+            "Built a robust web scraping system to extract coordinates, locations, and map data from multiple sources. A powerful automated tool that collects, processes, and stores location-based geospatial data efficiently.",
+        outcome: "Fully automated geospatial data pipeline",
         industry: "GIS / Startup",
-        Icon: ScanSearch,
         gradient: "from-teal-500 to-emerald-600",
         glowColor: "rgba(16,185,129,0.35)",
         borderGradient: "from-teal-400 via-emerald-400 to-green-400",
@@ -161,19 +161,17 @@ const projects = [
             { label: "GeoJSON Output", value: "Yes" },
             { label: "Automation", value: "100%" },
         ],
-        emoji: "🗺️",
     },
     {
         id: 5,
         title: "AI EdTech Platform",
         subtitle: "Educational AI System",
         category: "AI / ML",
-        tags: ["Flask", "Python", "GenAI", "Multimedia AI"],
+        tags: ["Flask", "Python", "Generative AI", "Multimedia AI"],
         description:
-            "Dual-mode educational platform for client Sabdelgawad with AI-generated learning materials, multimedia integration, dynamic testing features, and an admin dashboard with advanced analytics.",
-        outcome: "Full EdTech platform with AI content gen",
+            "A dual-mode educational platform featuring AI-generated learning materials, multimedia integration, dynamic assessment tools, and an admin dashboard equipped with advanced analytics.",
+        outcome: "Full EdTech platform with AI content generation",
         industry: "Education",
-        Icon: GraduationCap,
         gradient: "from-orange-500 to-red-500",
         glowColor: "rgba(249,115,22,0.35)",
         borderGradient: "from-orange-400 via-red-400 to-pink-400",
@@ -181,9 +179,8 @@ const projects = [
         metrics: [
             { label: "AI Modules", value: "Dual-mode" },
             { label: "Assessment Types", value: "5+" },
-            { label: "Dashboard", value: "Admin+" },
+            { label: "Dashboard", value: "Admin" },
         ],
-        emoji: "🎓",
     },
     {
         id: 6,
@@ -192,10 +189,9 @@ const projects = [
         category: "Web & Mobile",
         tags: ["React", "Node.js", "Django", "OpenAI GPT", "PostgreSQL"],
         description:
-            "Scalable web and mobile platform for client James Munoz with AI integration for customizable reports, user role management, and cross-platform accessibility. Features auto-save drafts and multi-role access.",
-        outcome: "Cross-platform AI report platform launched",
+            "A scalable web and mobile platform featuring AI-powered customizable reports, multi-role user management, and cross-platform accessibility. Includes auto-save drafts and granular role-based access control.",
+        outcome: "Cross-platform AI reporting platform launched",
         industry: "Enterprise / SaaS",
-        Icon: LayoutDashboard,
         gradient: "from-indigo-600 to-blue-600",
         glowColor: "rgba(99,102,241,0.35)",
         borderGradient: "from-indigo-400 via-blue-400 to-sky-400",
@@ -205,19 +201,17 @@ const projects = [
             { label: "Report Templates", value: "Pre-loaded" },
             { label: "Platforms", value: "Web + App" },
         ],
-        emoji: "📊",
     },
     {
         id: 7,
         title: "Legal Discovery AI",
         subtitle: "Automation Software",
         category: "LLM Engineering",
-        tags: ["Python", "NLP", "PDF Parsing", "AI/ML"],
+        tags: ["Python", "NLP", "PDF Parsing", "AI / ML"],
         description:
-            "Software for client Jeff Schwartz to automate extraction of critical information from legal discovery PDF documents. Handles both form-based and free-form types, extracting parties and discovery questions.",
-        outcome: "Dramatic reduction in manual legal review",
+            "Custom software built to automate the extraction of critical information from legal discovery PDF documents. Handles both form-based and free-form document types, accurately extracting parties, claims, and discovery questions.",
+        outcome: "Dramatic reduction in manual legal review time",
         industry: "Legal Tech",
-        Icon: Scale,
         gradient: "from-pink-600 to-rose-500",
         glowColor: "rgba(219,39,119,0.35)",
         borderGradient: "from-pink-400 via-rose-400 to-red-400",
@@ -227,7 +221,6 @@ const projects = [
             { label: "Time Saved", value: "80%+" },
             { label: "Accuracy", value: "High" },
         ],
-        emoji: "⚖️",
     },
 ];
 
@@ -246,8 +239,8 @@ function CategoryPill({ label, active, onClick }) {
             whileTap={{ scale: 0.95 }}
             onClick={onClick}
             className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${active
-                    ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-purple-500/30 scale-105"
-                    : "bg-gray-100 dark:bg-slate-800 text-muted-foreground hover:bg-gray-200 dark:hover:bg-slate-700"
+                ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-purple-500/30 scale-105"
+                : "bg-gray-100 dark:bg-slate-800 text-muted-foreground hover:bg-gray-200 dark:hover:bg-slate-700"
                 }`}
         >
             {label}
@@ -296,7 +289,6 @@ function FloatingParticles({ color }) {
 
 // ─── Project Card ──────────────────────────────────────────────────
 function ProjectCard({ project, index }) {
-    const { Icon } = project;
     const [flipped, setFlipped] = useState(false);
     const cardRef = useRef(null);
     const mouseX = useMotionValue(0);
@@ -363,24 +355,16 @@ function ProjectCard({ project, index }) {
 
                     {/* ── Header ── */}
                     <div className="relative z-10 flex items-start justify-between mb-5">
-                        {/* Icon with pulse ring */}
-                        <div className="relative">
+                        {/* Emoji badge (optional) */}
+                        {project.emoji && (
                             <motion.div
-                                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${project.gradient} blur-md opacity-0 group-hover:opacity-60`}
-                                transition={{ duration: 0.4 }}
-                            />
-                            <motion.div
-                                whileHover={{ rotate: [0, -8, 8, 0], scale: 1.1 }}
+                                whileHover={{ scale: 1.15, rotate: [0, -8, 8, 0] }}
                                 transition={{ duration: 0.5 }}
-                                className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${project.gradient} flex items-center justify-center shadow-lg flex-shrink-0`}
+                                className="text-4xl leading-none select-none flex-shrink-0"
                             >
-                                <Icon className="w-7 h-7 text-white" strokeWidth={1.8} />
-                            </motion.div>
-                            {/* Emoji badge */}
-                            <span className="absolute -top-2 -right-2 text-base leading-none select-none">
                                 {project.emoji}
-                            </span>
-                        </div>
+                            </motion.div>
+                        )}
 
                         {/* Industry pill + featured */}
                         <div className="flex flex-col items-end gap-2">
@@ -400,7 +384,7 @@ function ProjectCard({ project, index }) {
 
                     {/* ── Title ── */}
                     <div className="relative z-10 mb-1">
-                        <h3 className={`text-lg font-extrabold tracking-tight group-hover:bg-gradient-to-r group-hover:${project.gradient} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}>
+                        <h3 className="text-lg font-extrabold tracking-tight text-foreground">
                             {project.title}
                         </h3>
                         <p className="text-xs font-semibold text-muted-foreground/70 uppercase tracking-widest mt-0.5">
