@@ -129,7 +129,7 @@ const orgJsonLd = {
   "priceRange": "$$",
   "openingHours": "Mo-Fr 09:00-18:00",
   "sameAs": [
-    "https://www.linkedin.com/company/syntalix-consultancy",
+    "https://www.linkedin.com/company/syntalix-llp/",
     "https://x.com/syntalix",
     "https://clutch.co/profile/syntalix-consultancy",
     "https://github.com/Syntalix-AI",
