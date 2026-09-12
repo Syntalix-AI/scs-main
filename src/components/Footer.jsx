@@ -23,7 +23,7 @@ const serviceLinks = [
 
 const socialLinks = [
   { name: "LinkedIn", href: "https://www.linkedin.com/company/syntalix-llp/", icon: FaLinkedin },
-  { name: "Facebook", href: "https://www.facebook.com/syntalix/", icon: FaFacebook },
+  { name: "Facebook", href: "https://www.facebook.com/syntalixllp/", icon: FaFacebook },
   { name: "GitHub", href: "https://github.com/Syntalix-AI", icon: FaGithub },
   { name: "WhatsApp", href: "https://wa.me/919259750107", icon: FaWhatsapp },
 ];
