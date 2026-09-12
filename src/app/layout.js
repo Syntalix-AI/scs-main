@@ -133,7 +133,7 @@ const orgJsonLd = {
     "https://x.com/syntalix",
     "https://clutch.co/profile/syntalix-consultancy",
     "https://github.com/Syntalix-AI",
-    "https://www.facebook.com/syntalix/",
+    "https://www.facebook.com/syntalixllp/",
     "https://www.fiverr.com/agencies/syntalixai"
   ],
   "areaServed": [
