@@ -24,7 +24,7 @@ const Careers = () => {
                 <p className="text-sm text-muted-foreground">
                     Follow us on{' '}
                     <a
-                        href="https://www.linkedin.com/company/syntalix/"
+                        href="https://www.linkedin.com/company/syntalix-llp/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:underline font-medium"
