@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Portfolio | Syntalix Consultancy Services",
+    title: "Portfolio",
     description:
         "Explore Syntalix's portfolio of AI/ML, LLM engineering, agentic AI, and web & mobile development projects. See how we deliver measurable results for enterprise clients worldwide.",
     openGraph: {
