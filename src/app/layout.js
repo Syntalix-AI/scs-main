@@ -124,7 +124,7 @@ const orgJsonLd = {
       "availableLanguage": ["English", "Hindi"]
     }
   ],
-  "email": "syntalix.consultancy@gmail.com",
+  "email": "info@syntalixconsultancy.com",
   "telephone": "+91-9259750107",
   "priceRange": "$$",
   "openingHours": "Mo-Fr 09:00-18:00",
