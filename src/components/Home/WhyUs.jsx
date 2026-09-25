@@ -49,7 +49,7 @@ const features = [
   },
   {
     title: "Support",
-    para: "Receive continuous assistance and support, ensuring seamless solutions and maintaining 99.9% client satisfaction.",
+    para: "Receive continuous assistance and support, ensuring seamless solutions and maintaining 98% client satisfaction.",
     href: "#",
     svg: S6,
     class: "lg:-ml-24",
