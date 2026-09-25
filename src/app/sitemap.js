@@ -17,6 +17,7 @@ export default function sitemap() {
     { url: `${primaryDomain}/blog/what-is-llm-engineering`, lastModified: new Date('2026-06-08'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${primaryDomain}/blog/rise-of-agentic-ai`, lastModified: new Date('2026-06-05'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${primaryDomain}/blog/ai-development-cost-india-2026`, lastModified: new Date('2026-06-01'), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${primaryDomain}/portfolio`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${primaryDomain}/case-studies`, lastModified: monthly, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${primaryDomain}/case-studies/automated-document-processing-llm`, lastModified: monthly, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${primaryDomain}/case-studies/predictive-maintenance-ai-infrastructure`, lastModified: monthly, changeFrequency: 'monthly', priority: 0.6 },
