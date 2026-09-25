@@ -37,6 +37,7 @@ const AboutPage = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutBreadcrumbSchema) }}
       />
+      <h1 className="sr-only">About Syntalix Consultancy</h1>
       <About />
 
       {/* Who We Are */}
