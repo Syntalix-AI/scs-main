@@ -54,6 +54,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${study.title} | Syntalix Case Studies`,
     description: `Read how Syntalix achieved a ${study.outcome} in the ${study.industry} industry.`,
+    alternates: {
+      canonical: `https://www.syntalixconsultancy.com/case-studies/${params.slug}`,
+    },
   };
 }
 
