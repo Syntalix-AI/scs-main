@@ -11,7 +11,7 @@ export const blogPosts = [
   },
   {
     slug: 'rise-of-agentic-ai',
-    title: 'The Rise of Agentic AI: How Autonomous Systems Are Changing Business',
+    title: 'The Rise of Agentic AI in Business',
     description: 'Agentic AI systems with autonomous decision-making capabilities are revolutionizing enterprise workflows. Learn how agents differ from chatbots and what they mean for your business.',
     date: '2026-06-05',
     author: 'Syntalix Team',
@@ -21,7 +21,7 @@ export const blogPosts = [
   },
   {
     slug: 'ai-development-cost-india-2026',
-    title: 'AI Development Cost in India 2026: A Comprehensive Guide',
+    title: 'AI Development Cost in India (2026 Guide)',
     description: 'A detailed breakdown of AI and ML development costs in India for 2026, covering project types, team structures, technology choices, and how to budget effectively.',
     date: '2026-06-01',
     author: 'Syntalix Team',
