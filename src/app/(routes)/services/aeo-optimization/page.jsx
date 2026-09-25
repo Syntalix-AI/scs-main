@@ -7,7 +7,7 @@ import {
 
 export const metadata = {
   title: 'Answer Engine Optimization (AEO) Services',
-  description: 'AEO services from Syntalix: get your brand cited by ChatGPT, Perplexity, Google AI Overviews, and Claude. We implement structured data, entity clarity, and authoritative content so AI engines recommend your business.',
+  description: 'AEO services from Syntalix: get your brand cited by ChatGPT, Perplexity, Google AI Overviews, and Claude through structured data and schema.',
   keywords: [
     'AEO services India', 'answer engine optimization India', 'AI SEO India',
     'get cited by ChatGPT', 'Perplexity SEO', 'Google AI Overview optimization',
