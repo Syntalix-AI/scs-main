@@ -52,7 +52,7 @@ export async function generateMetadata({ params }) {
   if (!study) return { title: "Case Study Not Found" };
   
   return {
-    title: `${study.title} | Syntalix Case Studies`,
+    title: study.title,
     description: `Read how Syntalix achieved a ${study.outcome} in the ${study.industry} industry.`,
     alternates: {
       canonical: `https://www.syntalixconsultancy.com/case-studies/${params.slug}`,
