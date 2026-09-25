@@ -6,7 +6,7 @@ import Link from 'next/link';
 const social = [
     {
         title: "Facebook",
-        href: "https://www.facebook.com/achintyasolutions",
+        href: "https://www.facebook.com/syntalixllp/",
         svg: <FaFacebook className='w-6 h-6' />
     },
     {
@@ -21,7 +21,7 @@ const social = [
     },
     {
         title: "Linkeden",
-        href: "https://www.linkedin.com/company/syntalix",
+        href: "https://www.linkedin.com/company/syntalix-llp/",
         svg: <FaLinkedin className='w-6 h-6' />
     },
     {
