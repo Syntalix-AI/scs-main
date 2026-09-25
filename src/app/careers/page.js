@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Careers',
   description: 'Explore career opportunities at Syntalix Consultancy Services. Join our team of AI, ML, and software development experts.',
+  alternates: {
+    canonical: 'https://www.syntalixconsultancy.com/careers',
+  },
 };
 
 const Careers = () => {
