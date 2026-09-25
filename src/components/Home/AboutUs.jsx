@@ -31,7 +31,7 @@ const AboutUs = () => {
         className="mt-8"
       >
         <Link
-          href="https://www.linkedin.com/company/syntalix"
+          href="https://www.linkedin.com/company/syntalix-llp/"
           target="_blank"
           className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-purple-500 text-white px-6 py-3 text-lg font-medium hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-500 shadow-lg hover:shadow-xl"
         >
