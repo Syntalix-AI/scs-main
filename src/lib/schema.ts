@@ -6,7 +6,7 @@ export const abs = (path: string) => (path.startsWith('http') ? path : `${SITE.u
 
 export function organization() {
   return {
-    '@type': 'ProfessionalService',
+    '@type': 'Organization',
     '@id': ORG_ID,
     name: SITE.name,
     legalName: SITE.legalName,
