@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import LeadForm from '@/components/LeadForm.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import FeaturedWork from '@/components/FeaturedWork.astro';
+import ClientCard from '@/components/ClientCard.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import Products from '@/components/Products.astro';
+import PostCard from '@/components/PostCard.astro';
+import Faq from '@/components/Faq.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { photo, logo } from '@/lib/images';
+import { SERVICES } from '@/data/services';
+import { LIVE_SITES, projectBySlug } from '@/data/projects';
+import { webPage, faq } from '@/lib/schema';
+
+const posts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate).slice(0, 3);
+const live = LIVE_SITES.map((s) => projectBySlug(s)!);
+const ld = projectBySlug('legal-discovery-ai')!;
+const FAQS: [string, string][] = [
+  ['How much does a project cost?', 'It depends on scope. After a free scoping call you get a written plan with a fixed quote, so you know the cost before any work starts.'],
+  ['Do you work with clients outside India?', 'Yes. We work with clients in India, the United States and Europe, remotely, with overlapping hours for calls and weekly demos.'],
+  ['Can you build both the website and the AI features?', 'Yes. The same team designs the product, builds the web or mobile app and engineers the AI inside it, from LLM features to agents.'],
+  ['Who owns the code when the project ends?', 'You do. The code, designs, accounts and documentation are handed over to you.'],
+];
+const title = 'Software, AI and ML Development Company in India | Syntalix';
+const description = 'Syntalix Consultancy designs and builds web platforms, LLM features and agentic AI systems for clients in India, the US and Europe. Book a free scoping call.';
+---
+<Base title={title} absoluteTitle description={description} schema={[webPage('/', title, description), faq(FAQS)]}>
+  <section class="hero hero-dark">
+    <Image src={photo('hero')} alt="" widths={[480, 800, 1400, 2200]} sizes="100vw" quality={62} loading="eager" fetchpriority="high" class="hero__img" />
+    <div class="hero__scrim"></div>
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <h1 class="display-xl">Software, AI and ML development company in India</h1>
+        <p class="lead">We design and build production software for growing businesses: platforms, AI features and the websites that sell them.</p>
+        <div class="trust">
+          <span class="avatars" aria-hidden="true">
+            <Image src={logo('cityfarmers-icon')} alt="" width={36} height={36} />
+            <Image src={logo('rapidlink-logo')} alt="" width={36} height={36} />
+            <Image src={logo('logo-rays')} alt="" width={36} height={36} />
+          </span>
+          <span>Trusted by City Farmers, RapidLink Logistics, Legal India and more. Clients in India, the US and France.</span>
+        </div>
+      </div>
+      <LeadForm variant="bar" source="home-hero" />
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Clients">
+    <div class="wrap strip__in">
+      <p>Clients we have shipped for</p>
+      <ul>
+        <li><Image src={logo('cityfarmers-icon')} alt="" width={34} height={34} />City Farmers</li>
+        <li><Image src={logo('rapidlink-logo')} alt="" width={38} height={38} />RapidLink Logistics</li>
+        <li>Legal India</li><li>JT Makeovers</li><li>RAYS &amp; RZILSS</li><li>Legal Discovery AI</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap section" id="work">
+    <SectionHead title="Selected client work" lead="Platforms and AI features we designed and built for clients." link={{ href: '/case-studies', label: 'All case studies' }} />
+    <FeaturedWork />
+  </section>
+
+  <section class="wrap section">
+    <SectionHead title="More client projects, live today" size="heading" lead="Live sites we designed and built. Open any of them and look around." link={{ href: '/portfolio', label: 'See the full portfolio' }} />
+    <div class="grid-3 cards">{live.map((p) => <ClientCard project={p} />)}</div>
+    <div class="ld">
+      <h3>{ld.client}</h3><p>{ld.what}</p><span>{ld.stack}</span>
+    </div>
+  </section>
+
+  <section class="band" id="services">
+    <div class="wrap">
+      <SectionHead title="What we build for clients" lead="One team for the product, the AI inside it and the infrastructure under it." link={{ href: '/services', label: 'All services' }} />
+      <div class="grid-3 svcs">{SERVICES.map((s) => <ServiceCard service={s} />)}</div>
+    </div>
+  </section>
+
+  <Testimonials />
+  <Products />
+
+  <section class="wrap section">
+    <SectionHead title="Insights" link={{ href: '/blog', label: 'All articles' }} />
+    <div class="grid-3">{posts.map((p) => <PostCard post={p} />)}</div>
+  </section>
+
+  <section class="wrap section"><Faq title="Questions clients ask first" items={FAQS} /></section>
+  <CtaBanner />
+</Base>
+
+<style>
+  .hero :global(.hero__img) { object-position: 60% 40%; }
+  .hero__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,11,42,0.9) 0%, rgba(26,11,42,0.55) 38%, rgba(26,11,42,0) 60%), linear-gradient(0deg, rgba(26,11,42,0.85) 0%, rgba(26,11,42,0) 32%); }
+  .hero__in { position: relative; min-height: min(820px, 92vh); padding-top: 112px; padding-bottom: 64px; display: flex; flex-direction: column; justify-content: space-between; gap: 48px; }
+  .hero__copy { max-width: 680px; display: flex; flex-direction: column; gap: 24px; }
+  .trust { display: flex; align-items: center; gap: 14px; font-size: 15px; color: #e9e0f1; }
+  .avatars { display: flex; flex-shrink: 0; }
+  .avatars :global(img) { width: 36px; height: 36px; border-radius: 18px; background: #fff; object-fit: contain; box-shadow: 0 0 0 3px var(--aubergine); }
+  .avatars :global(img + img) { margin-left: -10px; }
+  .strip { background: var(--surface); border-bottom: 1px solid var(--line); }
+  .strip__in { min-height: 140px; display: flex; align-items: center; gap: 48px; }
+  .strip__in p { width: 170px; flex-shrink: 0; font-size: 15px; color: var(--ink-subtle); }
+  .strip ul { flex: 1; margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; font-size: 18px; font-weight: 700; color: #2d2438; }
+  .strip li { display: flex; align-items: center; gap: 10px; }
+  .strip :global(img) { object-fit: contain; border-radius: 8px; }
+  .cards { gap: 24px; }
+  .ld { margin-top: 36px; padding: 22px 0; border-block: 1px solid var(--line-strong); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; align-items: baseline; }
+  .ld h3 { font-size: 21px; font-weight: 700; } .ld p { font-size: 15px; color: var(--ink-muted); } .ld span { font-size: 14px; color: var(--ink-subtle); text-align: right; }
+  .svcs { row-gap: 56px; }
+  @media (max-width: 900px) {
+    .hero__scrim { background: linear-gradient(0deg, rgba(26,11,42,0.96) 0%, rgba(26,11,42,0.8) 55%, rgba(26,11,42,0.4) 100%); }
+    .hero__in { padding-top: 64px; min-height: 0; }
+    .strip__in { flex-direction: column; align-items: flex-start; gap: 16px; padding-block: 28px; }
+    .ld { grid-template-columns: minmax(0, 1fr); gap: 8px; } .ld span { text-align: left; }
+  }
+</style>

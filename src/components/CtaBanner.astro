@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import { photo } from '@/lib/images';
+import { SITE } from '@/data/site';
+---
+<section class="wrap section" aria-labelledby="cta-title">
+  <div class="cta">
+    <Image src={photo('cta')} alt="" widths={[800, 1400, 2200]} sizes="(max-width: 1440px) 100vw, 1280px" class="cta__img" />
+    <div class="cta__scrim"></div>
+    <div class="cta__in">
+      <div class="cta__copy">
+        <h2 id="cta-title" class="display">Tell us what you want to build</h2>
+        <p>A free 30-minute scoping call with the engineers who would build it. You leave with a clear next step, whether or not we work together.</p>
+        <div class="btns">
+          <a class="btn btn--light" href="/contact">Book a free scoping call</a>
+          <a class="btn btn--glass" href={SITE.whatsapp} rel="noopener">Message us on WhatsApp</a>
+        </div>
+      </div>
+      <div class="cta__direct">
+        <span>Or reach us directly</span>
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        <a href={`tel:${SITE.phone.replace(/-/g, '')}`}>{SITE.phoneDisplay}</a>
+        <hr />
+        <a href={SITE.linkedin} rel="me noopener" class="li">Follow Syntalix on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .cta { position: relative; border-radius: var(--radius-2xl); overflow: hidden; background: var(--aubergine); color: #fff; }
+  .cta :global(.cta__img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+  .cta__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,11,42,0.92) 0%, rgba(26,11,42,0.7) 45%, rgba(26,11,42,0.1) 80%); }
+  .cta__in { position: relative; min-height: 500px; padding: 72px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+  .cta__copy { display: flex; flex-direction: column; gap: 20px; }
+  .cta__copy p { max-width: 520px; font-size: 19px; color: var(--on-aubergine-muted); }
+  .cta__copy .btns { margin-top: 12px; }
+  .cta__direct { justify-self: end; width: min(380px, 100%); padding: 28px; border-radius: 24px; background: rgba(26,11,42,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22), 0 20px 50px rgba(0,0,0,0.25); display: flex; flex-direction: column; gap: 16px; }
+  .cta__direct span { font-size: 15px; color: var(--lilac); }
+  .cta__direct a { color: #fff; font-size: 20px; font-weight: 700; overflow-wrap: anywhere; }
+  .cta__direct a.li { color: var(--lilac); font-size: 16px; }
+  .cta__direct hr { width: 100%; border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 0; }
+  @media (max-width: 900px) {
+    .cta__in { grid-template-columns: minmax(0, 1fr); padding: 180px 24px 28px; gap: 28px; }
+    .cta__scrim { background: linear-gradient(180deg, rgba(26,11,42,0.45) 0%, rgba(26,11,42,0.94) 55%); }
+    .cta__direct { justify-self: stretch; }
+  }
+</style>

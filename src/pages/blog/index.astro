@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import PostCard from '@/components/PostCard.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { photo } from '@/lib/images';
+import { webPage, breadcrumbs } from '@/lib/schema';
+
+const posts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+const [featured, ...rest] = posts;
+const title = 'Insights on AI, LLMs and Web Engineering';
+const description = 'Practical writing from the Syntalix Team on building with LLMs, agentic AI and modern web stacks, and on planning and budgeting AI projects in India.';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Insights', path: '/blog' }];
+const fDate = featured.data.pubDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title={title} description={description} schema={[webPage('/blog', title, description, 'CollectionPage'), breadcrumbs(crumbs)]}>
+  <PageHero image="pg-insights" tone="light" bg="#E6D5B8" title="Insights" lead="Practical writing on building with LLMs, agents and modern web stacks, from the engineers doing the work." crumbs={crumbs} height={480} position="70% 50%" />
+  <section class="wrap section">
+    <a class="feat" href={`/blog/${featured.id}`}>
+      <Image src={photo(featured.data.image)} alt="" widths={[600, 1000, 1400]} sizes="(max-width: 900px) 100vw, 720px" />
+      <span class="feat__copy">
+        <span class="subtle">{featured.data.category}, {fDate}, {featured.data.readTime} min read</span>
+        <span class="feat__t">{featured.data.title}</span>
+        <span class="muted">{featured.data.description}</span>
+        <span class="feat__cta">Read the article</span>
+      </span>
+    </a>
+  </section>
+  <section class="wrap section">
+    <SectionHead title="Latest" size="heading" />
+    <div class="grid-3">{rest.map((p) => <PostCard post={p} />)}</div>
+  </section>
+  <CtaBanner />
+</Base>
+<style>
+  .feat { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; color: var(--ink); }
+  .feat :global(img) { width: 100%; aspect-ratio: 3 / 2; height: auto; object-fit: cover; border-radius: var(--radius-xl); }
+  .feat__copy { display: flex; flex-direction: column; gap: 16px; }
+  .feat__t { font-size: clamp(30px, 3vw, 44px); line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; }
+  .feat__cta { font-weight: 700; color: var(--violet); }
+  .feat:hover .feat__t { color: var(--violet); }
+  @media (max-width: 900px) { .feat { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+</style>

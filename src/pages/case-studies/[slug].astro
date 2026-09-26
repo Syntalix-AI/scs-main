@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import FeaturedWork from '@/components/FeaturedWork.astro';
+import BrowserFrame from '@/components/BrowserFrame.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { CASE_STUDIES, caseStudyBySlug, type CaseStudy } from '@/data/caseStudies';
+import { serviceBySlug } from '@/data/services';
+import { shot, logo, photo } from '@/lib/images';
+import { webPage, breadcrumbs, caseStudyArticle } from '@/lib/schema';
+
+export function getStaticPaths() {
+  return CASE_STUDIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+const { c } = Astro.props as { c: CaseStudy };
+const path = `/case-studies/${c.slug}`;
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Case studies', path: '/case-studies' }, { name: c.client, path }];
+const next = caseStudyBySlug(c.next);
+const isCF = c.slug === 'city-farmers';
+const schema = [webPage(path, c.title, c.description), breadcrumbs(crumbs), caseStudyArticle({ title: c.h1, description: c.description, path, image: '/og-image.png', client: c.client })];
+---
+<Base title={c.title} description={c.description} type="article" schema={schema}>
+  <section class="wrap csh" style={isCF ? '--tint:rgba(12,84,120,0.74);--base:#0C5478;--o1:#486C30;--o2:#EBD9C0;--o3:#5C93B5' : '--tint:rgba(11,26,58,0.76);--base:#0B1A3A;--o1:#F2A73B;--o2:#2563EB;--o3:#1C2D4F'}>
+    <div class="csh__wrap">
+      <Image src={photo(isCF ? 'glass-cf' : 'glass-rl')} alt="" widths={[640, 1280]} sizes="(max-width: 1024px) 100vw, 1280px" class="csh__bg" loading="eager" />
+      <div class="csh__glass">
+        <Crumbs items={crumbs} />
+        <div class="csh__who">
+          {isCF ? <Image src={logo('cityfarmers-icon')} alt="City Farmers logo" width={56} height={56} class="csh__logo" /> : <Image src={logo('rapidlink-logo')} alt="RapidLink Logistics logo" width={56} height={56} class="csh__logo csh__logo--round" />}
+          <span>{c.client}</span>
+        </div>
+        <h1 class="display-xl">{c.h1}</h1>
+        <p class="csh__lead">{c.lead}</p>
+        <dl class="csh__meta">
+          {c.meta.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+          {c.liveUrl && <div><dt>Live</dt><dd><a href={c.liveUrl} rel="noopener">{c.liveDomain}</a></dd></div>}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section cs">
+    <aside class="cs__side">
+      <dl>{c.facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+      {c.liveUrl && <a href={c.liveUrl} rel="noopener">Visit {c.liveDomain}</a>}
+      <a href="/contact">Discuss a similar project</a>
+    </aside>
+    <article class="cs__body">
+      {c.sections.map((s, i) => (
+        <Fragment>
+          <h2>{s.h2}</h2>
+          {s.body.map((p) => <p>{p}</p>)}
+          {s.list && <ul>{s.list.map((l) => <li>{l}</li>)}</ul>}
+          {i === 1 && isCF && <BrowserFrame src={shot('cityfarmers')} domain="cityfarmers.in" alt="City Farmers website homepage" height={400} widths={[600, 1000, 1568]} sizes="(max-width: 900px) 100vw, 760px" />}
+        </Fragment>
+      ))}
+      <h2>What we delivered</h2>
+      <ul>{c.delivered.map((d) => <li>{d}</li>)}</ul>
+    </article>
+  </section>
+
+  <section class="wrap section">
+    <SectionHead title="Services used" size="heading" />
+    <div class="grid-3">{c.services.map((s) => <ServiceCard service={serviceBySlug(s)} />)}</div>
+  </section>
+
+  <section class="wrap section">
+    <a class="next" href={`/case-studies/${next.slug}`}><span><small>Next case study</small><b>{next.client}</b><em>{next.h1}</em></span><span aria-hidden="true" class="next__arrow">Read</span></a>
+  </section>
+  <CtaBanner />
+</Base>
+<style>
+  .csh { padding-top: 56px; }
+  .csh__wrap { position: relative; border-radius: var(--radius-2xl); overflow: hidden; background: var(--base); }
+  .csh :global(.csh__bg) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .csh__glass { position: relative; padding: 64px; border-radius: var(--radius-2xl); background: var(--tint); color: #fff; box-shadow: var(--shadow-glass); display: flex; flex-direction: column; gap: 24px; }
+  .csh__glass :global(.crumbs) { color: #dce9f1; } .csh__glass :global(.crumbs [aria-current]) { color: #fff; }
+  .csh__who { display: flex; align-items: center; gap: 14px; font-size: 24px; font-weight: 700; }
+  .csh :global(.csh__logo) { border-radius: 12px; } .csh :global(.csh__logo--round) { border-radius: 28px; background: #fff; object-fit: contain; }
+  .csh h1 { max-width: 960px; font-size: clamp(34px, 4.3vw, 62px); }
+  .csh__lead { max-width: 740px; font-size: 20px; color: #e3eef4; }
+  .csh__meta { margin: 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.25); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+  .csh__meta dt { font-size: 13px; color: #dce9f1; } .csh__meta dd { margin: 0; font-size: 17px; font-weight: 700; } .csh__meta a { color: #c9e2a8; }
+  .cs { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 80px; align-items: start; }
+  .cs__side { position: sticky; top: 104px; display: flex; flex-direction: column; gap: 16px; font-weight: 700; }
+  .cs__side dl { margin: 0; padding: 24px; border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 18px; }
+  .cs__side dt { font-size: 14px; font-weight: 400; color: var(--ink-subtle); } .cs__side dd { margin: 0; font-size: 22px; font-weight: 800; }
+  .cs__body { max-width: 780px; display: flex; flex-direction: column; gap: 20px; }
+  .cs__body h2 { margin-top: 16px; font-size: 32px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; }
+  .cs__body h2:first-child { margin-top: 0; }
+  .cs__body p, .cs__body li { font-size: 18px; line-height: 1.7; color: var(--ink-muted); }
+  .cs__body ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .next { padding: 40px 48px; border-radius: var(--radius-xl); background: var(--aubergine); color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .next span:first-child { display: flex; flex-direction: column; gap: 6px; }
+  .next small { font-size: 15px; color: var(--lilac); } .next b { font-size: 32px; font-weight: 800; } .next em { font-style: normal; color: var(--on-aubergine-muted); }
+  .next__arrow { padding: 14px 22px; border-radius: 14px; background: #fff; color: var(--violet-strong); font-weight: 700; }
+  .next:hover { color: #fff; } .next:hover .next__arrow { background: #f3ecf8; }
+  @media (max-width: 900px) {
+    .csh__glass { padding: 32px 24px; } .csh__meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cs { grid-template-columns: minmax(0, 1fr); gap: 40px; } .cs__side { position: static; }
+    .next { flex-direction: column; align-items: flex-start; padding: 28px; }
+  }
+</style>

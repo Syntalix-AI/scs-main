@@ -1,0 +1,40 @@
+---
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import FeaturedWork from '@/components/FeaturedWork.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import ClientCard from '@/components/ClientCard.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { LIVE_SITES, projectBySlug } from '@/data/projects';
+import { webPage, breadcrumbs } from '@/lib/schema';
+
+const title = 'Client Case Studies';
+const description = 'Case studies from Syntalix: web platforms, booking systems and AI features we designed and built for clients, with live links to the work.';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Case studies', path: '/case-studies' }];
+const live = LIVE_SITES.map((s) => projectBySlug(s)!);
+const ld = projectBySlug('legal-discovery-ai')!;
+---
+<Base title={title} description={description} schema={[webPage('/case-studies', title, description, 'CollectionPage'), breadcrumbs(crumbs)]}>
+  <section class="wrap intro">
+    <Crumbs items={crumbs} />
+    <h1 class="display-xl">Client case studies</h1>
+    <p class="lead">What we built and for whom. Every project here was designed and built by us for a client, and most are live.</p>
+  </section>
+  <section class="wrap" style="padding-top:64px">
+    <SectionHead title="Featured case studies" size="heading" lead="The full story on two recent builds." />
+    <FeaturedWork />
+  </section>
+  <section class="wrap section">
+    <SectionHead title="More client projects" size="heading" lead="Live sites we designed and built." link={{ href: '/portfolio', label: 'Full portfolio' }} />
+    <div class="grid-3" style="gap:24px">{live.map((p) => <ClientCard project={p} />)}</div>
+    <div class="ld"><h3>{ld.client}</h3><p>{ld.what}</p><span>{ld.stack}</span></div>
+  </section>
+  <CtaBanner />
+</Base>
+<style>
+  .intro { padding-top: 88px; display: flex; flex-direction: column; gap: 20px; }
+  .intro .display-xl { font-size: clamp(38px, 4.7vw, 68px); }
+  .ld { margin-top: 36px; padding: 22px 0; border-block: 1px solid var(--line-strong); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; align-items: baseline; }
+  .ld h3 { font-size: 21px; } .ld p { font-size: 15px; color: var(--ink-muted); } .ld span { font-size: 14px; color: var(--ink-subtle); text-align: right; }
+  @media (max-width: 900px) { .ld { grid-template-columns: minmax(0, 1fr); gap: 8px; } .ld span { text-align: left; } .intro { padding-top: 48px; } }
+</style>

@@ -1,0 +1,54 @@
+---
+interface Props { variant: 'bar' | 'full'; source: string; dark?: boolean }
+const { variant, source } = Astro.props;
+const NEEDS = ['A website or web app', 'A mobile app', 'An AI or LLM feature', 'AI consulting', 'Something else'];
+const BUDGETS = ['Not sure yet', 'Under ₹2 lakh', '₹2 to 10 lakh', 'Above ₹10 lakh'];
+const id = `lf-${source}`;
+---
+<form class:list={['lf', `lf--${variant}`]} method="post" action="/api/contact" data-lead-form aria-labelledby={`${id}-t`}>
+  <input type="hidden" name="source" value={source} />
+  <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
+  {variant === 'bar' ? (
+    <Fragment>
+      <div class="lf__intro"><strong id={`${id}-t`}>Start with a free scoping call</strong><span>30 minutes. We reply within 24 hours.</span></div>
+      <label class="field">Name<input class="input" name="name" autocomplete="name" required maxlength="120" placeholder="Your name" /></label>
+      <label class="field">Work email<input class="input" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@company.com" /></label>
+      <label class="field">What do you need?<select class="input" name="need">{NEEDS.map((n) => <option>{n}</option>)}</select></label>
+      <button class="btn btn--primary" type="submit">Request a call</button>
+    </Fragment>
+  ) : (
+    <Fragment>
+      <h2 id={`${id}-t`} class="lf__title">Tell us about your project</h2>
+      <label class="field">Name<input class="input" name="name" autocomplete="name" required maxlength="120" placeholder="Your name" /></label>
+      <label class="field">Work email<input class="input" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@company.com" /></label>
+      <label class="field">Company<input class="input" name="company" autocomplete="organization" maxlength="160" placeholder="Company name" /></label>
+      <label class="field">What do you need?<select class="input" name="need">{NEEDS.map((n) => <option>{n}</option>)}</select></label>
+      <label class="field lf__wide">Budget (optional)<select class="input" name="budget">{BUDGETS.map((n) => <option>{n}</option>)}</select></label>
+      <label class="field lf__wide">Project details<textarea class="input" name="message" rows="5" maxlength="4000" placeholder="What are you building, and who is it for?"></textarea></label>
+      <button class="btn btn--primary lf__wide" type="submit">Request a free scoping call</button>
+      <p class="lf__note lf__wide">We reply within 24 hours. Your details are only used to answer you.</p>
+    </Fragment>
+  )}
+  <p class="lf__status" role="status" aria-live="polite" hidden></p>
+</form>
+
+<script>
+  import '@/scripts/lead-form';
+</script>
+
+<style>
+  .lf { position: relative; color: var(--ink); }
+  .lf--bar { padding: 22px 24px; border-radius: var(--radius-lg); background: rgba(255,255,255,0.95); box-shadow: var(--shadow-float); display: grid; grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)) auto; gap: 14px; align-items: end; }
+  .lf__intro { align-self: center; display: flex; flex-direction: column; gap: 4px; }
+  .lf__intro strong { font-size: 18px; font-weight: 800; }
+  .lf__intro span { font-size: 13px; color: #5e5669; }
+  .lf--full { padding: 40px; border-radius: var(--radius-xl); background: #fff; box-shadow: 0 0 0 1px var(--line), 0 30px 80px rgba(64,16,96,0.12); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .lf__title { grid-column: 1 / -1; font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+  .lf__wide { grid-column: 1 / -1; }
+  .lf__note { font-size: 13px; color: var(--ink-subtle); text-align: center; }
+  .lf__status { grid-column: 1 / -1; padding: 12px 14px; border-radius: 12px; font-size: 15px; font-weight: 600; background: var(--surface-sunk); }
+  .lf__status[data-state='ok'] { background: #e4ecd9; color: #2f4a1e; }
+  .lf__status[data-state='error'] { background: #fde8e8; color: #9b1c1c; }
+  @media (max-width: 1100px) { .lf--bar { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lf--bar .lf__intro, .lf--bar button { grid-column: 1 / -1; } }
+  @media (max-width: 640px) { .lf--bar, .lf--full { grid-template-columns: minmax(0, 1fr); padding: 22px; } .lf--full .field { grid-column: 1 / -1; } }
+</style>

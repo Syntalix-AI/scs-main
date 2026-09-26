@@ -1,69 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# syntalixconsultancy.com
 
-## Getting Started
+The Syntalix Consultancy website. Astro 7, zero client-side framework, deployed on Vercel.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:4321
+npm run build        # builds, then runs the SEO guardrail (fails on any error)
+node scripts/serve-static.mjs 4400   # serve the built site locally with Vercel-style routing
+node scripts/url-parity.mjs http://localhost:4400   # every pre-relaunch URL still resolves
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env` for local work, and set the same variables in Vercel (Production and Preview):
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Variable | Purpose |
+|---|---|
+| `RESEND_API_KEY` | Sends contact-form email. The form fails loudly without it. |
+| `CONTACT_FROM` | Sender. Defaults to `Syntalix Consultancy <noreply@syntalixconsultancy.com>`; the domain must be verified in Resend. |
+| `CONTACT_TO` | Recipient. Defaults to `info@syntalixconsultancy.com`. |
 
-## Learn More
+## Where things live
 
-To learn more about Next.js, take a look at the following resources:
+- `src/data/`: site facts (`site.ts`), services, client projects, case studies, testimonials, sitemap dates. Most copy is edited here.
+- `src/content/blog/`: blog posts in Markdown with frontmatter (schema in `src/content.config.ts`).
+- `src/components/`, `src/layouts/Base.astro`: UI, built from the Syntalix design system (tokens in `src/styles/tokens.css`).
+- `src/lib/schema.ts`: JSON-LD for every page, rendered in the HTML.
+- `src/pages/sitemap.xml.ts`, `public/robots.txt`, `public/llms.txt`, `src/pages/llms-full.txt.ts`: crawl files.
+- `src/pages/api/contact.ts`: the only server route (Resend, validation, honeypot, rate limit).
+- `vercel.json`: security headers, preview `noindex`, redirects.
+- `scripts/seo-check.mjs`: build guardrail. `scripts/baseline.json`: URLs and metadata before the relaunch.
+- `docs/seo/`: Search Console baseline and notes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content rules
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## 🤖 AI Chatbot Integration
-
-This project includes a fully functional AI chatbot powered by Google's Gemini API.
-
-### Features
-- Real-time AI conversations
-- Context-aware responses about Syntalix services
-- Professional UI with dark/light mode support
-- Quick question suggestions
-- Fallback responses when API is unavailable
-- Mobile-responsive chat interface
-
-### Setup
-1. Get a Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Create a `.env.local` file in the root directory
-3. Add your API key:
-   ```
-   GEMINI_API_KEY=your_gemini_api_key_here
-   ```
-
-### Usage
-- Click the robot icon in the bottom-right corner to open the chat
-- The chatbot knows about all Syntalix services, pricing, and capabilities
-- It provides helpful information about AI/ML solutions, web development, and mobile apps
-- Contact information is readily available for direct communication
-
-### API Endpoint
-The chatbot uses `/api/chatbot` endpoint which:
-- Accepts POST requests with message and conversation history
-- Returns AI-generated responses from Gemini
-- Includes error handling and fallback responses
-- Maintains conversation context for better interactions
+- Client work describes what we delivered. No client metrics, outcomes or claims.
+- No individual team names or profiles. Blog posts are by "Syntalix Team".
+- Real testimonials only, with sources. Never an aggregate rating.
+- Images: editorial still life (generated) or real screenshots of live client sites.

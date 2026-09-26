@@ -1,0 +1,53 @@
+---
+import '@fontsource/bricolage-grotesque/latin-800.css';
+import '@fontsource/sora/latin-700.css';
+import { Image } from 'astro:assets';
+import { logo } from '@/lib/images';
+---
+<section class="wrap section" aria-labelledby="prod-title">
+  <div class="pr__head">
+    <h2 id="prod-title" class="heading">We build our own products too</h2>
+    <p class="muted">Two live products we run ourselves, where we test ideas before they reach client work.</p>
+  </div>
+  <div class="pr">
+    <a class="pr__card pr__card--pk" href="https://peekaboo.syntalixconsultancy.com" rel="noopener">
+      <span class="pr__copy">
+        <span class="pk-name">Peekaboo</span>
+        <span class="pk-line">Every photo of you, found in seconds</span>
+        <span class="pk-desc">Privacy-first AI that finds every event photo with your face from one selfie.</span>
+        <span class="pk-url">peekaboo.syntalixconsultancy.com</span>
+      </span>
+      <Image src={logo('peekaboo-logo')} alt="Peekaboo logo" width={150} height={119} class="pr__logo" />
+    </a>
+    <a class="pr__card pr__card--kd" href="https://kordstudio.syntalixconsultancy.com" rel="noopener">
+      <span class="pr__copy">
+        <span class="kd-name">KORD</span>
+        <span class="kd-line">Precision mastering, powered by AI</span>
+        <span class="kd-desc">Professional-grade, streaming-ready masters for independent musicians.</span>
+        <span class="kd-url">kordstudio.syntalixconsultancy.com</span>
+      </span>
+      <span class="wave" aria-hidden="true"><i style="height:40px"></i><i style="height:90px"></i><i class="v" style="height:140px"></i><i class="v" style="height:70px"></i><i class="g" style="height:120px"></i><i class="l" style="height:50px"></i><i style="height:100px"></i><i class="v" style="height:60px"></i><i class="g" style="height:30px"></i></span>
+    </a>
+  </div>
+</section>
+<style>
+  .pr__head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+  .pr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .pr__card { min-height: 300px; padding: 36px; border-radius: var(--radius-xl); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; overflow: hidden; align-items: stretch; }
+  .pr__copy { display: flex; flex-direction: column; gap: 12px; }
+  .pr__card--pk { background: #fff7f0; box-shadow: 0 0 0 1px #f6e3d6; color: #1f1820; }
+  .pk-name { font: 800 22px 'Bricolage Grotesque', sans-serif; }
+  .pk-line { font: 800 34px/1.05 'Bricolage Grotesque', sans-serif; background: linear-gradient(135deg, #f43f5e 0%, #f97316 50%, #fbbf24 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .pk-desc { font-size: 15px; color: #5e5462; }
+  .pk-url { margin-top: auto; font-size: 15px; font-weight: 600; color: #be123c; }
+  .pr__card :global(.pr__logo) { align-self: center; object-fit: contain; }
+  .pr__card--kd { background: #09090b; color: #fafafa; font-family: Sora, sans-serif; }
+  .kd-name { font-size: 22px; font-weight: 700; letter-spacing: 0.08em; }
+  .kd-line { font-size: 32px; line-height: 1.08; font-weight: 700; background: linear-gradient(90deg, #6ee7ff 0%, #a78bfa 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .kd-desc { font-size: 15px; color: #a1a1aa; }
+  .kd-url { margin-top: auto; font-size: 15px; font-weight: 600; color: #6ee7ff; }
+  .wave { display: flex; align-items: center; gap: 5px; }
+  .wave i { width: 8px; border-radius: 4px; background: #6ee7ff; }
+  .wave i.v { background: #a78bfa; } .wave i.g { background: #f0b429; } .wave i.l { background: #a3e635; }
+  @media (max-width: 900px) { .pr { grid-template-columns: minmax(0, 1fr); } .pr__card { grid-template-columns: minmax(0, 1fr); } .pr__card :global(.pr__logo), .wave { display: none; } .pk-line { font-size: 28px; } .kd-line { font-size: 26px; } }
+</style>

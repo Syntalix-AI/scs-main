@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import Steps from '@/components/Steps.astro';
+import Faq from '@/components/Faq.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { SERVICES, serviceBySlug, type Service } from '@/data/services';
+import { projectBySlug } from '@/data/projects';
+import { photo } from '@/lib/images';
+import { webPage, breadcrumbs, service as serviceLd, faq } from '@/lib/schema';
+
+export function getStaticPaths() {
+  return SERVICES.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props as { s: Service };
+const path = `/services/${s.slug}`;
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }, { name: s.name, path }];
+const proof = s.proof.map((p) => projectBySlug(p)!).filter(Boolean);
+// lower-case the first word for use mid-sentence, unless it is an acronym (LLM, AI)
+const mid = /^[A-Z]{2,}(\s|$)/.test(s.name) ? s.name : s.name.charAt(0).toLowerCase() + s.name.slice(1);
+const schema = [webPage(path, s.title, s.description), breadcrumbs(crumbs), serviceLd({ name: s.h1, description: s.description, path, serviceType: s.name }), faq(s.faqs)];
+---
+<Base title={s.title} description={s.description} schema={schema}>
+  <section class="wrap sh">
+    <div class="sh__copy">
+      <Crumbs items={crumbs} />
+      <h1 class="display-xl">{s.h1}</h1>
+      <p class="lead">{s.lead}</p>
+      <div class="btns"><a class="btn btn--primary" href="/contact">Discuss your project</a><a class="btn btn--secondary" href="#work">See related work</a></div>
+    </div>
+    <Image src={photo(s.image)} alt="" widths={[600, 900, 1200]} sizes="(max-width: 900px) 100vw, 640px" loading="eager" fetchpriority="high" class="sh__img" />
+  </section>
+
+  <section class="wrap section">
+    <SectionHead title="What we build" />
+    <div class="rows" style="--cols:3">{s.capabilities.map(([t, d]) => <div><h3>{t}</h3><p>{d}</p></div>)}</div>
+    {s.area && <p class="area">{s.area}</p>}
+  </section>
+
+  <section class="wrap section" id="work">
+    <SectionHead title="Related client work" lead="Delivered for clients, not demos." link={{ href: '/case-studies', label: 'All case studies' }} />
+    <div class="grid-3">
+      {proof.map((p) => (
+        <a class="proof" href={p.caseStudy ?? p.url ?? '/portfolio'} rel={p.url && !p.caseStudy ? 'noopener' : undefined}>
+          <span class="subtle">{p.client}</span>
+          <h3>{p.headline}</h3>
+          <p>{p.what}</p>
+          {p.stack && <span class="subtle">{p.stack}</span>}
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <SectionHead title="How a project runs" />
+      <Steps steps={s.steps} />
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <SectionHead title="Tools we work with" size="heading" lead="Chosen per project; we are not tied to one provider." />
+    <div class="chips">{s.tools.map((t) => <span class="chip">{t}</span>)}</div>
+  </section>
+
+  <section class="wrap section"><Faq title={`Questions about ${mid}`} items={s.faqs} /></section>
+
+  <section class="wrap section">
+    <SectionHead title="Related services" size="heading" link={{ href: '/services', label: 'All services' }} />
+    <div class="grid-3">{s.related.map((r) => <ServiceCard service={serviceBySlug(r)} />)}</div>
+  </section>
+  <CtaBanner />
+</Base>
+<style>
+  .sh { padding-top: 72px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+  .sh__copy { display: flex; flex-direction: column; gap: 22px; }
+  .sh .display-xl { font-size: clamp(38px, 4.7vw, 68px); }
+  .sh :global(.sh__img) { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: var(--radius-xl); }
+  .area { margin-top: 32px; max-width: 760px; font-size: 18px; color: var(--ink-muted); }
+  .proof { padding: 32px; border-radius: var(--radius-xl); background: var(--surface); box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 12px; color: var(--ink); }
+  .proof h3 { font-size: 24px; line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
+  .proof p { color: var(--ink-muted); font-size: 15px; }
+  .proof:hover { box-shadow: 0 0 0 1px var(--violet); }
+  .proof:hover h3 { color: var(--violet); }
+  @media (max-width: 900px) { .sh { grid-template-columns: minmax(0, 1fr); padding-top: 40px; gap: 32px; } }
+</style>

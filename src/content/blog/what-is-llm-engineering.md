@@ -1,3 +1,14 @@
+---
+title: "What Is LLM Engineering? Why Your Business Needs It"
+description: "What LLM engineering covers: RAG, fine-tuning, evaluation, guardrails and cost control, and when a business needs it to ship reliable AI features."
+pubDate: 2026-06-08
+category: "AI and ML"
+readTime: 8
+image: "post-llm"
+service: "llm-engineering"
+tags: ["LLM", "RAG", "Fine-tuning", "Generative AI"]
+---
+
 Every major technology wave produces a new engineering discipline. The internet era created web engineering. The mobile era created mobile engineering. The artificial intelligence era is now producing its own: **LLM engineering**. If your business relies on knowledge work, customer communication, or document processing, understanding this discipline is no longer optional.
 
 ## What is LLM Engineering?

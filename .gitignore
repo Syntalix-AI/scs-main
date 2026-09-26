@@ -75,3 +75,11 @@ bun-debug.log*
 
 # Tools
 Agentic-SEO-Skill/
+
+# astro
+.astro/
+.vercel/
+dist/
+
+.env*
+!.env.example

@@ -1,0 +1,26 @@
+/* Syntalix design tokens. Source of truth: the Syntalix design system (tokens.json). */
+:root {
+  --paper: #f7f6f9; --surface: #ffffff; --surface-sunk: #f1eef4;
+  --ink: #1c1426; --ink-muted: #4f4759; --ink-subtle: #6b6376;
+  --line: #e4e0ea; --line-strong: #dcd6e4;
+  --violet: #6a2c9a; --violet-strong: #4e1f73; --on-violet: #ffffff; --lilac: #d9c4e8;
+  --aubergine: #1a0b2a; --on-aubergine: #ffffff; --on-aubergine-muted: #d9cce6; --footer: #1c1426;
+
+  --font-sans: 'Schibsted Grotesk Variable', 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-quote: 'Newsreader', Georgia, serif;
+
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+
+  --radius-sm: 12px; --radius-md: 16px; --radius-lg: 22px; --radius-xl: 28px; --radius-2xl: 32px; --radius-pill: 999px;
+
+  --shadow-card: 0 0 0 1px rgba(28,20,38,0.06), 0 2px 6px rgba(28,20,38,0.04);
+  --shadow-float: 0 24px 60px rgba(0,0,0,0.28);
+  --shadow-glass: inset 0 1px 0 rgba(255,255,255,0.45), inset 0 0 0 1px rgba(255,255,255,0.22), 0 30px 70px rgba(15,23,42,0.18);
+
+  --gutter: var(--space-20);
+  --section: var(--space-24);
+  --max: 1440px;
+}
+@media (max-width: 1024px) { :root { --gutter: 32px; --section: 72px; } }
+@media (max-width: 640px) { :root { --gutter: var(--space-4); --section: 56px; } }

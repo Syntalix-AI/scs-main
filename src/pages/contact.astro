@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import LeadForm from '@/components/LeadForm.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import Steps from '@/components/Steps.astro';
+import Faq from '@/components/Faq.astro';
+import { photo } from '@/lib/images';
+import { SITE } from '@/data/site';
+import { webPage, breadcrumbs, faq } from '@/lib/schema';
+
+const title = 'Contact Syntalix: Book a Free Scoping Call';
+const description = 'Contact Syntalix about a web, mobile or AI project. Book a free 30-minute scoping call, email info@syntalixconsultancy.com or message us on WhatsApp.';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }];
+const FAQS: [string, string][] = [
+  ['How much does a project cost?', 'It depends on scope. After the scoping call you get a written plan with a fixed quote before any work starts.'],
+  ['Do you work with clients outside India?', 'Yes. We work with clients in India, the United States and Europe, remotely, with overlapping hours for calls.'],
+  ['Who owns the code when the project ends?', 'You do. The code, designs, accounts and documentation are handed over to you.'],
+];
+const methods: [string, string, string | null][] = [
+  ['Email', SITE.email, `mailto:${SITE.email}`],
+  ['Phone', SITE.phoneDisplay, `tel:${SITE.phone.replace(/-/g, '')}`],
+  ['WhatsApp', 'Message us on WhatsApp', SITE.whatsapp],
+  ['LinkedIn', 'Syntalix LLP', SITE.linkedin],
+  ['Based in', 'Uttar Pradesh, India', null],
+];
+---
+<Base title={title} absoluteTitle description={description} schema={[webPage('/contact', title, description, 'ContactPage'), breadcrumbs(crumbs), faq(FAQS)]}>
+  <section class="ct hero-dark">
+    <Image src={photo('pg-contact')} alt="" widths={[800, 1400, 2200]} sizes="100vw" loading="eager" fetchpriority="high" style="object-position:70% 40%" />
+    <div class="ct__scrim"></div>
+    <div class="wrap ct__in">
+      <div class="ct__copy">
+        <Crumbs items={crumbs} />
+        <h1 class="display-xl">Let's talk about your project</h1>
+        <p class="lead">A free 30-minute scoping call with the engineers who would build it. You leave with a clear next step, whether or not we work together.</p>
+        <dl class="ct__methods">
+          {methods.map(([k, v, href]) => <div><dt>{k}</dt><dd>{href ? <a href={href} rel={href.startsWith('http') ? 'noopener' : undefined}>{v}</a> : v}</dd></div>)}
+        </dl>
+      </div>
+      <div id="contact-form"><LeadForm variant="full" source="contact-page" /></div>
+    </div>
+  </section>
+  <section class="wrap section">
+    <SectionHead title="What happens next" size="heading" />
+    <Steps steps={[
+      ['We reply within 24 hours', 'A real person reads your message and suggests times for a call.'],
+      ['Scoping call', '30 minutes on the problem, users, timeline and budget.'],
+      ['Plan and fixed quote', 'A written plan and a fixed price, yours to keep.'],
+    ]} />
+  </section>
+  <section class="wrap section"><Faq title="Before you ask" items={FAQS} /></section>
+</Base>
+<style>
+  .ct__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,11,42,0.94) 0%, rgba(26,11,42,0.78) 45%, rgba(26,11,42,0.35) 100%); }
+  .ct__in { position: relative; padding-top: 88px; padding-bottom: 96px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 600px); gap: 72px; align-items: start; }
+  .ct__copy { display: flex; flex-direction: column; gap: 22px; }
+  .ct .display-xl { font-size: clamp(38px, 4.7vw, 68px); }
+  .ct__methods { margin: 12px 0 0; }
+  .ct__methods div { padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.18); }
+  .ct__methods dt { font-size: 14px; color: #bfb3cc; } .ct__methods dd { margin: 4px 0 0; font-size: 19px; font-weight: 700; overflow-wrap: anywhere; }
+  .ct__methods a { color: #fff; } .ct__methods a:hover { color: var(--lilac); }
+  @media (max-width: 1024px) { .ct__in { grid-template-columns: minmax(0, 1fr); padding-top: 48px; gap: 40px; } .ct__scrim { background: rgba(26,11,42,0.9); } }
+</style>

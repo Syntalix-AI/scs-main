@@ -1,0 +1,11 @@
+---
+interface Props { title: string; lead?: string; link?: { href: string; label: string }; size?: 'display' | 'heading'; as?: 'h1' | 'h2' }
+const { title, lead, link, size = 'display', as: Tag = 'h2' } = Astro.props;
+---
+<div class="shead">
+  <div>
+    <Tag class={size}>{title}</Tag>
+    {lead && <p class="lead">{lead}</p>}
+  </div>
+  {link && <a class="more" href={link.href}>{link.label}</a>}
+</div>

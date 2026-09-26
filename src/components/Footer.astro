@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import { SITE, FOOTER } from '@/data/site';
+import { logo } from '@/lib/images';
+---
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div class="ftr__brand">
+        <a href="/" class="ftr__logo"><Image src={logo('syntalix-logo')} alt="" width={48} height={48} /><span>Syntalix Consultancy</span></a>
+        <p>Software, AI and ML development for clients in India and worldwide.</p>
+      </div>
+      <div><h2>Services</h2>{FOOTER.services.map((l) => <a href={l.href}>{l.label}</a>)}</div>
+      <div><h2>Work</h2>{FOOTER.work.map((l) => <a href={l.href}>{l.label}</a>)}</div>
+      <div><h2>Company</h2>{FOOTER.company.map((l) => <a href={l.href}>{l.label}</a>)}</div>
+      <div>
+        <h2>Find us</h2>
+        <a href={SITE.linkedin} rel="me noopener" class="hi">LinkedIn</a>
+        <a href={SITE.clutch} rel="noopener" class="hi">Reviews on Clutch</a>
+        <a href={SITE.fiverr} rel="noopener" class="hi">Reviews on Fiverr</a>
+        <a href={SITE.github} rel="me noopener" class="hi">GitHub</a>
+        <a href={`mailto:${SITE.email}`} class="hi" data-track="email_click">{SITE.email}</a>
+      </div>
+    </div>
+    <div class="ftr__legal">
+      <span>Syntalix Consultancy is operated by Syntalix LLP, LLPIN {SITE.llpin}, Uttar Pradesh, India. Certified by the {SITE.certification}.</span>
+      <span>Working since {SITE.foundingDate}, registered as an LLP in {SITE.llpRegistered}.</span>
+    </div>
+  </div>
+</footer>
+<style>
+  .ftr { margin-top: var(--section); padding: 80px 0 48px; background: var(--footer); color: #e9e4ef; }
+  .ftr__grid { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 0.9fr)) minmax(0, 1.35fr); gap: 36px; }
+  .ftr__grid > div { display: flex; flex-direction: column; gap: 12px; font-size: 15px; }
+  .ftr__grid h2 { font-size: 15px; font-weight: 700; color: #fff; }
+  .ftr__grid > div { min-width: 0; }
+  .ftr__grid a { color: #b5abc2; }
+  @media (max-width: 1024px) { .ftr__grid a { overflow-wrap: anywhere; } }
+  .ftr__grid a:hover { color: #fff; }
+  .ftr__grid a.hi { color: var(--lilac); }
+  .ftr__logo { display: flex; align-items: center; gap: 12px; color: #fff !important; font-size: 19px; font-weight: 700; }
+  .ftr__logo img { width: 48px; height: 48px; object-fit: contain; }
+  .ftr__brand p { max-width: 300px; color: #b5abc2; }
+  .ftr__legal { margin-top: 56px; padding-top: 28px; border-top: 1px solid #3a2f47; display: flex; justify-content: space-between; gap: 24px; font-size: 14px; color: #a99ebb; }
+  @media (max-width: 1024px) { .ftr__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ftr__brand { grid-column: span 2; } .ftr__legal { flex-direction: column; } }
+</style>

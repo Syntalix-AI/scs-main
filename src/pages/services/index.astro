@@ -1,0 +1,39 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import Steps from '@/components/Steps.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { SERVICES } from '@/data/services';
+import { SITE } from '@/data/site';
+import { webPage, breadcrumbs, service } from '@/lib/schema';
+
+const title = 'AI, ML and Software Development Services';
+const description = 'Web and mobile apps, LLM engineering, agentic AI, machine learning infrastructure, AI consulting and AEO from Syntalix, an India-based development team.';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }];
+const schema = [webPage('/services', title, description, 'CollectionPage'), breadcrumbs(crumbs), ...SERVICES.map((s) => service({ name: s.name, description: s.description, path: `/services/${s.slug}`, serviceType: s.name }))];
+---
+<Base title={title} description={description} schema={schema}>
+  <PageHero image="pg-services" title="AI, ML and software development services" lead="One team for the product, the AI inside it and the infrastructure under it. Every service below is something we have delivered for clients." crumbs={crumbs} height={600} position="100% 50%">
+    <div class="btns"><a class="btn btn--light" href="/contact">Book a free scoping call</a><a class="btn btn--glass" href="/case-studies">See client work</a></div>
+  </PageHero>
+  <section class="wrap section">
+    <SectionHead title="What we build" lead="Pick a starting point. Most projects combine two or three of these." />
+    <div class="grid-3" style="row-gap:56px">{SERVICES.map((s) => <ServiceCard service={s} headingLevel="h2" />)}</div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <SectionHead title="How a project runs" lead="The same four steps whether it is a website or an LLM system." />
+      <Steps steps={[
+        ['Scoping call', 'A free 30-minute call to understand the problem, the users and the budget.'],
+        ['Plan and design', 'A written plan, a fixed quote and designs you approve before we build.'],
+        ['Build in releases', 'Working software every week on a preview link, so there are no surprises.'],
+        ['Launch and hand over', 'We launch, then hand over the code, accounts and documentation.'],
+      ]} />
+    </div>
+  </section>
+  <Testimonials />
+  <CtaBanner />
+</Base>

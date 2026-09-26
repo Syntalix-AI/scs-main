@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import { TESTIMONIALS } from '@/data/testimonials';
+import { logo } from '@/lib/images';
+const [feature, second, third] = TESTIMONIALS;
+---
+<section class="wrap section tm" aria-labelledby="tm-title">
+  <figure class="tm__feature">
+    <h2 id="tm-title" class="tm__label">What clients say</h2>
+    <blockquote>“{feature.short}”</blockquote>
+    <figcaption><b>{feature.name}</b><a href={feature.href} rel="noopener">{feature.source}</a></figcaption>
+  </figure>
+  <div class="tm__side">
+    <figure class="tm__card">
+      <blockquote>“{second.short}”</blockquote>
+      <figcaption><b>{second.name}</b><a href={second.href} rel="noopener">{second.source}</a></figcaption>
+    </figure>
+    <figure class="tm__card tm__card--rl">
+      <blockquote>“{third.short}”</blockquote>
+      <figcaption class="tm__who"><Image src={logo('rapidlink-logo')} alt="" width={40} height={40} /><span><b>{third.name}</b><span>{third.source}</span></span></figcaption>
+    </figure>
+  </div>
+</section>
+<style>
+  .tm { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 64px; }
+  .tm__label { font-size: 20px; font-weight: 600; color: var(--ink-subtle); }
+  .tm figure { margin: 0; }
+  .tm__feature { display: flex; flex-direction: column; gap: 28px; }
+  .tm__feature blockquote { margin: 0; font: italic 400 clamp(28px, 3vw, 44px)/1.22 var(--font-quote); }
+  .tm figcaption { display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
+  .tm figcaption b { font-size: 17px; }
+  .tm__side { display: flex; flex-direction: column; gap: 24px; padding-top: 52px; }
+  .tm__card { padding: 28px; border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-card); display: flex; flex-direction: column; gap: 16px; }
+  .tm__card blockquote { margin: 0; font: italic 400 21px/1.45 var(--font-quote); }
+  .tm__card--rl { background: #0b1a3a; color: #fff; }
+  .tm__who { flex-direction: row !important; align-items: center; gap: 12px !important; }
+  .tm__who :global(img) { width: 40px; height: 40px; border-radius: 20px; background: #fff; object-fit: contain; }
+  .tm__who span { display: flex; flex-direction: column; }
+  .tm__who span span { font-size: 14px; color: #c9d1e3; }
+  @media (max-width: 900px) { .tm { grid-template-columns: minmax(0, 1fr); gap: 24px; } .tm__side { padding-top: 0; } }
+</style>

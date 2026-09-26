@@ -1,0 +1,132 @@
+{
+  "captured": "2026-09-27",
+  "origin": "https://www.syntalixconsultancy.com",
+  "pages": [
+    {
+      "path": "/",
+      "title": "Syntalix Consultancy | AI & ML Company India",
+      "description": "Syntalix Consultancy (Syntalix LLP) is an India-based AI/ML engineering firm specialising in LLM engineering, agentic AI systems, RAG pipelines, and enterprise software. LLPIN: ACR-6280.",
+      "canonical": "https://www.syntalixconsultancy.com"
+    },
+    {
+      "path": "/about",
+      "title": "About Us | Syntalix Consultancy",
+      "description": "Syntalix LLP (LLPIN: ACR-6280) is a registered AI/ML consultancy in India, certified by the prestigious Wadhwani NEN Foundation, building production-grade LLM applications.",
+      "canonical": "https://www.syntalixconsultancy.com/about"
+    },
+    {
+      "path": "/services",
+      "title": "Our Services | Syntalix Consultancy",
+      "description": "AI & ML services from Syntalix Consultancy: LLM engineering, agentic AI systems, RAG architecture, MLOps infrastructure, and full-stack web & mobile development — built for enterprise production.",
+      "canonical": "https://www.syntalixconsultancy.com/services"
+    },
+    {
+      "path": "/services/ai-ml-infrastructure",
+      "title": "AI & ML Infrastructure Solutions | Syntalix Consultancy",
+      "description": "Production AI/ML infrastructure from Syntalix: custom model training, MLOps pipelines, GPU infrastructure, model monitoring with OpenTelemetry, and scalable deployment architectures.",
+      "canonical": "https://www.syntalixconsultancy.com/services/ai-ml-infrastructure"
+    },
+    {
+      "path": "/services/llm-engineering",
+      "title": "LLM Engineering Services | Syntalix Consultancy",
+      "description": "Expert LLM engineering in India: fine-tuning, RAG system architecture, prompt engineering, safety guardrails, and production API development. Syntalix LLP builds LLM systems that scale.",
+      "canonical": "https://www.syntalixconsultancy.com/services/llm-engineering"
+    },
+    {
+      "path": "/services/agentic-systems",
+      "title": "Agentic AI Systems | Syntalix Consultancy",
+      "description": "Build autonomous multi-agent AI systems with Syntalix. We design and deploy LangGraph-based agentic workflows, goal-driven automation, and tool-use agents for Indian and global enterprises.",
+      "canonical": "https://www.syntalixconsultancy.com/services/agentic-systems"
+    },
+    {
+      "path": "/services/ai-consulting",
+      "title": "AI Consulting Services | Syntalix Consultancy",
+      "description": "Strategic AI consulting from Syntalix Consultancy — helping enterprises in Gujarat, Delhi, Bengaluru, Kolkata, and across India identify AI opportunities, build roadmaps, and implement production-grade AI systems.",
+      "canonical": "https://www.syntalixconsultancy.com/services/ai-consulting"
+    },
+    {
+      "path": "/services/aeo-optimization",
+      "title": "Answer Engine Optimization (AEO) Services | Syntalix Consultancy",
+      "description": "AEO services from Syntalix: get your brand cited by ChatGPT, Perplexity, Google AI Overviews, and Claude through structured data and schema.",
+      "canonical": "https://www.syntalixconsultancy.com/services/aeo-optimization"
+    },
+    {
+      "path": "/services/web-mobile-development",
+      "title": "Web & Mobile App Development | Syntalix Consultancy",
+      "description": "Enterprise web and mobile development from Syntalix Consultancy: Next.js, React, FastAPI, iOS, Android, and SaaS platforms built to production standards in India.",
+      "canonical": "https://www.syntalixconsultancy.com/services/web-mobile-development"
+    },
+    {
+      "path": "/blog",
+      "title": "Blog | Syntalix Consultancy",
+      "description": "Technical articles on LLM engineering, agentic AI, RAG systems, and enterprise software from the Syntalix team — India's AI/ML consultancy.",
+      "canonical": "https://www.syntalixconsultancy.com/blog"
+    },
+    {
+      "path": "/blog/what-is-llm-engineering",
+      "title": "What is LLM Engineering and Why Your Business Needs It | Syntalix Consultancy",
+      "description": "LLM engineering transforms business operations through custom language models, fine-tuning, and RAG systems. Learn what it takes to build production-grade LLM applications.",
+      "canonical": "https://www.syntalixconsultancy.com/blog/what-is-llm-engineering"
+    },
+    {
+      "path": "/blog/rise-of-agentic-ai",
+      "title": "The Rise of Agentic AI in Business | Syntalix Consultancy",
+      "description": "Agentic AI systems with autonomous decision-making capabilities are revolutionizing enterprise workflows. Learn how agents differ from chatbots and what they mean for your business.",
+      "canonical": "https://www.syntalixconsultancy.com/blog/rise-of-agentic-ai"
+    },
+    {
+      "path": "/blog/ai-development-cost-india-2026",
+      "title": "AI Development Cost in India (2026 Guide) | Syntalix Consultancy",
+      "description": "A detailed breakdown of AI and ML development costs in India for 2026, covering project types, team structures, technology choices, and how to budget effectively.",
+      "canonical": "https://www.syntalixconsultancy.com/blog/ai-development-cost-india-2026"
+    },
+    {
+      "path": "/portfolio",
+      "title": "Portfolio | Syntalix Consultancy",
+      "description": "Explore Syntalix's portfolio of AI/ML, LLM engineering, agentic AI, and web & mobile development projects. See how we deliver measurable results for enterprise clients worldwide.",
+      "canonical": "https://www.syntalixconsultancy.com/portfolio"
+    },
+    {
+      "path": "/case-studies",
+      "title": "Case Studies | Syntalix Consultancy",
+      "description": "Real AI and software outcomes from Syntalix: 80% faster document processing, 35% less manufacturing downtime, 50% faster e-commerce load times. Explore our client case studies.",
+      "canonical": "https://www.syntalixconsultancy.com/case-studies"
+    },
+    {
+      "path": "/case-studies/automated-document-processing-llm",
+      "title": "Automated Document Processing with LLMs | Syntalix Consultancy",
+      "description": "Read how Syntalix achieved a 80% reduction in processing time in the Finance & Legal industry.",
+      "canonical": "https://www.syntalixconsultancy.com/case-studies/automated-document-processing-llm"
+    },
+    {
+      "path": "/case-studies/predictive-maintenance-ai-infrastructure",
+      "title": "Predictive Maintenance AI Infrastructure | Syntalix Consultancy",
+      "description": "Read how Syntalix achieved a 35% reduction in downtime in the Manufacturing industry.",
+      "canonical": "https://www.syntalixconsultancy.com/case-studies/predictive-maintenance-ai-infrastructure"
+    },
+    {
+      "path": "/case-studies/enterprise-ecommerce-modernization",
+      "title": "Enterprise E-Commerce Modernization | Syntalix Consultancy",
+      "description": "Read how Syntalix achieved a 50% faster load times, 20% conversion bump in the Retail industry.",
+      "canonical": "https://www.syntalixconsultancy.com/case-studies/enterprise-ecommerce-modernization"
+    },
+    {
+      "path": "/team",
+      "title": "Team | Syntalix Consultancy",
+      "description": "Meet the Syntalix team — AI engineers, LLM specialists, and full-stack developers building production-grade AI systems for Indian and global enterprise clients.",
+      "canonical": "https://www.syntalixconsultancy.com/team"
+    },
+    {
+      "path": "/contact",
+      "title": "Contact Us | Syntalix Consultancy | Syntalix Consultancy",
+      "description": "Get in touch with Syntalix Consultancy (Syntalix LLP) for AI/ML projects, LLM engineering, agentic AI development, or enterprise software. Free consultation available.",
+      "canonical": "https://www.syntalixconsultancy.com/contact"
+    },
+    {
+      "path": "/careers",
+      "title": "Careers | Syntalix Consultancy",
+      "description": "Explore career opportunities at Syntalix Consultancy Services. Join our team of AI, ML, and software development experts.",
+      "canonical": "https://www.syntalixconsultancy.com/careers"
+    }
+  ]
+}

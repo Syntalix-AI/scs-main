@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import { photo } from '@/lib/images';
+import type { Service } from '@/data/services';
+interface Props { service: Service; headingLevel?: 'h2' | 'h3' }
+const { service, headingLevel: H = 'h3' } = Astro.props;
+---
+<a class="svc" href={`/services/${service.slug}`}>
+  <Image src={photo(service.image)} alt="" widths={[400, 600, 800]} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" />
+  <H class="svc__t">{service.name}</H>
+  <p>{service.card}</p>
+</a>
+<style>
+  .svc { display: flex; flex-direction: column; gap: 14px; color: var(--ink); }
+  .svc :global(img) { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: var(--radius-lg); outline: 1px solid rgba(0,0,0,0.06); outline-offset: -1px; transition: scale 300ms ease; }
+  .svc:hover :global(img) { scale: 1.015; }
+  .svc__t { font-size: 24px; font-weight: 700; }
+  .svc:hover .svc__t { color: var(--violet); }
+  .svc p { color: var(--ink-muted); }
+</style>

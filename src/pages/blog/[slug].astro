@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import PostCard from '@/components/PostCard.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { photo, logo } from '@/lib/images';
+import { serviceBySlug } from '@/data/services';
+import { SITE } from '@/data/site';
+import { webPage, breadcrumbs, blogPosting } from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props as { post: CollectionEntry<'blog'> };
+const { Content } = await render(post);
+const d = post.data;
+const path = `/blog/${post.id}`;
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Insights', path: '/blog' }, { name: d.title, path }];
+const svc = serviceBySlug(d.service);
+const img = photo(d.image);
+const related = (await getCollection('blog')).filter((p) => p.id !== post.id).slice(0, 3);
+const date = d.pubDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const schema = [webPage(path, d.title, d.description), breadcrumbs(crumbs), blogPosting({ title: d.title, description: d.description, path, image: img.src, published: d.pubDate, modified: d.updatedDate, tags: d.tags })];
+---
+<Base title={d.title} description={d.description} type="article" published={d.pubDate} schema={schema}>
+  <article class="post">
+    <header class="wrap post__head">
+      <Crumbs items={crumbs} />
+      <span class="cat">{d.category}</span>
+      <h1 class="display">{d.title}</h1>
+      <div class="byline">
+        <Image src={logo('syntalix-logo')} alt="" width={48} height={48} />
+        <span><a href={SITE.linkedin} rel="me noopener author">Syntalix Team</a><small>{date}, {d.readTime} min read</small></span>
+      </div>
+    </header>
+    <div class="wrap"><Image src={img} alt="" widths={[700, 1100, 1600]} sizes="(max-width: 1180px) 100vw, 1100px" loading="eager" fetchpriority="high" class="post__img" /></div>
+    <div class="wrap prose-wrap">
+      <div class="prose"><Content /></div>
+      <a class="svc-callout" href={`/services/${svc.slug}`}>
+        <Image src={photo(svc.image)} alt="" widths={[280]} sizes="140px" />
+        <span><small>Our service</small><b>{svc.h1}</b><span>{svc.card}</span></span>
+      </a>
+      <div class="author">
+        <Image src={logo('syntalix-logo')} alt="" width={64} height={64} />
+        <div><b>Written by the Syntalix Team</b><p>Engineers who design and build AI and web platforms for clients in India, the US and Europe.</p><a href={SITE.linkedin} rel="me noopener">Follow Syntalix on LinkedIn</a></div>
+      </div>
+    </div>
+  </article>
+  <section class="wrap section">
+    <SectionHead title="Keep reading" size="heading" link={{ href: '/blog', label: 'All articles' }} />
+    <div class="grid-3">{related.map((p) => <PostCard post={p} />)}</div>
+  </section>
+  <CtaBanner />
+</Base>
+<style>
+  .post__head { padding-top: 72px; max-width: calc(760px + 2 * var(--gutter)); display: flex; flex-direction: column; gap: 20px; }
+  .cat { align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: #e9ddf3; color: var(--violet-strong); font-size: 13px; font-weight: 600; }
+  .byline { display: flex; align-items: center; gap: 14px; }
+  .byline :global(img), .author :global(img) { border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px var(--line); object-fit: contain; }
+  .byline span { display: flex; flex-direction: column; }
+  .byline a { font-weight: 700; color: var(--ink); } .byline small { font-size: 14px; color: var(--ink-subtle); }
+  .post :global(.post__img) { margin: 32px auto 0; width: 100%; max-width: 1100px; aspect-ratio: 2 / 1; height: auto; object-fit: cover; border-radius: var(--radius-xl); }
+  .prose-wrap { max-width: calc(720px + 2 * var(--gutter)); padding-top: 48px; display: flex; flex-direction: column; gap: 32px; }
+  .prose { font-size: 19px; line-height: 1.75; color: #2d2438; }
+  .prose :global(h2) { margin: 40px 0 12px; font-size: 32px; line-height: 1.15; font-weight: 800; color: var(--ink); }
+  .prose :global(h3) { margin: 32px 0 8px; font-size: 23px; font-weight: 700; color: var(--ink); }
+  .prose :global(p) { margin: 0 0 20px; }
+  .prose :global(ul), .prose :global(ol) { margin: 0 0 20px; padding-left: 24px; }
+  .prose :global(li) { margin-bottom: 8px; }
+  .prose :global(a) { text-decoration: underline; text-underline-offset: 3px; }
+  .prose :global(table) { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 16px; }
+  .prose :global(th), .prose :global(td) { padding: 10px 12px; border-bottom: 1px solid var(--line-strong); text-align: left; }
+  .prose :global(blockquote) { margin: 24px 0; padding-left: 24px; border-left: 3px solid var(--violet); font: italic 400 24px/1.45 var(--font-quote); color: var(--ink); }
+  .svc-callout { padding: 24px; border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 0 0 1px var(--line); display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 24px; align-items: center; color: var(--ink); }
+  .svc-callout :global(img) { width: 140px; height: 105px; object-fit: cover; border-radius: 14px; }
+  .svc-callout > span { display: flex; flex-direction: column; gap: 6px; }
+  .svc-callout small { font-size: 14px; color: var(--ink-subtle); } .svc-callout b { font-size: 22px; } .svc-callout span span { color: var(--ink-muted); }
+  .svc-callout:hover b { color: var(--violet); }
+  .author { padding: 28px; border-radius: var(--radius-lg); background: var(--surface-sunk); display: flex; gap: 20px; align-items: flex-start; }
+  .author div { display: flex; flex-direction: column; gap: 6px; } .author b { font-size: 18px; } .author p { color: var(--ink-muted); } .author a { font-weight: 600; }
+  @media (max-width: 640px) { .svc-callout { grid-template-columns: minmax(0, 1fr); } .prose { font-size: 18px; } .post__head { padding-top: 40px; } }
+</style>

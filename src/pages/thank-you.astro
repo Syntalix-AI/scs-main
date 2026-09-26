@@ -1,0 +1,12 @@
+---
+import Base from '@/layouts/Base.astro';
+import { SITE } from '@/data/site';
+---
+<Base title="Thanks, we have your message" description="Thanks for contacting Syntalix Consultancy. We have your message and will reply within 24 hours to set up a free 30-minute scoping call." noindex>
+  <section class="wrap ty">
+    <h1 class="display">Thanks, we have your message</h1>
+    <p class="lead">We will reply within 24 hours to set up a free 30-minute scoping call. If it is urgent, message us on WhatsApp.</p>
+    <div class="btns"><a class="btn btn--primary" href={SITE.whatsapp} rel="noopener">Message us on WhatsApp</a><a class="btn btn--secondary" href="/case-studies">Browse our work</a></div>
+  </section>
+</Base>
+<style>.ty { padding-top: 120px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 24px; }</style>

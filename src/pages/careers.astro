@@ -1,0 +1,51 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { SITE } from '@/data/site';
+import { webPage, breadcrumbs } from '@/lib/schema';
+
+const title = 'Careers at Syntalix';
+const description = 'Careers at Syntalix Consultancy: work on real client products in AI and full-stack engineering with a small senior team. Join our talent pool.';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Careers', path: '/careers' }];
+---
+<Base title={title} description={description} schema={[webPage('/careers', title, description), breadcrumbs(crumbs)]}>
+  <PageHero image="pg-careers" tone="light" bg="#D6C9E6" title="Careers at Syntalix" lead="Work on real client products with a small senior team. Remote-friendly, based in India." crumbs={crumbs} height={500} position="70% 50%" />
+  <section class="wrap section">
+    <SectionHead title="Why people join" />
+    <div class="rows" style="--cols:3">
+      <div><h3>Real products</h3><p>You ship to paying clients every week, not side projects or demos.</p></div>
+      <div><h3>Small senior team</h3><p>Direct access to the people making decisions, and real ownership of your work.</p></div>
+      <div><h3>AI and web, both</h3><p>Move between LLM systems and full-stack platforms as projects need.</p></div>
+    </div>
+  </section>
+  <section class="wrap section" id="talent-pool">
+    <SectionHead title="Open roles" size="heading" lead="There are no open roles right now. Join the talent pool and we will reach out when something fits." />
+    <form class="tp" method="post" action="/api/contact" data-lead-form>
+      <input type="hidden" name="source" value="careers-talent-pool" />
+      <input type="hidden" name="need" value="Talent pool" />
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
+      <label class="field">Name<input class="input" name="name" autocomplete="name" required maxlength="120" /></label>
+      <label class="field">Email<input class="input" type="email" name="email" autocomplete="email" required maxlength="200" /></label>
+      <label class="field">Role you are interested in<select class="input" name="role"><option>Full-stack engineer</option><option>AI or ML engineer</option><option>Product designer</option><option>Something else</option></select></label>
+      <label class="field">Portfolio or GitHub<input class="input" name="portfolio" type="url" placeholder="https://" maxlength="300" /></label>
+      <label class="field wide">Tell us about something you built<textarea class="input" name="message" rows="5" maxlength="4000" placeholder="What was it, and what did you do?"></textarea></label>
+      <div class="wide end"><button class="btn btn--primary" type="submit">Join the talent pool</button></div>
+      <p class="lf__status wide" role="status" aria-live="polite" hidden></p>
+    </form>
+    <p class="alt">Prefer email? Write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+  </section>
+  <CtaBanner />
+</Base>
+<script>
+  import '@/scripts/lead-form';
+</script>
+<style>
+  .tp { padding: 40px; border-radius: var(--radius-xl); background: #fff; box-shadow: 0 0 0 1px var(--line); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .wide { grid-column: 1 / -1; } .end { display: flex; justify-content: flex-end; }
+  .lf__status { padding: 12px 14px; border-radius: 12px; font-weight: 600; background: var(--surface-sunk); }
+  .lf__status[data-state='ok'] { background: #e4ecd9; color: #2f4a1e; } .lf__status[data-state='error'] { background: #fde8e8; color: #9b1c1c; }
+  .alt { margin-top: 20px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .tp { grid-template-columns: minmax(0, 1fr); padding: 22px; } }
+</style>

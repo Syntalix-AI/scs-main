@@ -1,3 +1,14 @@
+---
+title: "The Rise of Agentic AI in Business"
+description: "How agentic AI differs from chatbots: agents that plan, use tools and act across your systems, where they work today and how to adopt them safely."
+pubDate: 2026-06-05
+category: "Agentic AI"
+readTime: 10
+image: "post-agents"
+service: "agentic-systems"
+tags: ["Agentic AI", "Automation", "Multi-agent systems"]
+---
+
 For the past two years, the dominant paradigm for business AI has been the chatbot: a conversational interface backed by a large language model that answers questions and generates text. Useful, certainly. But fundamentally limited. The chatbot waits to be asked. It produces text. It takes no action. It has no memory of what it did last week. It cannot browse the internet, query your database, or send an email on your behalf.
 
 Agentic AI systems are different in kind. They *act*. They pursue goals. They plan, decide, use tools, and adapt. And they are beginning to transform how businesses operate in ways that make chatbots look like a transitional technology.

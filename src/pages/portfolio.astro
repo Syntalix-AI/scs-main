@@ -1,0 +1,44 @@
+---
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import ClientCard from '@/components/ClientCard.astro';
+import Products from '@/components/Products.astro';
+import CtaBanner from '@/components/CtaBanner.astro';
+import { LIVE_SITES, MORE_WORK, projectBySlug } from '@/data/projects';
+import { webPage, breadcrumbs } from '@/lib/schema';
+
+const title = 'Portfolio: Client Work and Products';
+const description = 'Portfolio of Syntalix Consultancy: client websites, booking platforms, AI and LLM systems we delivered, plus the products we build and run ourselves.';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Portfolio', path: '/portfolio' }];
+const live = LIVE_SITES.map((s) => projectBySlug(s)!);
+const more = MORE_WORK.map((s) => projectBySlug(s)!);
+---
+<Base title={title} description={description} schema={[webPage('/portfolio', title, description, 'CollectionPage'), breadcrumbs(crumbs)]}>
+  <section class="wrap intro">
+    <Crumbs items={crumbs} />
+    <h1 class="display-xl">Portfolio</h1>
+    <p class="lead">Client platforms and AI systems we delivered, and the products we run ourselves. For the full story on two of them, read the <a href="/case-studies/city-farmers">City Farmers</a> and <a href="/case-studies/rapidlink-logistics">RapidLink Logistics</a> case studies.</p>
+  </section>
+  <section class="wrap" style="padding-top:64px">
+    <SectionHead title="Live sites we built" size="heading" />
+    <div class="grid-3" style="gap:24px">{live.map((p) => <ClientCard project={p} />)}</div>
+  </section>
+  <section class="wrap section">
+    <SectionHead title="More client projects" size="heading" lead="AI systems and platforms delivered for clients, several under confidentiality." />
+    <div class="grid-3 tiles">
+      {more.map((p) => <div class="tile"><h3>{p.client}</h3><p>{p.what}</p><span>{p.stack}</span></div>)}
+      {(() => { const ld = projectBySlug('legal-discovery-ai')!; return <div class="tile"><h3>{ld.client}</h3><p>{ld.what}</p><span>{ld.stack}</span></div>; })()}
+    </div>
+  </section>
+  <Products />
+  <CtaBanner />
+</Base>
+<style>
+  .intro { padding-top: 88px; display: flex; flex-direction: column; gap: 20px; }
+  .intro .display-xl { font-size: clamp(38px, 4.7vw, 68px); }
+  .tiles { gap: 24px; }
+  .tile { padding: 28px; border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 10px; }
+  .tile h3 { font-size: 21px; } .tile p { font-size: 15px; color: var(--ink-muted); } .tile span { margin-top: auto; font-size: 14px; color: var(--ink-subtle); }
+  @media (max-width: 900px) { .intro { padding-top: 48px; } }
+</style>
