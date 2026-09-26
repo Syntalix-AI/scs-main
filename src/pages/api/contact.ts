@@ -46,7 +46,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
   if (limited(clientAddress ?? 'unknown')) return reply(request, 429, { error: 'Too many messages. Please try again in a few minutes.' });
 
-  const form = Object.fromEntries((await request.formData()).entries());
+  // Missing fields become empty strings so users get the friendly message, not a type error.
+  const form = { name: '', email: '', ...Object.fromEntries((await request.formData()).entries()) };
   const parsed = Lead.safeParse(form);
   if (!parsed.success) {
     // Honeypot filled: pretend success so bots learn nothing.

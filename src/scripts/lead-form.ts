@@ -1,4 +1,9 @@
 // Progressive enhancement for every form[data-lead-form]: submit with fetch, show inline status, send the GA4 key event.
+// A no-JS submission that failed comes back as ?error=1; say so on the first form on the page.
+if (new URLSearchParams(location.search).has('error')) {
+  const s = document.querySelector<HTMLElement>('form[data-lead-form] .lf__status');
+  if (s) { s.hidden = false; s.dataset.state = 'error'; s.textContent = 'That did not go through. Please check your name and email, or write to info@syntalixconsultancy.com.'; }
+}
 document.querySelectorAll<HTMLFormElement>('form[data-lead-form]').forEach((form) => {
   if (form.dataset.bound) return;
   form.dataset.bound = '1';
