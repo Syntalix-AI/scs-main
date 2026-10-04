@@ -1,200 +1,220 @@
-# Full SEO Audit: syntalixconsultancy.com
+# Full SEO and AEO Audit: syntalixconsultancy.com (after the Astro rebuild)
 
-- **Scope:** full site. All 21 sitemap URLs were crawled live, plus a review of the Next.js source at `main@7c14062`.
-- **Date:** 2026-09-26
-- **Business type:** Agency / AI-ML consultancy (India-based, serving India and international clients)
-- **Overall SEO health:** **65 / 100: Needs Improvement** (score confidence: Medium, because Core Web Vitals could not be measured)
+- **Scope:** full site. All 19 sitemap URLs were crawled live on production (Astro build, `main@22ec5ac`), and the source was reviewed for root causes.
+- **Date:** 2026-10-04. The previous audit, dated 2026-09-26 and run on the old Next.js site, is in git history.
+- **Business type:** agency / AI-ML consultancy, based in India and serving India, the US and Europe.
+- **Overall SEO health:** **90 / 100: Excellent**, up from 65. Score confidence is Medium: lab performance was measured, but no real-user (field) data exists yet.
+- **Tools used:**
+  - the `seo` skill and the repo copy `Agentic-SEO-Skill` (`audit_runner.py` plus about 35 individual scripts)
+  - local Lighthouse 12 (mobile) on 8 templates
+  - a custom crawler over all sitemap URLs
 
-The site is technically clean: HTTPS, security headers, a 308 redirect from the bare domain to `www`, a valid sitemap and robots.txt, canonicals on every page, and an llms.txt that scored 100/100. The score is held back by four things:
+The rebuild fixed every critical issue from the last audit:
+- Schema is now server-rendered on every page.
+- The fake counter, the popup and the unverified testimonials are gone.
+- Every page sits within 1 click of the homepage, with no orphans.
+- Lighthouse scores 96–100 on every template.
 
-1. Page-level structured data never reaches the server-rendered HTML.
-2. There is little depth where it matters for trust: thin case studies, unverified testimonials, and a "0 Projects Delivered" counter in the server HTML.
-3. Internal links to blog posts and case studies are weak.
-4. The design is heavy on lead capture, including an auto-popup on every visit.
+What remains is mostly **answer-engine polish**. Service pages lack question-style headings with short direct answers, only blog posts carry dates, the case studies are thin, and there are few outbound citations. One live problem sits outside the site: **the KORD product subdomain's HTTPS is down**.
+
+The repo skill's automated `audit_runner.py` scored the site **88/100**. That figure counts Performance as 0 because the PageSpeed API was rate-limited, and Hreflang as 0 even though the site is single-language. With measured Lighthouse values in place of those zeros, it agrees with the 90 below.
 
 ---
 
 ## A) Audit Summary
 
 ### Top issues
-1. **Page-level JSON-LD is injected client-side only.** Service, FAQ and Breadcrumb schema on the service pages and `/about` are not in the server-rendered HTML. (Confirmed)
-2. **Trust and E-E-A-T gaps.** Case studies are about 200 words with anonymous clients. Testimonials carry Google "G" badges but don't link to Google reviews. There are no named authors on the blog. (Confirmed)
-3. **The stats counter renders "0+ / 0% / 0/7" in the server HTML**, and that is what non-JS crawlers and AI bots see. (Confirmed)
-4. **An auto-popup lead form opens 5 seconds after every page load**, with no "already dismissed" memory. This is an intrusive-interstitial risk on mobile. (Confirmed)
-5. **Blog posts and case studies are nearly orphaned.** Blog posts get 3 inbound links each and case studies get 1. None are linked from the homepage or the service pages. (Confirmed)
+1. **KORD Studio link is unreachable** (Warning, Confirmed). `https://kordstudio.syntalixconsultancy.com` fails to connect on port 443 (IP `32.192.206.34`, not Vercel). Plain HTTP 301-redirects to that broken HTTPS. The homepage "Built in-house" band links to it.
+2. **Service, home and contact pages have no answer blocks** (Warning, Confirmed). `answer_block_scanner` scores 10/100 on these pages, against 100/100 on blog posts. FAQ questions render as `<summary>` text rather than question headings, and no "What is X?" definition paragraph sits near the top of service pages.
+3. **No freshness dates outside blog posts** (Warning, Confirmed). `freshness_checker` reports "No parseable published or modified date" on home, services, case studies and contact (65/100). Blog posts score 100.
 
 ### Top opportunities (quick wins)
-1. Swap `next/script` for a plain `<script type="application/ld+json">` on 7 pages. This takes about 15 minutes and makes all page schema visible to every crawler.
-2. Render the counter's final numbers on the server and animate them on the client.
-3. Trim 9 meta descriptions that run over 160 characters, and fix the duplicated title on `/contact`.
-4. Add `BlogPosting` schema to blog posts and `Article` schema to case studies.
-5. Noindex or delete `/typography`, which is a dev page that is currently indexable.
+1. Render each FAQ question as an `<h3>` inside `<summary>`, and keep answers at 30–55 words. This needs a one-component change in `src/components/Faq.astro`.
+2. Add a 40–55 word "What is <service>?" answer under each service H1. This is the main featured-snippet and AI-citation target for queries like "llm engineering services".
+3. Add `datePublished`/`dateModified` to the WebPage, Service and Article nodes (from `sitemap-dates.mjs`) and a visible "Updated" line on case studies.
+4. Request indexing for the 10 URLs still waiting from 2026-09-27. Google's daily quota has reset since then.
 
 ---
 
 ## B) Findings Table
 
-| # | Area | Finding | Severity | Confidence |
-|---|------|---------|----------|------------|
-| 1 | Schema | Page-level JSON-LD is rendered via `next/script` and missing from the SSR HTML | 🔴 Critical | Confirmed |
-| 2 | Content | Homepage counter SSR text is "0 + Projects Delivered / 0 % / 0 /7" | ⚠️ Warning | Confirmed |
-| 3 | Content/E-E-A-T | Case studies are thin (~190–205 words) with no client, dates, stack or people | ⚠️ Warning | Confirmed |
-| 4 | Content/E-E-A-T | Testimonials show Google badges but aren't linked or verifiable | ⚠️ Warning | Likely |
-| 5 | UX/Technical | Auto-popup modal on every visit after 5 s (`PopUpForm.jsx:11`) | ⚠️ Warning | Confirmed |
-| 6 | Internal links | Blog posts have 3 inbound links and case studies have 1; none come from home or service pages | ⚠️ Warning | Confirmed |
-| 7 | Schema | No `BlogPosting`/`Article` schema on blog posts or case studies | ⚠️ Warning | Confirmed |
-| 8 | Schema | `Organization` uses LocalBusiness-only props (`priceRange`, `openingHours`) | ⚠️ Warning | Confirmed |
-| 9 | Schema | `WebSite.SearchAction` targets `/blog?q=`, but the blog has no search | ⚠️ Warning | Confirmed |
-| 10 | Technical | `/typography` is live with 200 + `index, follow` (dev/demo page) | ⚠️ Warning | Confirmed |
-| 11 | On-page | 9 meta descriptions are over 160 chars (up to 213) | ⚠️ Warning | Confirmed |
-| 12 | On-page | `/contact` title duplicates the brand ("… \| Syntalix Consultancy \| Syntalix Consultancy") | ⚠️ Warning | Confirmed |
-| 13 | Content | `/careers` has 37 words and `/contact` has 72 | ⚠️ Warning | Confirmed |
-| 14 | Performance | Navbar logo `<Image fill>` has no `sizes`, so a 40 px logo is served at `w=3840` | ⚠️ Warning | Confirmed |
-| 15 | Images | Service PNGs are 380–440 KB each in `public/services` | ⚠️ Warning | Confirmed |
-| 16 | Technical | 6 pages have no `<main>` landmark (home, team, 4× case studies) | ℹ️ Info | Confirmed |
-| 17 | Schema | `/team` emits a second, separate `Organization` node | ℹ️ Info | Confirmed |
-| 18 | Schema | `FAQPage` on home and service pages: no rich results for commercial sites since 2023 | ℹ️ Info | Confirmed |
-| 19 | Technical | `http://` → `https://` → `https://www` is a 2-hop chain | ℹ️ Info | Confirmed |
-| 20 | Entity | `sameAs` Clutch URL returned 403 in the July audit, and the Google Search Console verification token is empty | ℹ️ Info | Likely |
-| 21 | Content | "Why Customer's Love Us" has a grammar error (`Testimonials.jsx:238`) | ℹ️ Info | Confirmed |
-| 22 | Repo hygiene | About 1 MB of stale audit HTML/JSON dumps plus an 18 MB `public/PNGs` folder that no code references are committed | ℹ️ Info | Confirmed |
+| Area | Severity | Confidence | Finding | Evidence | Fix |
+|---|---|---|---|---|---|
+| Links | Warning | Confirmed | KORD subdomain HTTPS down | `curl` to :443 refused 3 times; DNS `32.192.206.34`; HTTP returns 301 to https | Fix the KORD server's TLS listener, or hide the KORD card until it is back |
+| AEO | Warning | Confirmed | No question heading plus direct answer on service, home and contact pages | `answer_block_scanner` 10/100; FAQ uses `<summary>Should we fine-tune…</summary>` | Wrap each question in `<h3>`; add a definition paragraph per service |
+| Freshness | Warning | Confirmed | No published or modified dates outside the blog | `freshness_checker` 65; WebPage, Service and Article nodes have no `dateModified` | Emit dates in schema; show "Updated" on case studies |
+| Content | Warning | Confirmed | Case studies are thin | city-farmers 362 words, rapidlink-logistics 317 words (crawler, text inside `<main>`) | Expand to 700+ words: brief, constraints, architecture, stack decisions, what shipped, client quote |
+| E-E-A-T / GEO | Warning | Confirmed | Few outbound citations on service and blog pages | `citation_readiness` 59 (blog) and 66 (service): "factual claims outnumber citation signals" | Cite 2–3 primary sources per post (vendor docs, papers, government data) |
+| Entity | Info | Confirmed | No Wikipedia, Wikidata or X profile | `entity_checker`; the user has no X account | Don't create profiles only for SEO; grow third-party mentions (Clutch, directories, press) |
+| Entity | Info | Confirmed | Fiverr and Clutch return 403 to bots | `broken_links` / `external_link_quality` | None needed. Both open in browsers and are valid `sameAs` links |
+| Schema | Info | Confirmed | FAQPage won't earn FAQ rich results for a commercial site | `rich_results_guard` | Keep it: it is valid and helps AI engines parse Q&A. Don't expect SERP accordions |
+| Schema | Info | Confirmed | WebSite has no SearchAction | `schema_required_props` | Not needed: the site has no internal search, and Google retired the sitelinks search box in 2024 |
+| Local | Info | Likely | No Google Business Profile link or LocalBusiness | `local_seo_checker` | Only if there is a staffed address: create a GBP and add it to `sameAs` |
+| Content | Info | Confirmed | /blog (148 words), /careers (187) and /contact (245) are below 300 words | `duplicate_content` | Acceptable for index and utility pages; growing the blog fixes /blog naturally |
+| Performance | Info | Confirmed | Blog post TBT is 216 ms (perf 96) | Lighthouse mobile | Optional: defer the lead-form script on posts until the form scrolls into view |
+| Indexing | Info | Confirmed | 10 of 19 URLs still have no manual indexing request | GSC on 2026-09-27: quota hit after 9 | Request the rest; the sitemap already lists them |
+| Redirects | Info | Confirmed | `http://syntalixconsultancy.in` takes 2 hops | `curl -L` | Unavoidable: Vercel's forced HTTPS upgrade is the first hop |
+| Technical | Pass | Confirmed | Security headers 100, robots 100, llms.txt 100, 0 orphans, 0 crawl issues, all canonicals self-referencing | scripts plus crawler | — |
+
+### Script findings checked and rejected as false positives
+These were verified by hand and do not count against the score:
+- **mobile_render_checker, "missing viewport" (critical):** the tag is present: `width=device-width, initial-scale=1`.
+- **schema_required_props, "placeholder text" ×7:** the checker flags any `[`, so every JSON array trips it.
+- **sitemap_checker, 19 "duplicate URLs" and a sitemap_index 404:** the checker guessed `/sitemap-index.xml`, which 308-redirects to the same `/sitemap.xml`. `/sitemap_index.xml` is not referenced anywhere.
+- **a11y_seo_checker, "5 unlabeled fields":** the inputs are wrapped in `<label>`, and Lighthouse accessibility is 100.
+- **font_audit, "Font is not WOFF2" ×4:** these are Fontsource's WOFF fallbacks listed after WOFF2, and browsers only download the WOFF2.
+- **image_weight_audit, "no srcset" ×13:** these are small fixed-size logos and SVG icons. The real LCP image already has `fetchpriority="high"`.
+- **ai_crawler_policy_matrix, "CCBot/Bytespider allowed":** the checker merges the `*` group into every bot's rules, which robots.txt rules (RFC 9309) don't do. Python's `urllib.robotparser` confirms both bots are blocked.
 
 ---
 
-## C) Detailed Findings
+## C) Detailed Findings and Category Scores
 
-### Technical SEO: 78/100
+### Technical SEO: 100/100
+**Positive signals:**
+- HTTPS everywhere, with HSTS preload, CSP (no `unsafe-eval`), X-Frame-Options DENY, nosniff, Referrer-Policy and Permissions-Policy. `security_headers` scores 100.
+- 19/19 pages return 200 with a self-referencing canonical and `index, follow, max-image-preview:large`. `canonical_checker` and `indexability_matrix` are both clean.
+- The sitemap (`/sitemap.xml`, 19 URLs) matches the crawl, with 0 orphans (`orphan_pages_from_sitemap`) and 0 crawl issues (`crawl_audit`).
+- Redirects: non-www→www, `.in`→www and trailing slashes each take 1 hop. Retired URLs 308 to their replacements, and the URL-parity script passes 21/21.
+- Preview deployments send `X-Robots-Tag: noindex`; production does not.
 
-**Passes**
-- ✅ HTTPS with HSTS preload, CSP, X-Frame-Options, nosniff, Referrer-Policy and Permissions-Policy. Security headers score 100/100.
-- ✅ The bare domain returns a 308 to `www` in one hop. Unknown URLs return a real 404.
-- ✅ `robots.txt` allows search engines and AI assistants (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, and others), blocks CCBot and Bytespider, and disallows `/api/`. The sitemap is declared.
-- ✅ The sitemap lists 21 URLs and all of them return 200 with a self-referencing canonical.
-- ✅ Preview deploys are sent `X-Robots-Tag: noindex` through `VERCEL_ENV` (`next.config.mjs`).
-- ✅ Broken links: 0 of 19 checked on the homepage.
+**Deficits:** none above Info.
 
-**Issues**
-- **`/typography` is indexable.** *Evidence:* HTTP 200, `<meta name="robots" content="index, follow">`, title "Typography - Syntalix Consultancy Services". *Impact:* a thin, off-topic URL in the index and a crawl-budget leak. *Fix:* delete `src/app/(routes)/typography`, or add `robots: { index: false }` to its metadata. The same applies to the `SyntalixFontDemo` and `TypographyShowcase` components.
-- **Missing `<main>` landmark** on `/`, `/team`, `/case-studies` and `/case-studies/*`. *Impact:* crawlers and AI extractors use `<main>` to isolate primary content, and it also matters for accessibility. *Fix:* wrap page content in `<main>`.
-- **HTTP redirect chain.** `http://syntalixconsultancy.com` takes 2 hops (http→https→www). This is minor because HSTS preload removes it for returning browsers. It can be fixed with a single-hop redirect in Vercel domain settings.
-- **Google Search Console verification is empty** (`layout.js`, `verification.google: ''`). If GSC is verified through DNS this is fine. Otherwise, fill it in or remove the key.
+Score 100: everything Google needs to crawl and index is in place, and the only notes are informational.
 
-### Content Quality / E-E-A-T: 55/100
+### Content Quality / E-E-A-T: 78/100
+**Positive signals:**
+- Blog posts run 1,069–1,119 words, each with answer blocks (scanner 100) and a link to a service page.
+- Testimonials are real only (Jeff Schwartz, Muadd Fettachi via Fiverr; Aryan Srivastava of RapidLink), each linked to its source.
+- Verifiable company facts appear on page and in schema: LLPIN ACR-6280, LLP registered in 2025, working since 2023, Wadhwani NEN certified.
+- Readability: Flesch 63.7, grade 8.3, average sentence 15.7 words.
+- Service pages run 453–585 words with capabilities, process, tools, FAQ and related client work.
 
-| Page | Words | Verdict |
-|------|------:|---------|
-| Service pages (6) | 818–1168 | ✅ Good depth |
-| Blog posts (3) | 1034–1088 | ✅ Good, but no named author |
-| `/about` | 396 | ⚠️ Light for a trust page |
-| Case studies (3) | 188–204 | 🔴 Thin |
-| `/case-studies` | 129 | ⚠️ Thin hub |
-| `/contact` | 72 | ℹ️ Acceptable for contact |
-| `/careers` | 37 | ⚠️ Thin |
+**Deficits:**
+- Case studies are thin at 317–362 words (Warning).
+- Bylines are "Syntalix Team" by design (Info). The organisation is the publisher, so the E-E-A-T checker's "no author" note is expected.
 
-- **Case studies are the weakest pages on the site.** At about 200 words each, they describe "a leading financial and legal advisory firm" and "a national retail brand" without names, timelines, team, stack detail, architecture or quotes. For an AI consultancy founded in 2025, case studies are the main proof of experience. *Fix:* expand each to 800+ words with the problem, approach, architecture diagram, stack, timeline, measurable results and a client quote. Use a named client with permission, or an anonymized but specific one ("Series-B fintech, 40-person ops team").
-- **Unverifiable testimonials.** Five testimonials (for example "Jeff Schwartz, Tech Entrepreneur, US") each show a Google "G" icon, but there is no link to a Google Business Profile or review source. *Impact:* if these are not real Google reviews, the badge misrepresents their source. That is a trust and consumer-protection risk (FTC and ASCI endorsement rules) and a quality-rater red flag. *Fix:* link each one to its real source (GBP, Clutch, Fiverr, LinkedIn recommendation). Otherwise remove the Google badge and use only testimonials you can attribute.
-- **Counter shows zeros to crawlers.** `CounterComp.jsx` renders `0` until `inView`, so the server HTML reads "Our Track Record | 0 + Projects Delivered | 0 % Client Satisfaction | 0 /7 Support". AI crawlers that don't run JS (GPTBot, ClaudeBot, PerplexityBot) index those zeros. *Fix:* render `end` on the server and animate on the client, or wrap the number in `<noscript>`.
-- **No author entities on the blog.** Posts are attributed to "Syntalix Consultancy Services". *Fix:* add named authors with a bio page, LinkedIn `sameAs`, and `Person` schema.
-- **Blog volume is low.** There are 3 posts, the latest dated 2026-06-08, so nothing has been published in about 3.5 months. Topical authority for "LLM engineering India" and "agentic AI" needs a steady cadence (2–4 posts per month) that links into the service pages.
+Score 78: base 83 (5 positive signals against 1 deficit) minus one Warning (−5). Expanding the two case studies is the main lever.
 
-### On-Page SEO: 70/100
+### On-Page SEO: 100/100
+**Positive signals:**
+- Every title is unique and 30–59 characters, and each matches a GSC query target (for example "LLM Engineering Services in India").
+- Meta descriptions are 137–157 characters.
+- Each page has exactly 1 H1 and a logical H2/H3 order (Lighthouse heading-order passes).
+- Pages carry 16–19 internal links on average, and everything is within 1 click of the homepage.
+- Anchors are descriptive, with no "click here" (`anchor_text_audit`: 0 generic, 0 empty).
 
-- ✅ All 21 pages have exactly one H1 and a unique, descriptive title. `/about`'s H1 is `sr-only`. That's acceptable, but a visible H1 would be better.
-- **Meta descriptions over 160 chars:** home (186), `/services` (195), `/services/ai-consulting` (213), `/services/agentic-systems` (189), `/services/llm-engineering` (185), `/services/ai-ml-infrastructure` (182), `/blog/rise-of-agentic-ai` (181), `/portfolio` (178), `/case-studies` (176). Google truncates these at about 155–160 characters.
-- **Case-study meta descriptions are short** (85–95 chars). Expand them to 140–155.
-- **`/contact` title:** "Contact Us | Syntalix Consultancy | Syntalix Consultancy". `contact/metadata.js` already includes the brand and the root template appends it again. Set `title: 'Contact Us'`.
-- **Blog title length:** "What is LLM Engineering and Why Your Business Needs It | Syntalix Consultancy" is 77 characters. Consider `title: { absolute: ... }` for long post titles.
-- **Internal linking** (contextual links, excluding nav and footer):
+**Deficits:** repetitive nav and footer anchors (Info only).
 
-| Target | Total inbound | Contextual inbound |
-|---|---:|---:|
-| Blog posts (each) | 3 | 3 (blog index + sibling posts only) |
-| Case studies (each) | 1 | 1 (hub only) |
-| `/services/aeo-optimization` | 20 | 1 |
-| `/services/ai-consulting` | 20 | 2 |
-| `/portfolio`, `/team`, `/about` | 20 | 0 |
+### Schema / Structured Data: 78/100
+**Positive signals:**
+- One server-rendered JSON-LD `@graph` per page (19/19).
+- The Organization node has `legalName`, `alternateName`, an LLPIN identifier, `award`, `knowsAbout`, `contactPoint` and 5 `sameAs` links (LinkedIn `syntalix-llp`, Clutch, Fiverr, GitHub, Facebook). There is no `x.com`.
+- Every inner page has a BreadcrumbList (GSC already shows breadcrumbs as valid).
+- Service ×6, BlogPosting ×3 (Organization author "Syntalix Team") and Article ×2 are in place.
+- `rich_results_guard` reports 0 errors, and `validate_schema` shows valid JSON.
 
-  *Fix:* add a "Related case study" block and a "Further reading" block to each service page. Add a "Latest insights" strip to the homepage. Add contextual links from blog posts to the matching service page, and put the case studies and blog in the footer.
+**Deficits:**
+- WebPage, Service and Article nodes have no `datePublished`/`dateModified` (Warning).
+- FAQPage is not eligible for rich results on a commercial site (Info).
 
-### Schema / Structured Data: 45/100
+Score 78: base 83 (5 positive signals against 1 deficit) minus one Warning (−5).
 
-**What exists in server HTML (every page):** `Organization` and `WebSite`. The homepage adds `FAQPage`. `/case-studies` and `/team` add `BreadcrumbList`.
+### Performance (CWV): 98/100 (lab only)
+Lighthouse 12, mobile emulation, live production:
 
-- 🔴 **Page schema is client-injected only.** The 6 service pages and `/about` use `import Script from "next/script"` with `<Script type="application/ld+json">`. `next/script` defaults to `afterInteractive`, so the JSON only exists inside the RSC flight payload (`self.__next_f.push(...)`) and is added to the DOM after hydration. The live HTML of `/services/llm-engineering` contains exactly **two** `<script type="application/ld+json">` tags, and neither is the breadcrumb or the FAQ. Google may pick these up after rendering. Bing is inconsistent, and AI crawlers generally won't. *Fix:* in these 7 files, replace `<Script id=... type="application/ld+json" dangerouslySetInnerHTML=...>` with a plain `<script type="application/ld+json" dangerouslySetInnerHTML=...>`, or with the existing `BreadcrumbSchema` / `FAQSchema` components from `src/components/SchemaOrg.jsx`:
-  - `src/app/(routes)/about/page.jsx`
-  - `src/app/(routes)/services/{aeo-optimization,agentic-systems,ai-consulting,ai-ml-infrastructure,llm-engineering,web-mobile-development}/page.jsx`
-- **Missing types:**
-  - `Service` (with `provider` → `#organization` and `areaServed`) on each service page
-  - `BlogPosting` (headline, datePublished, dateModified, author `Person`, image, publisher) on blog posts
-  - `Article` on case studies
-  - `BreadcrumbList` on blog and case-study detail pages
-- **Invalid properties on `Organization`:** `priceRange` and `openingHours` belong to `LocalBusiness`. Either drop them or change the type to `ProfessionalService` (a LocalBusiness subtype), which suits a consultancy with a physical address. `serviceType` is also not an Organization property.
-- **`SearchAction`** points to `/blog?q={search_term_string}`, but `BlogListingClient` doesn't read `q`. Google also retired the sitelinks search box in Nov 2024. Remove `potentialAction`.
-- **`FAQPage`:** Google restricted FAQ rich results to government and health sites in Aug 2023. The markup is harmless and still helps AI extraction, but it won't produce SERP features, so it shouldn't be counted on for CTR.
-- **`/team`** outputs its own `Organization` block. Reference `{"@id": ".../#organization"}` instead of redefining the entity.
-- **`areaServed`** lists 25 cities and states. That's fine in schema, but without city landing pages it adds little and can look like keyword stuffing next to the 30+ city `keywords` meta. The `keywords` meta tag is ignored by Google and can be removed.
+| Page | Perf | A11y | Best practices | SEO | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|---|
+| / | 99 | 100 | 100 | 100 | 1.9 s | — | 0 |
+| /services | 99 | 100 | 100 | 100 | 1.2 s | 110 ms | 0 |
+| /services/llm-engineering | 100 | 100 | 100 | 100 | 1.1 s | — | 0 |
+| /case-studies/city-farmers | 97 | 100 | 100 | 100 | 1.2 s | 176 ms | 0 |
+| /blog/what-is-llm-engineering | 96 | 100 | 100 | 100 | 1.3 s | 216 ms | 0 |
+| /portfolio | 99 | 100 | 100 | 100 | 1.4 s | 131 ms | 0.005 |
+| /about | 99 | 100 | 100 | 100 | 1.4 s | 133 ms | 0 |
+| /contact | 100 | 100 | 100 | 100 | 1.2 s | — | 0 |
 
-### Performance: 60/100 (Low confidence)
+- Page weight is 270–355 KB.
+- There are 0 third-party blocking scripts (`third_party_script_audit`), and GA loads on idle.
+- Field data (CrUX) does not exist yet because traffic is too low, and GSC Core Web Vitals showed "No data". INP cannot be confirmed until it does.
 
-PageSpeed Insights was rate-limited (environment limitation), so there is no field or lab CWV data. The observed signals are:
-- The navbar logo is served at `w=3840` because `<Image fill>` has no `sizes`. That's a wasted, priority-loaded request on every page. *Fix:* add `sizes="40px"`.
-- The hero right column is a client-side form, so LCP is likely the H1 text, which is good. The `IntroAnimation` is correctly disabled.
-- Dependencies include `three`, `@react-three/fiber`, `@react-three/drei`, `framer-motion`, `swiper`, `flowbite-react` and `@google/generative-ai`. Confirm that three.js isn't in the homepage bundle (`ThreeScene.jsx` exists), and remove unused packages.
-- `FadeInSection` hides content until it scrolls into view, which leaves large blank areas on screen and can hurt CLS and perceived performance.
-- There are 19 JS chunks on the homepage.
-- *Next step:* rerun `pagespeed.py` with a `PAGESPEED_API_KEY`, or check Search Console → Core Web Vitals.
+### Images: 100/100
+- 0 images without alt text and 0 without width/height across 19 pages.
+- Photos are AVIF/WebP via `astro:assets`, with responsive `srcset`/`sizes`.
+- Lazy-loading is used below the fold, and `fetchpriority="high"` is set on hero images.
+- Imagery is editorial still life plus real client screenshots, with no stock photography.
 
-### Images: 70/100
-- ✅ All `<img>` elements on every crawled page have an `alt` attribute.
-- ⚠️ `public/services/*.png` files are 380–440 KB. `next/image` optimizes them on request, but the source files should be WebP/AVIF at 1600 px or less.
-- ⚠️ Two homepage images are hot-linked from `assets.lummi.ai` (stock). Self-host them, and consider real team or office photography for E-E-A-T.
-- ℹ️ `public/PNGs/` (18 MB, `Grad_*.png`) isn't referenced anywhere in `src`. Delete it.
-- ℹ️ The folder `public/portfolio png/` has a space in the path, which produces `%20` URLs. Rename it to `public/portfolio/`.
+### AI Search Readiness (GEO / AEO): 61/100
+**Positive signals:**
+- `llms.txt` scores 100/100 (title, description, 4 sections, 15 links), and a generated `llms-full.txt` is present.
+- robots.txt explicitly welcomes GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, anthropic-ai, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended, Amazonbot, meta-externalagent, FacebookBot, DuckAssistBot and MistralAI-User. It blocks the bulk scrapers CCBot and Bytespider.
+- The entity is unambiguous: one Organization with a legal name and 5 consistent `sameAs` links. The old confusion with `x.com/syntalix` and the Web3 "Syntalix" is resolved.
+- Blog posts are answer-first (scanner 100) and dated (freshness 100).
+- Pages are static HTML with no JS needed to read content, so crawlers that don't render JS see everything.
 
-### AI Search Readiness (GEO): 80/100
-- ✅ `llms.txt` and `llms-full.txt` are present and complete (score 100).
-- ✅ AI assistants are explicitly allowed. The legal entity (LLPIN ACR-6280) is stated consistently.
-- ⚠️ The client-injected schema (#1) and the zero counters (#2) directly weaken what non-JS AI crawlers extract.
-- ⚠️ AI engines favour content that is easy to cite: specific numbers, named entities, and dated facts. Deeper case studies and named authors are the biggest improvement available here.
+**Deficits:**
+- Service, home and contact pages have no question-heading answer blocks (Warning).
+- Citation density is low on service and blog pages (Warning).
 
----
+Score 61: base 71 (5 positive signals against 2 deficits) minus two Warnings (−10). This category moves most with the least work.
 
-## D) Design Review (for the planned revamp)
-
-These notes come from desktop screenshots taken at 1440 px. Mobile layout was reviewed from code only, because the browser window couldn't be resized below ~1255 px.
-
-| Observation | Why it matters | Revamp direction |
-|---|---|---|
-| **Four competing lead captures:** hero form, auto-popup at 5 s, sticky WhatsApp button, and the "Get in Touch" nav CTA | Feels pushy for a B2B consultancy, and the popup covers content on every visit | Keep one primary CTA ("Book a 30-min AI scoping call") and one secondary (WhatsApp). Drop the auto-popup, or show it once per session on exit-intent (desktop only) |
-| **Generic indigo→violet gradient SaaS look** (buttons, counter band, pills) | Indistinguishable from thousands of AI-agency templates, with no ownable brand | Pick a tighter palette built around the logo's purple, one accent colour and plenty of neutrals, and use gradients sparingly |
-| **Large empty gaps** (hidden until `FadeInSection` triggers) | Page looks broken mid-scroll, and there's 7,955 px of height for modest content | Remove the fade-gating, or make it subtle (opacity 0.9→1, no layout hiding). Tighten vertical rhythm |
-| **9 nav items + theme toggle + CTA** | Cognitive load, and it gets cramped on mid widths | Services (mega-menu of 6) · Work (Case Studies + Portfolio) · Insights (Blog) · Company (About, Team, Careers) · Contact CTA |
-| **Mixed icon styles** in the services grid (grey line-art on white squares, e.g. a sailboat for "Desktop Software") | Looks assembled from different kits | Use one icon set (Lucide is already installed) in brand colour |
-| **Testimonials with stock-style avatars and Google badges** | Trust risk (see Content) | Use real logos and quotes with source links, or a "clients we've worked with" logo wall |
-| **Tech logo cloud** (HTML5, CSS3, Java…) | Signals commodity dev shop rather than AI specialist | Replace with outcome metrics or client logos. Keep the stack to one line on service pages |
-| **Home hero H1:** "Software, AI & ML Development Company in India" | Keyword-led but not differentiated | Keep the keyword in the H1 but add a sharp value line, e.g. "Production LLM & agentic systems, shipped in weeks" |
-| **Homepage doesn't surface work** | The strongest proof (case studies) is two clicks deep | Add a case-study carousel with metric cards directly under the hero |
-| Copy errors: "Why Customer's Love Us" | Polish and trust | Fix to "Why Customers Love Us" |
-
-A revamp is the right moment to fix the structural SEO items together: `<main>` landmarks, server-rendered stats, schema components, internal-link modules, and one lead form.
+#### AEO detail (Featured Snippets, People Also Ask, Knowledge Panel)
+- **Featured snippet readiness:**
+  - Blog posts: ready, with 2 direct answers after question headings on `/blog/what-is-llm-engineering`.
+  - Service pages: not ready. There is no 40–55 word "what is" paragraph, and the FAQ questions are not headings.
+- **People Also Ask coverage:**
+  - Each service has 4 FAQ answers in the HTML (the FAQ uses collapsed `<details>`, so the text is still there for crawlers), but none sit under question headings.
+  - Coverage: 0 of 24 service FAQs are heading-plus-answer pairs.
+- **Knowledge Panel signals:**
+  - Present: Organization schema, logo, 5 `sameAs` links, consistent NAP (email, phone, region).
+  - Absent: Wikipedia and Wikidata (not notable yet; don't force it), a Google Business Profile, and an X account (the user has none).
+- **Sitelinks search box:** not applicable. Google retired it in 2024, and the site has no search.
 
 ---
 
-## E) Environment Limitations
-- **PageSpeed Insights API:** rate-limited (HTTP 429) with no key, so CWV scores are directional only.
-- **Mobile screenshots:** the Chrome window wouldn't resize below ~1255 px, so mobile was reviewed from Tailwind classes only.
-- **Playwright** isn't installed, so `capture_screenshot.py` and `analyze_visual.py` were skipped.
-- **Backlinks, GSC and GA data** were not accessed. Search Console coverage and queries should be checked next.
-
-## F) Score Breakdown
+## D) Score Breakdown
 
 | Category | Weight | Score | Weighted |
-|---|---:|---:|---:|
-| Technical SEO | 25% | 78 | 19.5 |
-| Content Quality | 20% | 55 | 11.0 |
-| On-Page SEO | 15% | 70 | 10.5 |
-| Schema | 15% | 45 | 6.8 |
-| Performance | 10% | 60 (low conf.) | 6.0 |
-| Images | 10% | 70 | 7.0 |
-| AI Search Readiness | 5% | 80 | 4.0 |
-| **Total** | | | **≈ 65** |
+|---|---|---|---|
+| Technical SEO | 25% | 100 | 25.0 |
+| Content Quality | 20% | 78 | 15.6 |
+| On-Page SEO | 15% | 100 | 15.0 |
+| Schema / Structured Data | 15% | 78 | 11.7 |
+| Performance (CWV) | 10% | 98 | 9.8 |
+| Images | 10% | 100 | 10.0 |
+| AI Search Readiness | 5% | 61 | 3.1 |
+| **Total** | | | **90 / 100** |
+
+Change since the 2026-09-26 audit:
+
+| Category | Before | After |
+|---|---|---|
+| Technical SEO | 78 | 100 |
+| Content Quality | 55 | 78 |
+| On-Page SEO | 70 | 100 |
+| Schema | 45 | 78 |
+| Performance | 60 | 98 |
+| Images | 70 | 100 |
+| AI Search Readiness | 80 | 61 |
+
+The 65→90 overall gain comes mainly from server-rendered schema, removing the fake counter and popup, and speed. AI readiness is scored more strictly this time: the AEO scripts were added to the evidence (answer blocks, freshness, citations), which the first audit did not measure. So the 80→61 drop reflects a stricter measure, not a regression.
+
+After the four quick wins in `ACTION-PLAN.md`, the projected scores are about 95 for Schema, 90+ for AI readiness and **about 94 overall**. Expanding the case studies would add roughly 2 more.
+
+---
+
+## E) Unknowns and Follow-ups
+- **Real-user Core Web Vitals (INP especially):** unknown until CrUX has enough traffic. Re-check GSC Core Web Vitals in 4–6 weeks.
+- **Indexing state since 2026-09-27:** Chrome was unavailable this session, so GSC was not re-read. Check Pages → Indexed (17 last time) and the two validations that were "Started".
+- **SERP ownership** of featured snippets and PAA: needs a manual SERP check or a rank tracker.
+- **Google Knowledge Graph:** not checked, because `entity_checker` has no KG API key.
+
+## F) Environment Limitations
+- **PageSpeed Insights API:** the keyless daily quota was exhausted (HTTP 429), so lab data comes from local Lighthouse instead. Set `PAGESPEED_API_KEY` to get CrUX field data in future runs.
+- **Playwright** is not installed, so `javascript_render_audit` and `analyze_visual` were skipped. The site is static HTML, so the JS-rendering risk is nil.
+- **Claude in Chrome** disconnected, so GSC was not re-read this run.
+
+## G) Artifacts
+- `FULL-AUDIT-REPORT.md`: this file
+- `ACTION-PLAN.md`: prioritised fixes
+- `docs/seo/SEO-REPORT-2026-10-04.html`: the interactive dashboard from `Agentic-SEO-Skill/scripts/audit_runner.py`. It shows the automated 88/100, which treats performance and hreflang as 0.

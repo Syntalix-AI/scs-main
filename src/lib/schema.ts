@@ -1,4 +1,5 @@
 import { SITE } from '@/data/site';
+import { LAUNCH, lastModified } from '@/data/sitemap-dates.mjs';
 
 const ORG_ID = `${SITE.url}/#organization`;
 const SITE_ID = `${SITE.url}/#website`;
@@ -37,7 +38,7 @@ export function website() {
 }
 
 export function webPage(path: string, name: string, description: string, type = 'WebPage') {
-  return { '@type': type, '@id': `${abs(path)}#webpage`, url: abs(path), name, description, isPartOf: { '@id': SITE_ID }, about: { '@id': ORG_ID }, inLanguage: 'en-IN' };
+  return { '@type': type, '@id': `${abs(path)}#webpage`, url: abs(path), name, description, isPartOf: { '@id': SITE_ID }, about: { '@id': ORG_ID }, datePublished: LAUNCH, dateModified: lastModified(path), inLanguage: 'en-IN' };
 }
 
 export function breadcrumbs(items: { name: string; path: string }[]) {
@@ -55,6 +56,7 @@ export function service(opts: { name: string; description: string; path: string;
     serviceType: opts.serviceType,
     description: opts.description,
     url: abs(opts.path),
+    dateModified: lastModified(opts.path),
     provider: { '@id': ORG_ID },
     areaServed: [{ '@type': 'Country', name: 'India' }, { '@type': 'Country', name: 'United States' }, { '@type': 'Place', name: 'Europe' }],
   };
@@ -91,6 +93,8 @@ export function caseStudyArticle(opts: { title: string; description: string; pat
     author: { '@id': ORG_ID },
     publisher: { '@id': ORG_ID },
     about: { '@type': 'Organization', name: opts.client },
+    datePublished: LAUNCH,
+    dateModified: lastModified(opts.path),
     mainEntityOfPage: { '@id': `${abs(opts.path)}#webpage` },
   };
 }

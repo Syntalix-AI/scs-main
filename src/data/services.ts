@@ -7,6 +7,9 @@ export type Service = {
   description: string;
   h1: string;
   lead: string;
+  /** "What is X?" heading and a 40-55 word answer, shown under the hero */
+  question: string;
+  definition: string;
   card: string;
   image: string;
   capabilities: [string, string][];
@@ -22,6 +25,8 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     slug: 'web-mobile-development',
+    question: 'What is web and mobile app development?',
+    definition: 'Web and mobile app development is designing, building and launching the websites, web platforms and phone apps a business runs on. At Syntalix it covers the interface, the backend and APIs, hosting and performance, with search visibility and security built in from the first release.',
     name: 'Web and mobile apps',
     title: 'Web and Mobile App Development in India',
     description: 'Websites, booking platforms, SaaS and mobile apps built by Syntalix in India: fast, secure, SEO-ready, designed around your users and built to scale.',
@@ -45,16 +50,18 @@ export const SERVICES: Service[] = [
     ],
     tools: ['Astro', 'Next.js', 'React', 'TypeScript', 'React Native', 'Node.js', 'FastAPI', 'PostgreSQL', 'Supabase', 'Vercel', 'AWS'],
     faqs: [
-      ['How long does a website or web app take?', 'It depends on scope. After the scoping call you get a written plan with a timeline and a fixed quote before any work starts.'],
-      ['Do you build mobile apps as well?', 'Yes. We build cross-platform apps with React Native for iOS and Android, and native apps when performance requires it.'],
-      ['Will the site be good for SEO?', 'Yes. We build with server-rendered pages, fast Core Web Vitals, clean URLs, structured data and a sitemap from the start.'],
-      ['Who owns the code?', 'You do. The code, designs and accounts are handed over at the end of the project.'],
+      ['How long does a website or web app take?', 'It depends on scope: a marketing site is far quicker than a booking platform or SaaS product. After a free scoping call you get a written plan with a timeline and a fixed quote, so you know when it ships and what it costs before any work starts.'],
+      ['Do you build mobile apps as well?', 'Yes. We build cross-platform apps with React Native, so one codebase ships to both iOS and Android. When an app needs maximum performance or deep device features, we build natively in Swift and Kotlin instead. Web and mobile can share the same backend and APIs.'],
+      ['Will the site be good for SEO?', 'Yes. SEO is built in from the start rather than added later. Pages are server-rendered, load fast and pass Core Web Vitals, with clean URLs, structured data, canonical tags and an XML sitemap. That gives Google and AI answer engines a site they can crawl and understand.'],
+      ['Who owns the code?', 'You do. When the project ends we hand over the full source code, designs, hosting and third-party accounts, and documentation for running it. There is no lock-in, so your own team or another agency can take over at any time.'],
     ],
     proof: ['rapidlink-logistics', 'legal-india', 'rays-and-rzilss'],
     related: ['llm-engineering', 'aeo-optimization', 'ai-ml-infrastructure'],
   },
   {
     slug: 'llm-engineering',
+    question: 'What is LLM engineering?',
+    definition: 'LLM engineering is the work of turning a large language model into a dependable product feature. It covers choosing the model, connecting it to your data through RAG or fine-tuning, testing prompts, adding guardrails, and serving it through APIs that stay fast, accurate and affordable under real traffic.',
     name: 'LLM engineering',
     title: 'LLM Engineering Services in India',
     description: 'LLM engineering by Syntalix: RAG architecture, fine-tuning, prompt evaluation, guardrails and production APIs that answer from your own data, built in India.',
@@ -78,16 +85,18 @@ export const SERVICES: Service[] = [
     ],
     tools: ['OpenAI', 'Anthropic Claude', 'Google Gemini', 'Llama', 'LangChain', 'LlamaIndex', 'pgvector', 'Pinecone', 'FastAPI', 'Python'],
     faqs: [
-      ['Should we fine-tune a model or use RAG?', 'Use RAG when answers must come from documents that change; fine-tune when the model must follow a style, format or domain reasoning consistently. Many systems use both.'],
-      ['How do you reduce hallucinations?', 'Retrieval with citations, output validation against trusted data, confidence thresholds and evaluation sets that catch regressions before release.'],
-      ['Can our data stay private?', 'Yes. We can use private model endpoints, keep data in your cloud account and redact personal information before it reaches a model.'],
-      ['How do you keep LLM costs under control?', 'Caching, prompt trimming, routing simple queries to smaller models and monitoring cost per request from day one.'],
+      ['Should we fine-tune a model or use RAG?', 'Use RAG when answers must come from documents that change, such as policies, product data or case files. Fine-tune when the model must follow a style, format or domain reasoning consistently. Many production systems combine both, and we test which approach performs better on your own data.'],
+      ['How do you reduce hallucinations?', 'We ground answers in retrieved sources with citations, validate outputs against trusted data, set confidence thresholds that send uncertain answers to a person, and run evaluation sets before every release. Together these catch wrong answers in testing rather than in front of your users.'],
+      ['Can our data stay private?', 'Yes. We can use private model endpoints that do not train on your data, keep documents and vector stores inside your own cloud account, and redact personal information before any text reaches a model. Access controls and logging record who can query what.'],
+      ['How do you keep LLM costs under control?', 'We cache repeated answers, trim prompts, route simple queries to smaller and cheaper models, and call the largest models only when a task needs them. Cost per request is monitored from day one, so spending stays predictable as usage grows.'],
     ],
     proof: ['city-farmers', 'legal-discovery-ai', 'custom-fine-tuned-gpt'],
     related: ['agentic-systems', 'ai-ml-infrastructure', 'aeo-optimization'],
   },
   {
     slug: 'agentic-systems',
+    question: 'What is an agentic AI system?',
+    definition: 'An agentic AI system is software that uses a language model to pursue a goal rather than just answer a question. It plans the steps, calls tools and APIs, checks its own results and hands off to a person when a decision is uncertain or high-stakes.',
     name: 'Agentic AI systems',
     title: 'Agentic AI Systems Development',
     description: 'Agentic AI systems by Syntalix: multi-agent workflows that plan, use your tools and APIs and escalate to people, with guardrails and tracing built in.',
@@ -111,15 +120,17 @@ export const SERVICES: Service[] = [
     ],
     tools: ['LangGraph', 'OpenAI Agents', 'Anthropic Claude', 'CrewAI', 'Temporal', 'PostgreSQL', 'Redis', 'Docker'],
     faqs: [
-      ['What is the difference between a chatbot and an agent?', 'A chatbot answers. An agent pursues a goal: it plans steps, uses tools and APIs, checks results and escalates when needed.'],
-      ['Can agents act without a person approving?', 'Only where you allow it. We design approval steps for high-stakes actions and keep a full audit trail.'],
-      ['Which frameworks do you use?', 'We pick per project, commonly LangGraph or provider agent SDKs, with durable workflow engines for long-running tasks.'],
+      ['What is the difference between a chatbot and an agent?', 'A chatbot answers questions in a conversation. An agent pursues a goal: it plans the steps, calls your tools and APIs, checks the results and hands off to a person when something is uncertain or high-stakes. In short, agents do the work while chatbots talk about it.'],
+      ['Can agents act without a person approving?', 'Only where you allow it. Low-risk steps, such as looking up records, can run on their own, while high-stakes actions like payments, customer emails or data changes wait for a person to approve them. Every action the agent takes is kept in a full audit trail.'],
+      ['Which frameworks do you use?', 'We choose per project. Common choices are LangGraph and the agent SDKs from model providers, with durable workflow engines for long-running tasks that must survive restarts. The framework matters less than tracing, evaluation and guardrails, which we set up on every build.'],
     ],
     proof: ['legal-discovery-ai', 'ai-report-platform', 'multi-format-converter'],
     related: ['llm-engineering', 'ai-consulting', 'ai-ml-infrastructure'],
   },
   {
     slug: 'ai-ml-infrastructure',
+    question: 'What is machine learning infrastructure?',
+    definition: 'Machine learning infrastructure is everything that keeps a model working after it leaves the notebook: data and training pipelines, versioning, automated deployment, model serving, and monitoring for accuracy, drift and cost. MLOps is the practice of running that infrastructure reliably, so models can be retrained and released safely.',
     name: 'AI and ML infrastructure',
     title: 'Machine Learning Infrastructure and MLOps',
     description: 'AI and ML infrastructure by Syntalix: custom models, training pipelines, MLOps, model serving and monitoring on AWS, GCP or Azure, built for production.',
@@ -143,15 +154,17 @@ export const SERVICES: Service[] = [
     ],
     tools: ['PyTorch', 'scikit-learn', 'Hugging Face', 'MLflow', 'Airflow', 'Docker', 'Kubernetes', 'AWS SageMaker', 'GCP Vertex AI', 'Azure ML'],
     faqs: [
-      ['Which cloud do you work on?', 'AWS, Google Cloud and Azure. We build on the platform you already use.'],
-      ['Do we need MLOps for one model?', 'If the model affects customers or revenue, yes: at minimum versioning, monitoring and a way to retrain safely.'],
-      ['Can you take over an existing model?', 'Yes. We start with an audit of the data, code and serving setup, then stabilise before we extend.'],
+      ['Which cloud do you work on?', 'AWS, Google Cloud and Azure. We build on the platform you already use, inside your own account, so billing, security policies and data residency stay under your control. The setup is written as infrastructure code, so it can be reviewed and reproduced.'],
+      ['Do we need MLOps for one model?', 'If the model affects customers or revenue, yes. At minimum you need versioned data and models, monitoring for accuracy and drift, and a safe way to retrain and roll back. Without these, a model quietly degrades and nobody notices until results suffer.'],
+      ['Can you take over an existing model?', 'Yes. We start with an audit of the data, training code and serving setup, then stabilise what is already there with tests, monitoring and reproducible builds. Only once the model is dependable do we extend it with new features or retraining.'],
     ],
     proof: ['geodata-scraper', 'ai-report-platform', 'multi-format-converter'],
     related: ['llm-engineering', 'agentic-systems', 'ai-consulting'],
   },
   {
     slug: 'ai-consulting',
+    question: 'What is AI consulting?',
+    definition: 'AI consulting is working out where artificial intelligence will actually pay off in a business, and what it will take to get there. It covers auditing processes and data, ranking use cases by value and feasibility, and producing a costed roadmap, often proved with a small working prototype.',
     name: 'AI consulting',
     title: 'AI Consulting Services in India',
     description: 'AI consulting from Syntalix in India: find the AI use cases worth building, get a costed roadmap, validate with a proof of concept, then build it with us.',
@@ -175,9 +188,9 @@ export const SERVICES: Service[] = [
     ],
     tools: ['Workshops', 'Data audits', 'Proofs of concept', 'Cost models', 'Architecture reviews'],
     faqs: [
-      ['Do we need clean data before starting?', 'No. Discovery includes a data audit, and the roadmap covers what needs fixing first.'],
-      ['Is consulting separate from building?', 'It can be. Many clients start with a roadmap and proof of concept, then have us build it.'],
-      ['How long does discovery take?', 'It depends on how many teams and systems are involved. The scoping call sets a clear timeline before we start.'],
+      ['Do we need clean data before starting?', 'No. Discovery includes a data audit that shows what you have, where it lives and how usable it is. The roadmap then puts data fixes in the right order, so cleanup effort goes first to the use cases that are worth the most.'],
+      ['Is consulting separate from building?', 'It can be. Some clients only want the roadmap and a costed plan. Many start with a roadmap and a proof of concept, then have us build the production system, so the people who planned it are the ones who engineer it.'],
+      ['How long does discovery take?', 'It depends on how many teams, systems and data sources are involved. A focused question about one process is quick, while a company-wide AI roadmap takes longer. The free scoping call ends with a clear timeline and a fixed price for discovery before anything starts.'],
     ],
     proof: ['startup-ai-advisory', 'city-farmers', 'legal-discovery-ai'],
     area: 'We work with businesses across India, from Lucknow in our home state of Uttar Pradesh to Kolkata, Delhi NCR and Bengaluru, and with clients in the United States and Europe. Workshops run remotely or on site.',
@@ -185,6 +198,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'aeo-optimization',
+    question: 'What is answer engine optimisation (AEO)?',
+    definition: 'Answer engine optimisation, or AEO, is making a website easy for AI assistants such as ChatGPT, Perplexity and Google AI Overviews to understand, trust and cite. It combines crawler access, structured data, clear question-and-answer content and consistent business details, so the engines can quote you accurately.',
     name: 'Answer engine optimisation',
     title: 'AEO Consultants: Answer Engine Optimisation',
     description: 'AEO consultants at Syntalix: structured data, entity clarity, llms.txt and answer-ready content so ChatGPT, Perplexity and Google AI can cite your business.',
@@ -208,9 +223,9 @@ export const SERVICES: Service[] = [
     ],
     tools: ['JSON-LD', 'Schema.org', 'llms.txt', 'Google Search Console', 'Bing Webmaster Tools', 'IndexNow'],
     faqs: [
-      ['How is AEO different from SEO?', 'SEO targets ranked links. AEO makes your content easy for AI assistants to extract and cite in their answers. The technical foundation overlaps heavily.'],
-      ['Can you guarantee ChatGPT will mention us?', 'No one can. We fix the signals these engines rely on and track how often you are cited over time.'],
-      ['Do you also do classic SEO?', 'Yes. Technical SEO, Core Web Vitals and structured data are part of every AEO engagement.'],
+      ['How is AEO different from SEO?', 'SEO aims to rank your pages as links in search results. AEO makes your content easy for ChatGPT, Perplexity and Google AI Overviews to extract, trust and cite inside their answers. The technical foundation overlaps heavily, so good AEO work improves classic SEO too.'],
+      ['Can you guarantee ChatGPT will mention us?', 'No one can honestly guarantee that, because AI engines decide what to cite themselves. What we can do is fix the signals they rely on, such as structured data, clear answers, crawler access and consistent business details, then track how often you are cited over time.'],
+      ['Do you also do classic SEO?', 'Yes. Technical SEO, Core Web Vitals, structured data and internal linking are part of every AEO engagement, because answer engines draw on the same crawlable, well-structured pages that rank in Google. You get one plan that covers both.'],
     ],
     proof: ['legal-india', 'rays-and-rzilss', 'jt-makeovers'],
     related: ['web-mobile-development', 'llm-engineering', 'ai-consulting'],

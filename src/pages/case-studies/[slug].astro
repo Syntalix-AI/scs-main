@@ -11,6 +11,7 @@ import { CASE_STUDIES, caseStudyBySlug, type CaseStudy } from '@/data/caseStudie
 import { serviceBySlug } from '@/data/services';
 import { shot, logo, photo } from '@/lib/images';
 import { webPage, breadcrumbs, caseStudyArticle } from '@/lib/schema';
+import { lastModified } from '@/data/sitemap-dates.mjs';
 
 export function getStaticPaths() {
   return CASE_STUDIES.map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -20,6 +21,8 @@ const path = `/case-studies/${c.slug}`;
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Case studies', path: '/case-studies' }, { name: c.client, path }];
 const next = caseStudyBySlug(c.next);
 const isCF = c.slug === 'city-farmers';
+const updated = lastModified(path);
+const updatedLabel = new Date(updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const schema = [webPage(path, c.title, c.description), breadcrumbs(crumbs), caseStudyArticle({ title: c.h1, description: c.description, path, image: '/og-image.png', client: c.client })];
 ---
 <Base title={c.title} description={c.description} type="article" schema={schema}>
@@ -44,7 +47,10 @@ const schema = [webPage(path, c.title, c.description), breadcrumbs(crumbs), case
 
   <section class="wrap section cs">
     <aside class="cs__side">
-      <dl>{c.facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+      <dl>
+        {c.facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        <div><dt>Updated</dt><dd><time datetime={updated}>{updatedLabel}</time></dd></div>
+      </dl>
       {c.liveUrl && <a href={c.liveUrl} rel="noopener">Visit {c.liveDomain}</a>}
       <a href="/contact">Discuss a similar project</a>
     </aside>

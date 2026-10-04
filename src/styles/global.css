@@ -83,13 +83,11 @@ textarea.input { padding: 14px 16px; resize: vertical; min-height: 120px; line-h
 
 /* faq */
 .faq-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-16); }
-.faq details { padding: 24px 0; border-top: 1px solid var(--line-strong); }
-.faq details:last-child { border-bottom: 1px solid var(--line-strong); }
-.faq summary { font-size: 20px; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: '+'; color: var(--violet); font-weight: 400; font-size: 26px; line-height: 1; }
-.faq details[open] summary::after { content: '–'; }
-.faq p { margin-top: 14px; font-size: 17px; color: var(--ink-muted); max-width: 720px; }
+/* answers stay expanded: a question heading followed by its answer is what answer engines quote */
+.faq__item { padding: 24px 0; border-top: 1px solid var(--line-strong); }
+.faq__item:last-child { border-bottom: 1px solid var(--line-strong); }
+.faq__q { font-size: 20px; font-weight: 700; line-height: 1.3; letter-spacing: -0.005em; }
+.faq p { margin-top: 10px; font-size: 17px; color: var(--ink-muted); max-width: 720px; }
 @media (max-width: 900px) { .faq-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); } }
 
 /* browser frame */

@@ -5,11 +5,11 @@ const { title, items } = Astro.props;
 <div class="faq-grid">
   <h2 class="heading">{title}</h2>
   <div class="faq">
-    {items.map(([q, a], i) => (
-      <details open={i === 0}>
-        <summary>{q}</summary>
+    {items.map(([q, a]) => (
+      <div class="faq__item">
+        <h3 class="faq__q">{q}</h3>
         <p>{a}</p>
-      </details>
+      </div>
     ))}
   </div>
 </div>

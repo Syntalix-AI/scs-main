@@ -10,6 +10,7 @@ import CtaBanner from '@/components/CtaBanner.astro';
 import { SERVICES, serviceBySlug, type Service } from '@/data/services';
 import { projectBySlug } from '@/data/projects';
 import { photo } from '@/lib/images';
+import { lastModified } from '@/data/sitemap-dates.mjs';
 import { webPage, breadcrumbs, service as serviceLd, faq } from '@/lib/schema';
 
 export function getStaticPaths() {
@@ -21,6 +22,8 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Services', path: '/service
 const proof = s.proof.map((p) => projectBySlug(p)!).filter(Boolean);
 // lower-case the first word for use mid-sentence, unless it is an acronym (LLM, AI)
 const mid = /^[A-Z]{2,}(\s|$)/.test(s.name) ? s.name : s.name.charAt(0).toLowerCase() + s.name.slice(1);
+const updated = lastModified(path);
+const updatedLabel = new Date(updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const schema = [webPage(path, s.title, s.description), breadcrumbs(crumbs), serviceLd({ name: s.h1, description: s.description, path, serviceType: s.name }), faq(s.faqs)];
 ---
 <Base title={s.title} description={s.description} schema={schema}>
@@ -32,6 +35,14 @@ const schema = [webPage(path, s.title, s.description), breadcrumbs(crumbs), serv
       <div class="btns"><a class="btn btn--primary" href="/contact">Discuss your project</a><a class="btn btn--secondary" href="#work">See related work</a></div>
     </div>
     <Image src={photo(s.image)} alt="" widths={[600, 900, 1200]} sizes="(max-width: 900px) 100vw, 640px" loading="eager" fetchpriority="high" class="sh__img" />
+  </section>
+
+  <section class="wrap section def" aria-labelledby="def-q">
+    <h2 id="def-q" class="heading">{s.question}</h2>
+    <div class="def__body">
+      <p class="def__a">{s.definition}</p>
+      <p class="def__date">Updated <time datetime={updated}>{updatedLabel}</time></p>
+    </div>
   </section>
 
   <section class="wrap section">
@@ -79,11 +90,15 @@ const schema = [webPage(path, s.title, s.description), breadcrumbs(crumbs), serv
   .sh__copy { display: flex; flex-direction: column; gap: 22px; }
   .sh .display-xl { font-size: clamp(38px, 4.7vw, 68px); }
   .sh :global(.sh__img) { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: var(--radius-xl); }
+  .def { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 48px; align-items: start; }
+  .def__body { display: flex; flex-direction: column; gap: 12px; }
+  .def__a { font-size: 21px; line-height: 1.6; color: var(--ink); max-width: 720px; }
+  .def__date { font-size: 14px; color: var(--ink-subtle); }
   .area { margin-top: 32px; max-width: 760px; font-size: 18px; color: var(--ink-muted); }
   .proof { padding: 32px; border-radius: var(--radius-xl); background: var(--surface); box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 12px; color: var(--ink); }
   .proof h3 { font-size: 24px; line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
   .proof p { color: var(--ink-muted); font-size: 15px; }
   .proof:hover { box-shadow: 0 0 0 1px var(--violet); }
   .proof:hover h3 { color: var(--violet); }
-  @media (max-width: 900px) { .sh { grid-template-columns: minmax(0, 1fr); padding-top: 40px; gap: 32px; } }
+  @media (max-width: 900px) { .def { grid-template-columns: minmax(0, 1fr); gap: 16px; } .sh { grid-template-columns: minmax(0, 1fr); padding-top: 40px; gap: 32px; } }
 </style>

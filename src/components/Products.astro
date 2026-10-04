@@ -3,6 +3,9 @@ import '@fontsource/bricolage-grotesque/latin-800.css';
 import '@fontsource/sora/latin-700.css';
 import { Image } from 'astro:assets';
 import { logo } from '@/lib/images';
+// KORD's server is refusing HTTPS (Oct 2026). Show the card without a link until it is back, then set this to true.
+const KORD_LIVE = false;
+const KordTag = KORD_LIVE ? 'a' : 'div';
 ---
 <section class="wrap section" aria-labelledby="prod-title">
   <div class="pr__head">
@@ -19,15 +22,15 @@ import { logo } from '@/lib/images';
       </span>
       <Image src={logo('peekaboo-logo')} alt="Peekaboo logo" width={150} height={119} class="pr__logo" />
     </a>
-    <a class="pr__card pr__card--kd" href="https://kordstudio.syntalixconsultancy.com" rel="noopener">
+    <KordTag class="pr__card pr__card--kd" href={KORD_LIVE ? 'https://kordstudio.syntalixconsultancy.com' : undefined} rel={KORD_LIVE ? 'noopener' : undefined}>
       <span class="pr__copy">
         <span class="kd-name">KORD</span>
         <span class="kd-line">Precision mastering, powered by AI</span>
         <span class="kd-desc">Professional-grade, streaming-ready masters for independent musicians.</span>
-        <span class="kd-url">kordstudio.syntalixconsultancy.com</span>
+        {KORD_LIVE && <span class="kd-url">kordstudio.syntalixconsultancy.com</span>}
       </span>
       <span class="wave" aria-hidden="true"><i style="height:40px"></i><i style="height:90px"></i><i class="v" style="height:140px"></i><i class="v" style="height:70px"></i><i class="g" style="height:120px"></i><i class="l" style="height:50px"></i><i style="height:100px"></i><i class="v" style="height:60px"></i><i class="g" style="height:30px"></i></span>
-    </a>
+    </KordTag>
   </div>
 </section>
 <style>

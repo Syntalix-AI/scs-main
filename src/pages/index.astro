@@ -21,10 +21,10 @@ const posts = (await getCollection('blog')).sort((a, b) => +b.data.pubDate - +a.
 const live = LIVE_SITES.map((s) => projectBySlug(s)!);
 const ld = projectBySlug('legal-discovery-ai')!;
 const FAQS: [string, string][] = [
-  ['How much does a project cost?', 'It depends on scope. After a free scoping call you get a written plan with a fixed quote, so you know the cost before any work starts.'],
-  ['Do you work with clients outside India?', 'Yes. We work with clients in India, the United States and Europe, remotely, with overlapping hours for calls and weekly demos.'],
-  ['Can you build both the website and the AI features?', 'Yes. The same team designs the product, builds the web or mobile app and engineers the AI inside it, from LLM features to agents.'],
-  ['Who owns the code when the project ends?', 'You do. The code, designs, accounts and documentation are handed over to you.'],
+  ['How much does a project cost?', 'It depends on scope, from a marketing website to an AI platform. After a free 30-minute scoping call you get a written plan with a fixed quote, so you know the full cost before any work starts and there are no surprise invoices later.'],
+  ['Do you work with clients outside India?', 'Yes. We work with clients in India, the United States and Europe. Projects run remotely, with overlapping hours for calls and weekly demos on a preview link, so you see working progress every week wherever you are.'],
+  ['Can you build both the website and the AI features?', 'Yes. The same team designs the product, builds the web or mobile app and engineers the AI inside it, from LLM features to agents. One team means no hand-offs between agencies and one point of accountability for the whole system.'],
+  ['Who owns the code when the project ends?', 'You do. When the project ends we hand over the source code, designs, accounts and documentation. There is no lock-in, so your own team or another agency can continue the work at any time.'],
 ];
 const title = 'Software, AI and ML Development Company in India | Syntalix';
 const description = 'Syntalix Consultancy designs and builds web platforms, LLM features and agentic AI systems for clients in India, the US and Europe. Book a free scoping call.';

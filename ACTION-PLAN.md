@@ -1,61 +1,39 @@
-# SEO Action Plan: syntalixconsultancy.com
+# SEO / AEO Action Plan: syntalixconsultancy.com (2026-10-04)
 
-- **Audit date:** 2026-09-26
-- **Current score:** ≈ 65/100
-- **Target after Phase 1–2:** 80+
+Current score is 90/100. With the quick wins below it is projected at about 94, and about 96 once the strategic items are done. Details and evidence are in `FULL-AUDIT-REPORT.md`.
 
-See `FULL-AUDIT-REPORT.md` for the evidence behind each item.
+## 1. Immediate (live problem)
+| # | Action | Owner | Effort |
+|---|---|---|---|
+| 1 | Fix HTTPS on `kordstudio.syntalixconsultancy.com` (server `32.192.206.34` refuses :443). Until it is back, hide or unlink the KORD card on the homepage. | User (KORD hosting) / Claude (hide card) | 15 min |
 
-## 🔴 Critical: this week (quick wins, ~1 day of dev)
+## 2. Quick wins (high impact, low effort)
+| # | Action | Where | Effort |
+|---|---|---|---|
+| 2 | Render each FAQ question as `<h3>` inside `<summary>`, and keep answers at 30–55 words. This affects all 6 service pages, the homepage and contact. | `src/components/Faq.astro`, `src/data/services.ts` | 30 min |
+| 3 | Add a 40–55 word "What is <service>?" answer paragraph under a question H2 near the top of each service page, starting with the term ("LLM engineering is…"). | `src/data/services.ts` (new `definition` field), `src/pages/services/[slug].astro` | 1–2 h |
+| 4 | Add `datePublished` and `dateModified` to the WebPage, Service and Article nodes, and a visible "Updated <date>" on case studies. | `src/lib/schema.ts`, `src/data/sitemap-dates.mjs` | 30 min |
+| 5 | In GSC, request indexing for the 10 remaining URLs: 2 case studies, /portfolio, /blog, 3 posts, /about, /careers, /contact. | GSC (Claude via Chrome, or the user) | 15 min |
 
-| # | Task | Files | Effort |
-|---|------|-------|--------|
-| 1 | Replace `next/script` `<Script type="application/ld+json">` with a plain `<script>` (or the `SchemaOrg.jsx` components) so page schema ships in the SSR HTML | `about/page.jsx`, `services/*/page.jsx` (6) | 15 min |
-| 2 | Render the counter's final values on the server and animate on the client | `components/Home/CounterComp.jsx` | 15 min |
-| 3 | Stop the auto-popup on every visit: remove it, or show once per session (`sessionStorage`) and desktop-only | `components/Home/PopUpForm.jsx` | 15 min |
-| 4 | Verify testimonial sources. Remove the Google badges unless each one links to a real Google review | `components/Home/Testimonials.jsx` | 30 min + business input |
+## 3. Strategic (high impact, more effort)
+| # | Action | Effort |
+|---|---|---|
+| 6 | Expand both case studies to 700+ words: client brief, constraints, architecture, stack choices, what shipped and when, the client quote and a live link. No metrics unless the client confirms them. | 1 day (Claude drafts, user fact-checks) |
+| 7 | Cite 2–3 primary sources per blog post and service page (vendor docs, papers, government data) to lift citation readiness from 59–66 to 80+. | 2–3 h |
+| 8 | Publish 1–2 commercial-intent posts a month, each linking to a service: RAG development in India, AI agent development cost, fine-tuning vs RAG, how to choose an AI consulting firm. | ongoing |
+| 9 | Grow third-party entity mentions: ask Jeff, Muadd and Aryan for Clutch reviews, and get listed in Indian and global AI-agency directories. These feed the Knowledge Graph and AI answers. | ongoing |
 
-## ⚠️ High: within 2 weeks
+## 4. Maintenance / backlog
+| # | Action |
+|---|---|
+| 10 | Mark `generate_lead` as a GA4 key event (Admin → Data display → Key events). This needs the Google account that owns G-P819Y0LVBH. |
+| 11 | Optional: defer the lead-form script on blog posts until the form is near the viewport (TBT 216 ms → under 150 ms). |
+| 12 | Add `PAGESPEED_API_KEY` to `~/.agentic-seo/.env` so future audits get real-user (CrUX) data. |
+| 13 | Only if there is a staffed office: create a Google Business Profile and add it to `sameAs`. |
+| 14 | Re-run this audit in 4–6 weeks, after GSC has indexed everything and CrUX has data. |
 
-| # | Task | Files | Effort |
-|---|------|-------|--------|
-| 5 | Add `BlogPosting` + `BreadcrumbList` schema to blog posts, and `Article` + `BreadcrumbList` to case studies | `blog/[slug]/page.jsx`, `case-studies/[slug]/page.jsx` | 1 h |
-| 6 | Add `Service` schema to each service page (provider → `#organization`) | `services/*/page.jsx` | 1 h |
-| 7 | Clean up Organization schema: drop `priceRange`, `openingHours`, `serviceType` and `potentialAction` (SearchAction), or switch to `ProfessionalService`. Make `/team` reference `#organization` instead of redefining it | `app/layout.js`, `team/page.jsx` | 30 min |
-| 8 | Noindex or delete `/typography` and the demo components | `app/(routes)/typography` | 5 min |
-| 9 | Trim 9 meta descriptions to ≤155 chars and expand the 3 case-study descriptions to 140–155 | page metadata | 30 min |
-| 10 | Fix the `/contact` duplicate title (`title: 'Contact Us'`) | `contact/metadata.js` | 2 min |
-| 11 | Add `sizes="40px"` to the navbar logo `<Image fill>` (currently served at 3840 w) | `components/Navbar.jsx:95,175` | 2 min |
-| 12 | Wrap page content in `<main>` on home, team and case-study pages | `app/page.js`, `team/page.jsx`, `case-studies/**` | 15 min |
-
-## 🟡 Medium: within 1 month (strategic)
-
-| # | Task | Effort |
-|---|------|--------|
-| 13 | Expand each case study to 800+ words (client context, architecture, stack, timeline, metrics, quote) and add 2–3 more | Content, 1–2 days each |
-| 14 | Internal-link modules: "Related case study" + "Further reading" on service pages, "Latest insights" on the homepage, and blog → service contextual links. Add Case Studies and Blog to the footer | 0.5 day |
-| 15 | Named blog authors with bio pages, `Person` schema and LinkedIn `sameAs` | 0.5 day + content |
-| 16 | Blog cadence of 2–4 posts per month, each targeting a service keyword cluster (e.g. "RAG development company India", "AI agent development cost") | Ongoing |
-| 17 | Expand `/careers` (open roles or a talent-pool pitch, culture, process) and `/about` (founders, story, registered-entity details) | 0.5 day |
-| 18 | Get a PageSpeed API key and measure CWV. Audit the bundle for `three`/`@react-three/*`, `flowbite-react` and `@google/generative-ai`, and remove what's unused | 0.5 day |
-
-## 🟢 Low: backlog / maintenance
-
-| # | Task |
-|---|------|
-| 19 | Convert `public/services/*.png` (380–440 KB) to WebP. Self-host the `lummi.ai` stock images, or replace them with real photos |
-| 20 | Delete the unreferenced `public/PNGs/` (18 MB) and rename `public/portfolio png/` → `public/portfolio/` |
-| 21 | Remove stale audit dumps from the repo root (`page*.html`, `parse_*_output.json`, `seo-report*.html`) |
-| 22 | Fix the `sameAs` Clutch URL (403) and fill in or remove the empty GSC `verification.google` |
-| 23 | Remove the `keywords` meta (ignored by Google, and the 30+ city list looks stuffed) |
-| 24 | Fix the copy: "Why Customer's Love Us" → "Why Customers Love Us" |
-| 25 | Single-hop HTTP redirect (`http://` → `https://www.`) in Vercel domain settings |
-
-## 🎨 Design revamp: fold these SEO items in
-If the redesign goes ahead, build these in from the start instead of patching them later:
-- One lead-capture pattern (hero CTA + contact page), with no timed popup
-- Case-study metric cards directly under the hero
-- A simpler IA: Services · Work · Insights · Company · Contact
-- Server-rendered stats, `<main>` landmarks, and schema components per template
-- Reusable "related content" internal-link blocks
-- Real photography and attributable testimonials
+## Not to do
+- Don't create Wikipedia, Wikidata or X profiles just for SEO.
+- Don't add a WebSite SearchAction: Google retired the sitelinks search box, and the site has no search.
+- Don't remove FAQPage schema. It won't produce rich results for a commercial site, but it is valid and helps AI engines.
+- Don't "fix" the Fiverr and Clutch 403s: they only block bots.
